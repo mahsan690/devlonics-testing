@@ -1,0 +1,30 @@
+# Devlonic Solutions
+
+> Devlonic Solutions is a remote web design and development studio that builds websites, online stores, apps and custom software for small businesses in the United States, with a focus on New Jersey, Texas and Florida. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated developer on Upwork with 5+ years of experience.
+
+## Key facts
+- Contact: info@devlonics.com, +1 (201) 471-3717
+- Service area: United States (remote), with dedicated local SEO research for New Jersey, Texas and Florida
+- No physical office; projects run remotely with calls in the client's time zone
+- Pricing: fixed quote per project, delivered in writing within one business day of a quote request
+- Platforms: WordPress, Elementor, WooCommerce, Shopify, Laravel, Next.js
+- Clients own their domain, hosting, content and code
+
+## Services
+- [Lead generation websites](https://devlonics.com/services/lead-generation-websites): Websites for contractors, home services, clinics and local businesses, built to turn visitors into calls, quote requests and bookings.
+- [Small business websites](https://devlonics.com/services/small-business-websites): Custom-designed, mobile-first websites that are easy to edit and SEO-ready.
+- [Online stores](https://devlonics.com/services/online-stores): Shopify and WooCommerce stores with Stripe, PayPal, Apple Pay and Google Pay checkout, shipping and inventory setup.
+- [Web and mobile apps](https://devlonics.com/services/app-development): iPhone, Android and web apps for bookings, memberships, ordering and customer accounts.
+- [Custom software](https://devlonics.com/services/custom-software): CRMs, client portals, booking systems and dashboards built in Laravel and Next.js.
+- [SEO and marketing](https://devlonics.com/services/seo-and-marketing): Local SEO, Google Business Profile, answer engine optimization (AEO) and paid ads on Google, Meta and TikTok.
+
+## Areas served
+- [Web design in New Jersey](https://devlonics.com/web-design/new-jersey)
+- [Web design in Texas](https://devlonics.com/web-design/texas)
+- [Web design in Florida](https://devlonics.com/web-design/florida)
+
+## Other pages
+- [Work and case studies](https://devlonics.com/work)
+- [How pricing works](https://devlonics.com/pricing)
+- [About](https://devlonics.com/about)
+- [Get a quote](https://devlonics.com/contact)
