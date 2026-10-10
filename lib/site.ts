@@ -14,7 +14,7 @@ export const site = {
   url: resolveSiteUrl(),
   tagline: "Websites that earn their keep.",
   description:
-    "Devlonic Solutions designs and builds websites, online stores, apps and custom software for small businesses in New Jersey, Texas and Florida. Fixed price, agreed up front.",
+    "Devlonic Solutions designs and builds websites, Shopify stores, apps and custom software for service businesses and ecommerce brands. Fixed price, agreed up front.",
   email: "info@devlonics.com",
   phoneDisplay: "+1 (201) 471-3717",
   phoneHref: "tel:+12014713717",
@@ -27,6 +27,7 @@ export const site = {
   profiles: {
     upwork: "https://www.upwork.com/freelancers/mahsanwordpress",
     linkedin: "https://www.linkedin.com/in/m-ahsan-top-rated-freelancer",
+    trustpilot: "https://www.trustpilot.com/review/devlonics.com",
   },
   // How fast a written quote comes back. Shown in the hero, process and FAQ.
   quoteTurnaround: "one business day",
@@ -34,10 +35,11 @@ export const site = {
 } as const;
 
 export const nav = [
+  { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/work", label: "Work" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/web-design", label: "Areas we serve" },
+  { href: "/markets", label: "Markets we serve" },
   { href: "/about", label: "About" },
 ] as const;
 

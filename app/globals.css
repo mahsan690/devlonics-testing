@@ -112,3 +112,39 @@
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
+
+/* ---------- Preloader ----------
+   Server-rendered so it covers the first paint. A head script adds
+   .no-preloader on repeat visits and for reduced motion. The failsafe
+   animation lifts it after 4s even if JavaScript never runs. */
+.preloader {
+  position: fixed; inset: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--color-ink); color: var(--color-paper);
+  cursor: pointer;
+  animation: dv-preloader-failsafe 0s linear 4s forwards;
+  transition: transform .7s cubic-bezier(.76,0,.24,1), visibility 0s linear .7s;
+}
+.preloader-panel { display: flex; flex-direction: column; align-items: center; transition: opacity .3s, transform .5s cubic-bezier(.76,0,.24,1); }
+html.preloader-done .preloader { transform: translateY(-100%); visibility: hidden; }
+html.preloader-done .preloader-panel { opacity: 0; transform: translateY(-40px) scale(.96); }
+html.no-preloader .preloader { display: none; }
+@keyframes dv-preloader-failsafe { to { visibility: hidden; opacity: 0; pointer-events: none; } }
+@media (prefers-reduced-motion: reduce) { .preloader { display: none; } }
+
+/* ---------- Pointer interactions (see InteractiveFX) ---------- */
+[data-tilt] { transition: transform .35s cubic-bezier(.22,1,.36,1); will-change: transform; }
+[data-magnetic] { transition: transform .35s cubic-bezier(.22,1,.36,1), background-color .2s, color .2s; }
+
+/* ---------- Case study order flow: a moving dash along each link ---------- */
+.flow-link {
+  background-image: linear-gradient(90deg, var(--color-signal) 50%, transparent 50%);
+  background-size: 8px 2px;
+  animation: dv-flow 0.8s linear infinite;
+}
+@media (max-width: 767px) {
+  .flow-link { background-image: linear-gradient(180deg, var(--color-signal) 50%, transparent 50%); background-size: 2px 8px; animation-name: dv-flow-v; }
+}
+@keyframes dv-flow { from { background-position: 0 0; } to { background-position: 8px 0; } }
+@keyframes dv-flow-v { from { background-position: 0 0; } to { background-position: 0 8px; } }
+@media (prefers-reduced-motion: reduce) { .flow-link { animation: none; } }

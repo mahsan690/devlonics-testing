@@ -1,9 +1,27 @@
-// Client reviews, carried over word for word from the current devlonics.com.
-// Add new ones here as they come in. Never invent or edit a review.
+// Client reviews, quoted word for word. Never invent or edit a review.
+// Sources: the previous devlonics.com and the public Trustpilot profile.
 
-export type Testimonial = { quote: string; name: string; role: string };
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  source?: { label: "Trustpilot"; url: string; rating: number };
+};
+
+const trustpilot = "https://www.trustpilot.com/review/devlonics.com";
+
+// On hold: the KitsXI review (Ghulam Mohiuddin) on the old site and the
+// Trustpilot review by Bilal Ahmed are almost word for word the same under
+// different names. Confirm which attribution is correct before adding either.
 
 export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "I run a cleaning services business and didn’t have a website at all, so I was missing out on a lot of potential customers. After working with Devlonics, they built me a site that actually brings in leads. I started getting inquiries within days. It’s made a real difference to my business.",
+    name: "Thania Alonso",
+    role: "Cleaning services business owner",
+    source: { label: "Trustpilot", url: trustpilot, rating: 5 },
+  },
   {
     quote:
       "Devlonic Solutions completely transformed my old website into something modern, clean, and highly professional. The new design not only looks great but also significantly improves the overall layout and user experience. Their communication was excellent throughout the process, they worked efficiently, and were always willing to make adjustments until everything was exactly right.",
@@ -21,12 +39,6 @@ export const testimonials: Testimonial[] = [
       "Amazing work by Devlonic Solutions on our website. The team delivered everything on time and maintained clear communication throughout the project. Our subscription based e-commerce platform is now fully ready.",
     name: "Graziel Balbinoti",
     role: "CEO, ApplyPro Consulting",
-  },
-  {
-    quote:
-      "One of the best web development teams I've worked with. Devlonic Solutions delivered a website I didn't think was possible within our budget. Amazing people and very quick execution.",
-    name: "Ghulam Mohiuddin",
-    role: "Owner, KitsXI",
   },
   {
     quote:

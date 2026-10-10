@@ -1,10 +1,11 @@
 # Devlonic Solutions
 
-> Devlonic Solutions is a remote web design and development studio that builds websites, online stores, apps and custom software for small businesses in the United States, with a focus on New Jersey, Texas and Florida. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated developer on Upwork with 5+ years of experience.
+> Devlonic Solutions is a remote web design and development studio that builds websites, Shopify stores, apps and custom software for US service businesses and ecommerce brands, and runs SEO and paid ads (TikTok, Meta, Google) for them. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated developer on Upwork with 5+ years of experience.
 
 ## Key facts
 - Contact: info@devlonics.com, +1 (201) 471-3717
-- Service area: United States (remote), with dedicated local SEO research for New Jersey, Texas and Florida
+- Service area: United States (remote)
+- Industries: HVAC, plumbing, roofing, cleaning, contractors, landscaping, home care and clinics, ecommerce and Shopify brands
 - No physical office; projects run remotely with calls in the client's time zone
 - Pricing: fixed quote per project, delivered in writing within one business day of a quote request
 - Platforms: WordPress, Elementor, WooCommerce, Shopify, Laravel, Next.js
@@ -18,10 +19,18 @@
 - [Custom software](https://devlonics.com/services/custom-software): CRMs, client portals, booking systems and dashboards built in Laravel and Next.js.
 - [SEO and marketing](https://devlonics.com/services/seo-and-marketing): Local SEO, Google Business Profile, answer engine optimization (AEO) and paid ads on Google, Meta and TikTok.
 
-## Areas served
-- [Web design in New Jersey](https://devlonics.com/web-design/new-jersey)
-- [Web design in Texas](https://devlonics.com/web-design/texas)
-- [Web design in Florida](https://devlonics.com/web-design/florida)
+## Markets we serve
+- [Websites for HVAC companies](https://devlonics.com/markets/hvac)
+- [Websites for plumbing companies](https://devlonics.com/markets/plumbing)
+- [Websites for roofing companies](https://devlonics.com/markets/roofing)
+- [Websites for cleaning companies](https://devlonics.com/markets/cleaning)
+- [Websites for contractors and remodelers](https://devlonics.com/markets/contractors)
+- [Websites for landscaping companies](https://devlonics.com/markets/landscaping)
+- [Websites for home care agencies and clinics](https://devlonics.com/markets/home-care-and-clinics)
+- [Websites for ecommerce and Shopify brands](https://devlonics.com/markets/ecommerce)
+
+## Case study
+- [Gladiolaz: from a dead Shopify store to orders in 15 days](https://devlonics.com/work/gladiolaz): Shopify rebuild, AutoDS dropshipping with Amazon and Alibaba suppliers, AI video ads and TikTok ads at $20/day; about 10 orders in the first 15 days at a $120 average order value.
 
 ## Other pages
 - [Work and case studies](https://devlonics.com/work)

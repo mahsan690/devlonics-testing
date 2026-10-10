@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import paths from "@/lib/logo-paths.json";
 import { Mark } from "./Logo";
+import { onPreloaded } from "@/lib/preload";
 
 // The Devlonic mark, extruded in Three.js from the traced logo path.
 // One orchestrated moment: on load it turns into view and gains depth.
@@ -119,7 +120,8 @@ export function HeroMark3D({ className = "" }: { className?: string }) {
       pivot.rotation.set(0.25, -1.45, 0);
       mesh.scale.set(1, 1, 0.02);
       pivot.position.y = -0.3;
-      const intro = gsap.timeline({ delay: 0.15 });
+      const intro = gsap.timeline({ delay: 0.15, paused: true });
+      const stopWaiting = onPreloaded(() => intro.play());
       intro
         .to(pivot.rotation, { x: base.rx, y: base.ry, duration: 1.9, ease: "expo.out" }, 0)
         .to(mesh.scale, { z: 1, duration: 1.5, ease: "power3.out" }, 0.1)
@@ -156,6 +158,7 @@ export function HeroMark3D({ className = "" }: { className?: string }) {
 
       cleanup = () => {
         gsap.ticker.remove(tick);
+        stopWaiting();
         intro.kill(); st.kill();
         window.removeEventListener("pointermove", onPointer);
         ro.disconnect(); io.disconnect();

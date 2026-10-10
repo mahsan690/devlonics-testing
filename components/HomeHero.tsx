@@ -2,9 +2,9 @@
 
 import { useEffect, useRef } from "react";
 import { HeroMark3D } from "./HeroMark3D";
+import { onPreloaded } from "@/lib/preload";
 import { QuoteWizard } from "./QuoteWizard";
 import { site } from "@/lib/site";
-import { states } from "@/lib/states";
 
 // Black hero: headline and the quote form on the left, the 3D mark on the right.
 // The headline lines rise in once, timed with the mark's own intro.
@@ -13,20 +13,27 @@ export function HomeHero() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let ctx: { revert: () => void } | undefined;
+    let ctx: ReturnType<(typeof import("gsap"))["gsap"]["context"]> | undefined;
+    let cancelled = false;
+    let stop = () => {};
     (async () => {
       const { gsap } = await import("gsap");
-      if (!headline.current) return;
+      if (!headline.current || cancelled) return;
+      const scope = headline.current.parentElement ?? undefined;
+      // Hold the lines down until the preloader lifts, then reveal them.
       ctx = gsap.context(() => {
-        gsap.from(".hero-line > span", { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.09, delay: 0.1 });
-        gsap.from(".hero-after", { opacity: 0, y: 16, duration: 0.8, ease: "power2.out", delay: 0.55, stagger: 0.08 });
-      }, headline.current.parentElement ?? undefined);
+        gsap.set(".hero-line > span", { yPercent: 110 });
+        gsap.set(".hero-after", { opacity: 0, y: 16 });
+      }, scope);
+      stop = onPreloaded(() => {
+        ctx?.add(() => {
+          gsap.to(".hero-line > span", { yPercent: 0, duration: 1.1, ease: "expo.out", stagger: 0.09, delay: 0.05 });
+          gsap.to(".hero-after", { opacity: 1, y: 0, duration: 0.8, ease: "power2.out", delay: 0.45, stagger: 0.08 });
+        });
+      });
     })();
-    return () => ctx?.revert();
+    return () => { cancelled = true; stop(); ctx?.revert(); };
   }, []);
-
-  const stateList = states.map((s) => s.name);
-  const statesText = `${stateList.slice(0, -1).join(", ")} and ${stateList.at(-1)}`;
 
   return (
     <section className="relative overflow-hidden bg-ink pb-16 pt-28 text-paper md:pb-24 md:pt-36">
@@ -40,8 +47,8 @@ export function HomeHero() {
             <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">earn their keep.</span></span>
           </h1>
           <p className="hero-after t-lede mt-7 max-w-xl text-ash">
-            We design and build websites, online stores and custom software for small businesses in {statesText}.
-            Built to turn visitors into calls, bookings and orders.
+            We design and build websites, Shopify stores and custom software for service businesses and ecommerce brands,
+            then market them. Built to turn visitors into calls, bookings and orders.
           </p>
           <ul className="hero-after mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] text-paper/85">
             <li>Top Rated on Upwork</li>

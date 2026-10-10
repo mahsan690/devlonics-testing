@@ -1,21 +1,46 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Service } from "@/lib/services";
-import type { Project } from "@/lib/work";
+import { ServiceStage3D } from "./ServiceStage3D";
 
-// Services as a list. On wide screens, hovering or focusing a row swaps the
-// preview on the right to a real project of that kind.
-export function ServiceIndex({ items }: { items: { service: Service; project?: Project }[] }) {
+// Services list with a 3D stage. Desktop: hovering or focusing a row swaps the
+// model. Phones: the stage sits above the list and cycles while on screen,
+// until the visitor touches it.
+export function ServiceIndex({ items }: { items: Service[] }) {
   const [active, setActive] = useState(0);
-  const preview = items[active]?.project;
+  const root = useRef<HTMLDivElement>(null);
+  const touched = useRef(false);
+
+  useEffect(() => {
+    const el = root.current;
+    if (!el) return;
+    const small = window.matchMedia("(max-width: 1023px)");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let timer: ReturnType<typeof setInterval> | undefined;
+    const io = new IntersectionObserver(([en]) => {
+      clearInterval(timer);
+      if (en.isIntersecting && small.matches && !touched.current) {
+        timer = setInterval(() => setActive((a) => (a + 1) % items.length), 3200);
+      }
+    }, { threshold: 0.35 });
+    io.observe(el);
+    return () => { io.disconnect(); clearInterval(timer); };
+  }, [items.length]);
+
+  const current = items[active];
 
   return (
-    <div className="grid gap-10 lg:grid-cols-12">
-      <ul className="border-t border-line lg:col-span-7">
-        {items.map(({ service }, i) => (
+    <div ref={root} className="grid gap-8 lg:grid-cols-12 lg:gap-10">
+      <div className="lg:order-2 lg:col-span-5">
+        <div className="lg:sticky lg:top-28" onPointerDown={() => (touched.current = true)}>
+          <ServiceStage3D active={current.slug} label={current.name} className="aspect-[4/3] lg:aspect-[0.95]" />
+        </div>
+      </div>
+      <ul className="border-t border-line lg:order-1 lg:col-span-7">
+        {items.map((service, i) => (
           <li key={service.slug} className="border-b border-line">
             <Link
               href={`/services/${service.slug}`}
@@ -24,7 +49,9 @@ export function ServiceIndex({ items }: { items: { service: Service; project?: P
               className="group grid gap-2 py-6 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"
             >
               <span>
-                <span className={`t-h2 block font-display font-bold transition-colors ${active === i ? "lg:text-ink" : "lg:text-ink/35"} group-hover:text-ink`}>
+                <span
+                  className={`t-h2 block font-display font-bold transition-colors duration-300 ${active === i ? "text-ink" : "text-ink/35"} group-hover:text-ink`}
+                >
                   {service.name}
                 </span>
                 <span className="mt-2 block max-w-xl text-graphite">{service.short}</span>
@@ -36,27 +63,6 @@ export function ServiceIndex({ items }: { items: { service: Service; project?: P
           </li>
         ))}
       </ul>
-      <div className="hidden lg:col-span-5 lg:block">
-        <div className="sticky top-28">
-          {preview && (
-            <figure>
-              <div className="relative aspect-[1.18] overflow-hidden rounded-[1.5rem] bg-fog">
-                <Image
-                  key={preview.file}
-                  src={`/work/${preview.file}`}
-                  alt={`${preview.name}: ${preview.type}`}
-                  fill
-                  sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="mt-3 text-sm text-graphite">
-                <span className="font-semibold text-ink">{preview.name}</span>, {preview.type.toLowerCase()}
-              </figcaption>
-            </figure>
-          )}
-        </div>
-      </div>
     </div>
   );
 }

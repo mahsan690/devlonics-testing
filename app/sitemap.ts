@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/site";
 import { services } from "@/lib/services";
-import { states } from "@/lib/states";
+import { markets } from "@/lib/markets";
+import { caseStudy } from "@/lib/work";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date("2026-10-10");
@@ -15,9 +16,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/", 1, "weekly"),
     page("/services", 0.9),
     ...services.map((s) => page(`/services/${s.slug}`, 0.85)),
-    page("/web-design", 0.8),
-    ...states.map((s) => page(`/web-design/${s.slug}`, 0.85)),
-    page("/work", 0.7),
+    page("/markets", 0.85),
+    ...markets.map((m) => page(`/markets/${m.slug}`, 0.85)),
+    page("/work", 0.75, "weekly"),
+    page(`/work/${caseStudy.slug}`, 0.75),
     page("/pricing", 0.7),
     page("/about", 0.6),
     page("/contact", 0.8),

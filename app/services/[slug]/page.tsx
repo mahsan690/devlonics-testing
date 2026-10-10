@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CtaBand, PageHero, StatesGrid, WorkTile } from "@/components/Blocks";
+import { CtaBand, MarketsGrid, PageHero, WorkTile } from "@/components/Blocks";
 import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { getService, services } from "@/lib/services";
@@ -99,9 +99,9 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
 
       <section className="bg-fog py-20 md:py-24">
         <div className="wrap">
-          <h2 className="t-h2">{s.name} by state</h2>
-          <p className="t-lede mt-4 max-w-2xl text-graphite">Local research, local SEO and examples for the markets we focus on.</p>
-          <div className="mt-10"><StatesGrid /></div>
+          <h2 className="t-h2">Markets we build {s.name.toLowerCase()} for</h2>
+          <p className="t-lede mt-4 max-w-2xl text-graphite">Industry-specific features, copy and examples for each market.</p>
+          <div className="mt-10"><MarketsGrid compact /></div>
         </div>
       </section>
 

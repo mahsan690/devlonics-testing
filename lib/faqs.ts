@@ -11,8 +11,8 @@ export const homeFaqs: Faq[] = [
     a: "A landing page usually takes one to two weeks. A full business website typically takes three to six weeks from approved design to launch. Online stores, apps and custom software take longer and are delivered in phases. Your quote includes a specific timeline.",
   },
   {
-    q: "Do you only work with businesses in New Jersey, Texas and Florida?",
-    a: "No. We work with businesses anywhere in the US. New Jersey, Texas and Florida are where we focus our local SEO research, so our state pages go deeper on those markets.",
+    q: "Which industries do you work with?",
+    a: "Mostly service businesses, such as HVAC, plumbing, roofing, cleaning, contractors, landscaping, home care and clinics, plus ecommerce and Shopify brands. Each has its own page under Markets we serve. If your industry isn't listed, we still build for you; the same approach applies.",
   },
   {
     q: "Will I be able to update the website myself?",

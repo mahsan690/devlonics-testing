@@ -18,8 +18,8 @@ npm run build      # production build (also writes public/llms.txt and fetches p
 | --- | --- |
 | Contact details, founder, quote turnaround | `lib/site.ts` |
 | Services (copy, FAQs, included items) | `lib/services.ts` |
-| Target states (copy, stats, cities, FAQs) | `lib/states.ts` |
-| Portfolio and case study | `lib/work.ts` |
+| Markets we serve (industry pages) | `lib/markets.ts` |
+| Portfolio and the Gladiolaz case study | `lib/work.ts` |
 | Testimonials (verbatim, never edit) | `lib/testimonials.ts` |
 | Home and pricing FAQs | `lib/faqs.ts` |
 | Structured data (JSON-LD) | `lib/schema.ts` |
@@ -27,9 +27,9 @@ npm run build      # production build (also writes public/llms.txt and fetches p
 | Quote form | `components/QuoteWizard.tsx` |
 | Quote form endpoint | `app/api/enquiry/route.ts` |
 
-### Changing a target state
+### Adding a market
 
-Edit or add an entry in `lib/states.ts`, then add its slug to the `STATES` set in `proxy.ts` and to the list in `scripts/build-llms.mjs`. Pages, sitemap, schema and the quote form update automatically.
+Add an entry to `lib/markets.ts`, then add its slug to `KNOWN.markets` in `proxy.ts` and to the list in `scripts/build-llms.mjs`. The page, sitemap, schema and footer update automatically.
 
 ## Environment variables (Vercel → Project → Settings → Environment Variables)
 
@@ -44,7 +44,7 @@ Without `RESEND_API_KEY`, quote requests are delivered through FormSubmit. The *
 
 ## Portfolio images
 
-`scripts/fetch-portfolio.mjs` copies portfolio and review images from the current devlonics.com media library into `public/work` before each build. Commit the `public/work` folder once it's populated so the site no longer depends on the old WordPress site.
+The 2026 projects (`public/work/2026-*.webp`) are in the repo. Older portfolio and review images are copied from the devlonics.com media library before each build by `scripts/fetch-portfolio.mjs`. Run the **Sync portfolio images** action once (GitHub → Actions) to commit them to the repo before moving the devlonics.com domain.
 
 ## SEO and AEO built in
 

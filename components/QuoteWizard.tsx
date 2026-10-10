@@ -4,12 +4,11 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
 import { site } from "@/lib/site";
-import { states } from "@/lib/states";
 
 type Choice = { value: string; label: string };
 type Step =
   | { id: "need"; kind: "multi"; title: string; help: string; choices: Choice[] }
-  | { id: "industry" | "location" | "budget" | "timeline"; kind: "single"; title: string; help: string; choices: Choice[]; optional?: boolean }
+  | { id: "industry" | "budget" | "timeline"; kind: "single"; title: string; help: string; choices: Choice[]; optional?: boolean }
   | { id: "contact"; kind: "contact"; title: string; help: string };
 
 const STEPS: Step[] = [
@@ -27,19 +26,19 @@ const STEPS: Step[] = [
   },
   {
     id: "industry", kind: "single", title: "What does your business do?", help: "Pick the closest fit.",
+    // Values match the `wizard` field of each market in lib/markets.ts.
     choices: [
-      { value: "home-services", label: "Home services or trades" },
-      { value: "health", label: "Health or home care" },
+      { value: "hvac", label: "HVAC" },
+      { value: "plumbing", label: "Plumbing" },
+      { value: "roofing", label: "Roofing" },
+      { value: "cleaning", label: "Cleaning" },
+      { value: "contractors", label: "Contracting or remodeling" },
+      { value: "landscaping", label: "Landscaping" },
+      { value: "health", label: "Home care or clinic" },
+      { value: "retail", label: "Ecommerce or Shopify" },
       { value: "professional", label: "Professional services" },
-      { value: "food", label: "Restaurant or food" },
-      { value: "retail", label: "Retail or ecommerce" },
-      { value: "property", label: "Real estate or property" },
       { value: "other", label: "Something else" },
     ],
-  },
-  {
-    id: "location", kind: "single", title: "Where is your business?", help: "We work with businesses anywhere in the US.",
-    choices: [...states.map((s) => ({ value: s.abbr, label: s.name })), { value: "other", label: "Another state" }],
   },
   {
     id: "budget", kind: "single", optional: true, title: "Roughly, what's your budget?",
@@ -64,23 +63,23 @@ const STEPS: Step[] = [
   { id: "contact", kind: "contact", title: "Where should we send your quote?", help: `You'll get scope, price and timeline in writing within ${site.quoteTurnaround}.` },
 ];
 
-type Answers = { need: string[]; industry?: string; location?: string; budget?: string; timeline?: string };
+type Answers = { need: string[]; industry?: string; budget?: string; timeline?: string };
 
 export function QuoteWizard({
   initialNeed,
-  initialState,
+  initialIndustry,
   variant = "card",
   headingLevel = "h2",
 }: {
   initialNeed?: string;
-  initialState?: string;
+  initialIndustry?: string;
   variant?: "card" | "page";
   headingLevel?: "h1" | "h2";
 }) {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({
     need: initialNeed ? [initialNeed] : [],
-    location: initialState,
+    industry: initialIndustry,
   });
   const [contact, setContact] = useState({ name: "", email: "", phone: "", business: "", message: "", company_site: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -138,7 +137,6 @@ export function QuoteWizard({
           ...contact,
           need: answers.need.map((v) => label("need", v)),
           industry: label("industry", answers.industry),
-          location: label("location", answers.location),
           budget: label("budget", answers.budget),
           timeline: label("timeline", answers.timeline),
           page: typeof window !== "undefined" ? window.location.pathname : "",
@@ -146,7 +144,7 @@ export function QuoteWizard({
       });
       if (!res.ok) throw new Error();
       setStatus("sent");
-      track("Quote requested", { need: answers.need.join(","), location: answers.location ?? "" });
+      track("Quote requested", { need: answers.need.join(","), industry: answers.industry ?? "" });
     } catch {
       setStatus("error");
     }

@@ -17,6 +17,13 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
+  // The state pages were replaced by industry pages.
+  async redirects() {
+    return [
+      { source: "/web-design", destination: "/markets", permanent: true },
+      { source: "/web-design/:slug*", destination: "/markets", permanent: true },
+    ];
+  },
   turbopack: {
     rules: {
       "*.css": {

@@ -5,6 +5,9 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { Preloader } from "@/components/Preloader";
+import { BackToTop } from "@/components/BackToTop";
+import { InteractiveFX } from "@/components/InteractiveFX";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -31,7 +34,7 @@ const indexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "productio
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Web Design for Small Businesses in NJ, TX & FL | Devlonic Solutions",
+    default: "Web Design and Shopify Development for Service Businesses | Devlonic Solutions",
     template: "%s | Devlonic Solutions",
   },
   description: site.description,
@@ -55,18 +58,28 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
+// Runs before first paint: skip the preloader on repeat visits in a session
+// and for reduced-motion visitors, so it never flashes.
+const preloaderGate = `(function(){var h=document.documentElement;try{if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||sessionStorage.getItem('dv-seen')){h.classList.add('no-preloader');h.dataset.preloaded='1';}}catch(e){h.classList.add('no-preloader');h.dataset.preloaded='1';}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-US" className={`${display.variable} ${body.variable}`}>
+    <html lang="en-US" className={`${display.variable} ${body.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: preloaderGate }} />
+      </head>
       <body className="min-h-dvh">
+        <Preloader />
         <a href="#main" className="sr-only z-[60] rounded-full bg-signal px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4">
           Skip to content
         </a>
         <JsonLd data={organizationSchema()} />
         <Header />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1} className="outline-none">{children}</main>
         <Footer />
+        <BackToTop />
         <SmoothScroll />
+        <InteractiveFX />
         <Analytics />
         <SpeedInsights />
       </body>

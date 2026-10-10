@@ -16,6 +16,8 @@ export function SmoothScroll() {
       ]);
       gsap.registerPlugin(ScrollTrigger);
       const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
+      // Exposed so the back-to-top button can scroll smoothly through Lenis.
+      (window as unknown as { __lenis?: unknown }).__lenis = lenis;
       lenis.on("scroll", ScrollTrigger.update);
       const raf = (time: number) => lenis.raf(time * 1000);
       gsap.ticker.add(raf);
@@ -23,6 +25,7 @@ export function SmoothScroll() {
       cleanup = () => {
         gsap.ticker.remove(raf);
         lenis.destroy();
+        delete (window as unknown as { __lenis?: unknown }).__lenis;
       };
     })();
     return () => cleanup();

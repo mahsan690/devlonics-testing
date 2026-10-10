@@ -1,11 +1,12 @@
 import { site, absoluteUrl } from "./site";
-import { states } from "./states";
+import { markets, type Market } from "./markets";
 import type { Faq, Service } from "./services";
 
-// Structured data (JSON-LD). Devlonic is a service-area business: no street
-// address is published, and areaServed lists the states we target.
+// Structured data (JSON-LD). Devlonic is a remote, service-area business:
+// no street address is published and the service area is the United States.
 
 const orgId = `${site.url}/#organization`;
+const us = { "@type": "Country", name: "United States" };
 
 export function organizationSchema() {
   return {
@@ -28,15 +29,14 @@ export function organizationSchema() {
           jobTitle: site.founder.role,
           sameAs: [site.founder.linkedin, site.founder.portfolio],
         },
-        areaServed: [
-          ...states.map((s) => ({ "@type": "State", name: s.name, containedInPlace: { "@type": "Country", name: "United States" } })),
-          { "@type": "Country", name: "United States" },
-        ],
+        areaServed: us,
+        audience: markets.map((m) => ({ "@type": "BusinessAudience", audienceType: m.name })),
         knowsAbout: [
           "Web design", "Website development", "WordPress", "Shopify", "WooCommerce",
-          "Local SEO", "Answer engine optimization", "App development", "Custom software",
+          "Local SEO", "Answer engine optimization", "TikTok ads", "Meta ads",
+          "App development", "Custom software",
         ],
-        sameAs: [site.profiles.upwork, site.profiles.linkedin],
+        sameAs: [site.profiles.upwork, site.profiles.linkedin, site.profiles.trustpilot],
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
@@ -83,30 +83,43 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
   };
 }
 
-export function serviceSchema(s: Service, areaName?: string) {
+export function serviceSchema(s: Service) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: areaName ? `${s.name} in ${areaName}` : s.name,
+    name: s.name,
     serviceType: s.name,
     description: s.metaDescription,
     url: absoluteUrl(`/services/${s.slug}`),
     provider: { "@id": orgId },
-    areaServed: areaName
-      ? { "@type": "State", name: areaName }
-      : states.map((st) => ({ "@type": "State", name: st.name })),
+    areaServed: us,
   };
 }
 
-export function stateServiceSchema(stateName: string, path: string, description: string) {
+export function marketServiceSchema(m: Market) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: `Web design for ${stateName} small businesses`,
+    name: m.metaTitle,
     serviceType: "Web design and development",
-    description,
-    url: absoluteUrl(path),
+    description: m.metaDescription,
+    url: absoluteUrl(`/markets/${m.slug}`),
     provider: { "@id": orgId },
-    areaServed: { "@type": "State", name: stateName },
+    areaServed: us,
+    audience: { "@type": "BusinessAudience", audienceType: m.name },
+  };
+}
+
+export function caseStudySchema(cs: { name: string; headline: string; summary: string; slug: string; image: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: cs.headline,
+    description: cs.summary,
+    image: absoluteUrl(`/work/${cs.image}`),
+    url: absoluteUrl(`/work/${cs.slug}`),
+    author: { "@id": orgId },
+    publisher: { "@id": orgId },
+    about: { "@type": "Organization", name: cs.name },
   };
 }

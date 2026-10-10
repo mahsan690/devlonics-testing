@@ -24,7 +24,7 @@ export const services: Service[] = [
     short: "For service businesses that live on calls, quotes and bookings.",
     metaTitle: "Lead Generation Website Design for Small Businesses",
     metaDescription:
-      "Websites for contractors, home services, clinics and local businesses that turn visitors into calls, quote requests and bookings. Fixed-price builds for NJ, TX and FL.",
+      "Websites for contractors, home services, clinics and local businesses that turn visitors into calls, quote requests and bookings. Fixed-price builds.",
     heroTitle: "A website that books the job before a competitor picks up.",
     heroLede:
       "Most local customers decide within a few seconds whether to call you or hit back. We build sites for service businesses where every page is arranged around one thing: getting that call, form or booking.",
@@ -79,7 +79,7 @@ export const services: Service[] = [
       },
       {
         q: "Do I need a page for every city I serve?",
-        a: "Usually, yes, for the main towns. A dedicated service-area page with genuinely local details gives Google a reason to show you for searches like 'roofer in Edison NJ'. We write them so they're useful to a reader, not copy-pasted with the town name swapped.",
+        a: "Usually, yes, for the main towns. A dedicated service-area page with genuinely local details gives Google a reason to show you for searches like 'roofer in' plus your town. We write them so they're useful to a reader, not copy-pasted with the town name swapped.",
       },
     ],
   },
@@ -89,7 +89,7 @@ export const services: Service[] = [
     short: "A clean, fast site that explains what you do and makes you look established.",
     metaTitle: "Small Business Website Design | Fixed Price",
     metaDescription:
-      "Professional websites for small businesses: custom design, mobile-first, SEO-ready and easy to edit yourself. Fixed price, built for businesses in NJ, TX and FL.",
+      "Professional websites for small businesses: custom design, mobile-first, SEO-ready and easy to edit yourself. Fixed price, agreed up front.",
     heroTitle: "Look like the established choice, whatever your size.",
     heroLede:
       "For businesses that need a sharp, credible home online: who you are, what you offer, why you, and how to get in touch. Designed around your brand, not a template everyone else is using.",
@@ -315,7 +315,7 @@ export const services: Service[] = [
     short: "Local SEO, AI search visibility, and paid ads on Google, Meta and TikTok.",
     metaTitle: "Local SEO & Digital Marketing for Small Businesses",
     metaDescription:
-      "Local SEO, Google Business Profile, AI search (AEO) optimization and paid ads on Google, Meta and TikTok for small businesses in New Jersey, Texas and Florida.",
+      "Local SEO, Google Business Profile, AI search (AEO) optimization and paid ads on Google, Meta and TikTok for service businesses and ecommerce brands.",
     heroTitle: "Get found by people who are ready to buy.",
     heroLede:
       "A great website still needs visitors. We help the right ones find you through Google search and Maps, AI assistants like ChatGPT, and targeted ads, and we report on what each channel brings in.",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CtaBand, PageHero, TestimonialsBlock } from "@/components/Blocks";
+import { CtaBand, PageHero } from "@/components/Blocks";
+import { TestimonialDeck } from "@/components/TestimonialDeck";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -32,7 +33,7 @@ export default function AboutPage() {
       <PageHero
         crumbs={crumbs}
         title="A small studio that builds websites for small businesses."
-        lede={`Devlonic Solutions designs and builds websites, online stores, apps and custom software. We're a remote team led by ${site.founder.name}, working with business owners across the US.`}
+        lede={`Devlonic Solutions designs and builds websites, online stores, apps and custom software. We're a remote team led by ${site.founder.name}, working with service businesses and ecommerce brands across the US.`}
       />
 
       <section className="border-t border-line py-20 md:py-24">
@@ -90,8 +91,7 @@ export default function AboutPage() {
 
       <section className="bg-fog py-20 md:py-28">
         <div className="wrap">
-          <h2 className="t-h2">What clients say</h2>
-          <div className="mt-12"><TestimonialsBlock /></div>
+          <TestimonialDeck />
           <Link href="/work" className="btn btn-ghost mt-12">See our work</Link>
         </div>
       </section>

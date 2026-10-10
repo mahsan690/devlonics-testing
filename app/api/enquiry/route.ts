@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
 
 type Payload = {
   name?: string; email?: string; phone?: string; business?: string; message?: string;
-  need?: string[]; industry?: string; location?: string; budget?: string; timeline?: string;
+  need?: string[]; industry?: string; budget?: string; timeline?: string;
   page?: string; company_site?: string;
 };
 
@@ -34,7 +34,6 @@ export async function POST(request: Request) {
     business: clean(body.business, 160),
     need: Array.isArray(body.need) ? body.need.map((n) => clean(n, 80)).filter(Boolean).join(", ") : "",
     industry: clean(body.industry, 80),
-    location: clean(body.location, 80),
     budget: clean(body.budget, 80),
     timeline: clean(body.timeline, 80),
     message: clean(body.message),
@@ -49,7 +48,7 @@ export async function POST(request: Request) {
   const subject = `New quote request: ${lead.name}${lead.business ? ` (${lead.business})` : ""}`;
   const rows: [string, string][] = [
     ["Name", lead.name], ["Email", lead.email], ["Phone", lead.phone], ["Business", lead.business],
-    ["Needs", lead.need], ["Industry", lead.industry], ["Location", lead.location],
+    ["Needs", lead.need], ["Industry", lead.industry],
     ["Budget", lead.budget], ["Timeline", lead.timeline], ["Message", lead.message], ["Sent from page", lead.page],
   ];
   const text = rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`).join("\n");
