@@ -309,9 +309,11 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
         const tick = () => {
           if (!visible || document.hidden) return;
           const t = clock.getElapsedTime();
-          if (!drag.on && !reduce) pivot.y += 0.0035;
+          // Idle: a gentle sway around the angle the visitor left it at,
+          // so models stay mostly facing forward instead of turning edge-on.
+          const sway = reduce ? 0 : Math.sin(t * 0.45) * 0.5;
           world.rotation.x += (pivot.x - world.rotation.x) * 0.1;
-          world.rotation.y += (pivot.y - world.rotation.y) * 0.1;
+          world.rotation.y += (pivot.y + sway - world.rotation.y) * 0.08;
           if (!reduce && current) models[current].tick?.(t);
           renderer.render(scene, camera);
         };
