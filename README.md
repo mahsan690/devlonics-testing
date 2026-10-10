@@ -51,5 +51,5 @@ The 2026 projects (`public/work/2026-*.webp`) are in the repo. Older portfolio a
 - Per-page titles, descriptions and canonical URLs
 - JSON-LD: Organization + ProfessionalService (service-area, no street address), WebSite, Service, FAQPage, BreadcrumbList
 - `sitemap.xml`, `robots.txt` (AI crawlers allowed), `llms.txt`
-- Generated share images per service and state page
+- Generated share images per service and market page
 - Preview deployments are `noindex`; only production is indexable
