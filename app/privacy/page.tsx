@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How Devlonic Solutions collects, uses and protects the information you share through this website.",
+  description: "How Devlonic Solutions collects, uses and protects the information you share through this website, including quote requests and anonymous analytics.",
   alternates: { canonical: "/privacy" },
 };
 

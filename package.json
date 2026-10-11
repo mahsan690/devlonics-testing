@@ -7,14 +7,17 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prebuild": "node scripts/build-llms.mjs && node scripts/fetch-portfolio.mjs",
-    "typecheck": "next typegen && tsc --noEmit"
+    "prebuild": "node scripts/build-content.mjs && node scripts/build-llms.mjs && node scripts/fetch-portfolio.mjs",
+    "typecheck": "node scripts/build-content.mjs && next typegen && tsc --noEmit",
+    "predev": "node scripts/build-content.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "gray-matter": "^4.0.3",
     "gsap": "^3.15.0",
     "lenis": "^1.3.26",
+    "marked": "^15.0.12",
     "next": "16.4.0",
     "react": "19.3.0",
     "react-dom": "19.3.0",

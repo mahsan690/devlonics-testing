@@ -25,7 +25,6 @@ export const projects: Project[] = [
   { name: "Steve “Mac” MacInnes", file: "2026-steve-macinnes.webp", type: "WordPress site for an author, speaker and veteran advocate", tags: ["brand"], platform: "WordPress", year: 2026 },
   { name: "Deconflict", file: "2026-deconflict.webp", type: "WordPress site for an intelligence software platform", tags: ["software", "brand"], platform: "WordPress", year: 2026 },
   { name: "MaetiQ", file: "MaetiQ-scaled.webp", type: "WordPress website for a digital marketing agency", tags: ["brand", "services"], platform: "WordPress" },
-  { name: "KitsXI", file: "KitsXI-Ecommerce-Store-scaled.webp", type: "Online store for football kits", tags: ["store"] },
   { name: "ApplyPro Consulting", file: "ApplyProConsulting-scaled.webp", type: "Subscription-based ecommerce platform", tags: ["store", "services"] },
   { name: "Earthly Angels Home Care", file: "Earthly-Angels.webp", type: "Website for a home care agency", tags: ["health", "services"] },
   { name: "Javabuzz", file: "Javabuzz-scaled.webp", type: "Website for a coffee brand", tags: ["brand", "store"] },
@@ -86,7 +85,7 @@ export const reviewScreenshots = [
 ];
 
 export const clientNames = [
-  "MaetiQ", "KitsXI", "ApplyPro Consulting", "FortuneLeads", "Gladiolaz", "Javabuzz",
+  "MaetiQ", "Florida Surface Pro", "ApplyPro Consulting", "FortuneLeads", "Gladiolaz", "Javabuzz",
   "Earthly Angels Home Care", "Daniela's Cleaning", "Indy Cardinal", "Alon Home Care", "BazTech", "KA Metal Scrap",
 ];
 

@@ -110,6 +110,57 @@ export function marketServiceSchema(m: Market) {
   };
 }
 
+const founderId = `${site.url}/about#founder`;
+
+// The founder as a Person: blog posts name him as author (E-E-A-T).
+export function personSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": founderId,
+    name: site.founder.name,
+    jobTitle: site.founder.role,
+    worksFor: { "@id": orgId },
+    url: absoluteUrl("/about"),
+    sameAs: [site.founder.linkedin, site.founder.portfolio, site.profiles.upwork],
+    knowsAbout: ["WordPress", "Shopify", "WooCommerce", "Web design", "Local SEO", "TikTok ads"],
+  };
+}
+
+export function blogPostingSchema(p: { slug: string; title: string; description: string; date: string; updated: string; category: string; keyword: string; words: number }) {
+  const url = absoluteUrl(`/blog/${p.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: p.title,
+    description: p.description,
+    url,
+    mainEntityOfPage: url,
+    image: `${url}/opengraph-image`,
+    datePublished: p.date,
+    dateModified: p.updated,
+    articleSection: p.category,
+    ...(p.keyword ? { keywords: p.keyword } : {}),
+    wordCount: p.words,
+    inLanguage: "en-US",
+    author: { "@type": "Person", "@id": founderId, name: site.founder.name, url: absoluteUrl("/about") },
+    publisher: { "@id": orgId },
+  };
+}
+
+export function blogSchema(posts: { slug: string; title: string; date: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${site.url}/blog#blog`,
+    name: `${site.name} blog`,
+    url: absoluteUrl("/blog"),
+    publisher: { "@id": orgId },
+    blogPost: posts.map((p) => ({ "@type": "BlogPosting", headline: p.title, url: absoluteUrl(`/blog/${p.slug}`), datePublished: p.date })),
+  };
+}
+
 export function caseStudySchema(cs: { name: string; headline: string; summary: string; slug: string; image: string }) {
   return {
     "@context": "https://schema.org",

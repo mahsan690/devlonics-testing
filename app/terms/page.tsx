@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Website Terms of Use",
-  description: "Terms for using the Devlonic Solutions website.",
+  description: "The terms for using the Devlonic Solutions website, including how site content, portfolio projects and links to other sites are handled.",
   alternates: { canonical: "/terms" },
 };
 

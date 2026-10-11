@@ -8,8 +8,8 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Website Pricing: Fixed Quotes, No Surprises",
-  description: `How Devlonic Solutions prices websites, online stores and custom software: a fixed quote based on your scope, delivered in writing within ${site.quoteTurnaround}.`,
+  title: "Website Design Pricing: Fixed Quotes",
+  description: `How much a website costs, what drives the price, and how Devlonic quotes websites, Shopify stores and software: a fixed price in writing within ${site.quoteTurnaround}.`,
   alternates: { canonical: "/pricing" },
 };
 
@@ -36,11 +36,29 @@ export default function PricingPage() {
       <JsonLd data={[breadcrumbSchema(crumbs), faqSchema(pricingFaqs)]} />
       <PageHero
         crumbs={crumbs}
-        title="One fixed price, agreed before we start."
+        title="Website design pricing: one fixed price, agreed before we start."
         lede={`No hourly billing and no surprise invoices. Tell us what you need and you'll get a written quote with scope, price and timeline within ${site.quoteTurnaround}.`}
       >
         <Link href="/contact" className="btn btn-signal mt-8">Get my quote</Link>
       </PageHero>
+
+      <section className="border-t border-line py-16 md:py-20" aria-labelledby="cost">
+        <div className="wrap grid gap-8 lg:grid-cols-12">
+          <h2 id="cost" className="t-h2 lg:col-span-5">How much does a website cost?</h2>
+          <div className="lg:col-span-7">
+            <p className="t-lede">
+              Pricing guides published in 2026 put freelancer-built small business websites at roughly $500 to $5,000 and agency
+              builds at about $5,000 to $15,000. Online stores typically run from about $3,000 to $25,000 or more, and custom
+              platforms higher still. Running costs add roughly $10 to $200 a month for hosting, a domain and any subscriptions.
+            </p>
+            <p className="mt-5 text-graphite">
+              Sources: <a href="https://www.levitate.ai/blog-posts/average-website-design-cost-for-small-businesses-in-2026" target="_blank" rel="noopener" className="link">Levitate</a> and{" "}
+              <a href="https://www.wd-strategies.com/articles/how-much-does-a-website-cost-in-2026" target="_blank" rel="noopener" className="link">WD Strategies</a>, February 2026.
+              Read our full guide: <Link href="/blog/how-much-does-a-small-business-website-cost" className="link text-ink">How much does a small business website cost?</Link>
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="border-t border-line py-20 md:py-24">
         <div className="wrap grid gap-12 lg:grid-cols-12">

@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Markets We Serve: Websites for Service Businesses and Shopify Brands",
+  title: "Markets We Serve: Websites by Industry",
   description:
     "Websites and marketing for HVAC, plumbing, roofing, cleaning, contracting, landscaping, home care and clinics, and ecommerce and Shopify brands across the US.",
   alternates: { canonical: "/markets" },

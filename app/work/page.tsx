@@ -9,9 +9,9 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Our Work: Shopify Stores, WordPress Sites and Apps",
+  title: "Web Design Portfolio: Shopify and WordPress",
   description:
-    "Shopify stores, WordPress websites, apps and dashboards by Devlonic Solutions for service businesses, ecommerce brands and agencies, including our Gladiolaz Shopify case study.",
+    "Our web design portfolio: Shopify stores, WordPress websites and apps for service businesses and ecommerce brands, plus our Gladiolaz Shopify case study.",
   alternates: { canonical: "/work" },
 };
 

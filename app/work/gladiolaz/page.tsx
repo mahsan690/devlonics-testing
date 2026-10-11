@@ -7,9 +7,9 @@ import { caseStudy, projectsFor } from "@/lib/work";
 import { breadcrumbSchema, caseStudySchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Gladiolaz Case Study: Shopify Rebuild and TikTok Ads",
+  title: "Shopify and TikTok Ads Case Study: Gladiolaz",
   description:
-    "How we relaunched Gladiolaz, a hair and wig Shopify brand: store rebuild, AutoDS dropshipping with Amazon and Alibaba suppliers, AI video ads and TikTok ads at $20 a day. About 10 orders in the first 15 days.",
+    "How we relaunched a dormant Shopify brand: store rebuild, AutoDS dropshipping, AI video ads and $20/day TikTok ads. About 10 orders in 15 days at a $120 AOV.",
   alternates: { canonical: `/work/${caseStudy.slug}` },
   openGraph: { images: [{ url: `/work/${caseStudy.image}`, width: 1000, height: 847, alt: "Gladiolaz Shopify store" }] },
 };

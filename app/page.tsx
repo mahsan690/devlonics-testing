@@ -8,6 +8,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { CaseStudyFeature } from "@/components/CaseStudyFeature";
 import { TestimonialDeck } from "@/components/TestimonialDeck";
 import { ClientMarquee, CtaBand, MarketsGrid, SectionHead, WorkTile } from "@/components/Blocks";
+import { PostCard } from "@/components/BlogParts";
+import { allPosts } from "@/lib/blog";
 import { services } from "@/lib/services";
 import { projects } from "@/lib/work";
 import { homeFaqs } from "@/lib/faqs";
@@ -19,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
+  const latest = allPosts.slice(0, 3);
 
   return (
     <>
@@ -33,7 +36,7 @@ export default function Home() {
           <div id="what-we-build">
             <SectionHead
               title="What we build"
-              lede="Six ways we help businesses get more customers online. Each one has its own model: drag it to spin."
+              lede="Six services that help service businesses and online stores win more customers. Each one has its own model: drag it to spin."
             />
           </div>
           <div className="mt-12">
@@ -87,7 +90,23 @@ export default function Home() {
         <div className="wrap"><TestimonialDeck /></div>
       </section>
 
-      <section className="py-20 md:py-28" aria-labelledby="faq">
+      {latest.length > 0 && (
+        <section className="border-t border-line py-20 md:py-28" aria-labelledby="from-the-blog">
+          <div className="wrap">
+            <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <div id="from-the-blog">
+                <SectionHead title="From the blog" lede="Straight answers on website costs, local SEO, AI search and Shopify." />
+              </div>
+              <Link href="/blog" className="btn btn-ghost shrink-0">All guides</Link>
+            </div>
+            <div className="mt-12 grid gap-5 md:grid-cols-3">
+              {latest.map((p) => <PostCard key={p.slug} post={p} />)}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section className="bg-fog py-20 md:py-28" aria-labelledby="faq">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4" id="faq">
             <SectionHead title="Common questions" />

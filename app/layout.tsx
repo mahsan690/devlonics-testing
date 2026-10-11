@@ -10,7 +10,7 @@ import { BackToTop } from "@/components/BackToTop";
 import { InteractiveFX } from "@/components/InteractiveFX";
 import { JsonLd } from "@/components/JsonLd";
 import { organizationSchema } from "@/lib/schema";
-import { site } from "@/lib/site";
+import { isIndexable, site } from "@/lib/site";
 import "./globals.css";
 
 // Fonts are bundled locally: no request to Google Fonts on page load.
@@ -28,18 +28,22 @@ const body = localFont({
   weight: "100 1000",
 });
 
-// Index only the production deployment; previews stay out of Google.
-const indexable = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
+// Search Console / Bing Webmaster verification: set these in Vercel once the
+// domain is connected (the value is the content of their meta tag).
+const verification = {
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+  ...(process.env.BING_SITE_VERIFICATION ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } } : {}),
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Web Design and Shopify Development for Service Businesses | Devlonic Solutions",
-    template: "%s | Devlonic Solutions",
+    default: "Web Design for Service Businesses & Shopify Brands | Devlonic",
+    template: "%s | Devlonic",
   },
   description: site.description,
   applicationName: site.name,
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", types: { "application/rss+xml": [{ url: "/blog/rss.xml", title: "Devlonic Solutions blog" }] } },
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -49,7 +53,12 @@ export const metadata: Metadata = {
     description: site.description,
   },
   twitter: { card: "summary_large_image", title: "Devlonic Solutions: websites that earn their keep", description: site.description },
-  robots: indexable ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } } : { index: false, follow: false },
+  robots: isIndexable
+    ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } }
+    : { index: false, follow: true },
+  verification,
+  authors: [{ name: site.founder.name, url: `${site.url}/about` }],
+  category: "Web design",
   formatDetection: { telephone: false },
 };
 

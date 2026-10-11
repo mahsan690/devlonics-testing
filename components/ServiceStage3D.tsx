@@ -3,12 +3,24 @@
 import { useEffect, useRef, useState } from "react";
 
 // One Three.js stage with an original model per service. The active model
-// swaps when `active` changes; visitors can drag to spin it. Renders only
-// while on screen. Reduced motion: no idle animation, instant swaps.
+// swaps when `active` changes; visitors can drag to spin it. Each model is
+// built the first time it is shown, so a page can hold several stages that
+// each show one model. Renders only while on screen. Reduced motion: no idle
+// animation, instant swaps.
 
 type Api = { show: (slug: string) => void; dispose: () => void };
 
-export function ServiceStage3D({ active, label, className = "" }: { active: string; label: string; className?: string }) {
+export function ServiceStage3D({
+  active,
+  label,
+  className = "",
+  showLabel = true,
+}: {
+  active: string;
+  label: string;
+  className?: string;
+  showLabel?: boolean;
+}) {
   const host = useRef<HTMLDivElement>(null);
   const api = useRef<Api | null>(null);
   const activeRef = useRef(active);
@@ -74,9 +86,10 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
 
         type Model = { group: import("three").Group; tick?: (t: number) => void };
         const models: Record<string, Model> = {};
+        const builders: Record<string, () => Model> = {};
 
         // Lead generation: a phone whose call button sends out rings.
-        {
+        builders["lead-generation-websites"] = () => {
           const g = new THREE.Group();
           g.add(rbox(1.6, 3.1, 0.2, 0.2, ink));
           g.add(at(rbox(1.42, 2.84, 0.04, 0.12, paper), 0, 0, 0.1));
@@ -97,7 +110,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
             g.add(r);
             return r;
           });
-          models["lead-generation-websites"] = {
+          return {
             group: g,
             tick: (t) =>
               rings.forEach((r, i) => {
@@ -106,10 +119,10 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
                 (r.material as import("three").MeshStandardMaterial).opacity = 1 - p;
               }),
           };
-        }
+        };
 
         // Small business websites: a browser window whose layers float apart.
-        {
+        builders["small-business-websites"] = () => {
           const g = new THREE.Group();
           g.add(rbox(3.4, 2.3, 0.12, 0.12, paper));
           g.add(at(rbox(3.4, 0.32, 0.16, 0.12, ink), 0, 0.99, 0.02));
@@ -122,7 +135,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
           const cardA = at(rbox(1.4, 0.62, 0.1, 0.06, ink), -0.8, -0.55, 0.1);
           const cardB = at(rbox(1.4, 0.62, 0.1, 0.06, line), 0.8, -0.55, 0.1);
           g.add(hero, cardA, cardB);
-          models["small-business-websites"] = {
+          return {
             group: g,
             tick: (t) => {
               hero.position.z = 0.1 + (Math.sin(t * 1.2) * 0.5 + 0.5) * 0.45;
@@ -130,10 +143,10 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
               cardB.position.z = 0.1 + (Math.sin(t * 1.2 + 2) * 0.5 + 0.5) * 0.3;
             },
           };
-        }
+        };
 
         // Online stores: a shopping bag, a payment card and a parcel.
-        {
+        builders["online-stores"] = () => {
           const g = new THREE.Group();
           const bag = rbox(1.9, 2.1, 0.95, 0.08, orange);
           g.add(bag);
@@ -148,7 +161,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
           card.rotation.set(0.15, -0.5, 0.2);
           const box = at(rbox(0.75, 0.75, 0.75, 0.06, paper), -1.25, -0.75, 0.35);
           g.add(card, box);
-          models["online-stores"] = {
+          return {
             group: g,
             tick: (t) => {
               card.position.y = -0.45 + Math.sin(t * 1.6) * 0.12;
@@ -156,10 +169,10 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
               box.rotation.y = t * 0.4;
             },
           };
-        }
+        };
 
         // Apps: two phones and a grid of app icons that pop in turn.
-        {
+        builders["app-development"] = () => {
           const g = new THREE.Group();
           const phone = (x: number, z: number, ry: number) => {
             const p = new THREE.Group();
@@ -179,14 +192,14 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
               front.add(m);
               icons.push(m);
             }
-          models["app-development"] = {
+          return {
             group: g,
             tick: (t) => icons.forEach((m, i) => m.scale.setScalar(1 + Math.max(0, Math.sin(t * 2.4 - i * 0.55)) * 0.28)),
           };
-        }
+        };
 
         // Custom software: a dashboard slab with live bars.
-        {
+        builders["custom-software"] = () => {
           const g = new THREE.Group();
           g.add(rbox(3.4, 0.14, 2.3, 0.07, ink));
           const bars: import("three").Mesh[] = [];
@@ -198,7 +211,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
           }
           [-0.55, -0.85].forEach((z, i) => g.add(at(rbox(i ? 1.6 : 2.6, 0.06, 0.12, 0.03, line), i ? -0.7 : -0.2, 0.1, z)));
           g.rotation.x = 0.42;
-          models["custom-software"] = {
+          return {
             group: g,
             tick: (t) =>
               bars.forEach((b, i) => {
@@ -207,10 +220,10 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
                 b.position.y = 0.07 + h / 2;
               }),
           };
-        }
+        };
 
         // SEO and marketing: a magnifier gliding over rising bars.
-        {
+        builders["seo-and-marketing"] = () => {
           const g = new THREE.Group();
           [0.7, 1.2, 1.9].forEach((h, i) => g.add(at(rbox(0.55, h, 0.55, 0.06, i === 2 ? orange : i === 1 ? ink : line), -0.8 + i * 0.8, -1.1 + h / 2, 0)));
           const mag = new THREE.Group();
@@ -227,20 +240,27 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
           mag.add(handle);
           at(mag, 0.2, 0.55, 0.7);
           g.add(mag);
-          models["seo-and-marketing"] = {
+          return {
             group: g,
             tick: (t) => {
               mag.position.x = 0.2 + Math.sin(t * 0.8) * 0.6;
               mag.position.y = 0.55 + Math.cos(t * 1.1) * 0.15;
             },
           };
-        }
+        };
 
-        Object.values(models).forEach((m) => {
-          m.group.visible = false;
-          m.group.scale.setScalar(0.001);
-          scene.add(m.group);
-        });
+        const world = new THREE.Group();
+        scene.add(world);
+        const getModel = (slug: string) => {
+          if (!models[slug] && builders[slug]) {
+            const m = builders[slug]();
+            m.group.visible = false;
+            m.group.scale.setScalar(0.001);
+            world.add(m.group);
+            models[slug] = m;
+          }
+          return models[slug];
+        };
 
         const pivot = { x: 0.12, y: -0.45 };
         const drag = { on: false, x: 0, y: 0, vx: 0, vy: 0 };
@@ -266,7 +286,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
 
         let current: string | null = null;
         const show = (slug: string) => {
-          const next = models[slug];
+          const next = getModel(slug);
           if (!next || slug === current) return;
           const prev = current ? models[current] : null;
           current = slug;
@@ -302,9 +322,6 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
         const io = new IntersectionObserver(([en]) => (visible = en.isIntersecting));
         io.observe(el);
 
-        const world = new THREE.Group();
-        scene.children.filter((c) => c.type === "Group").forEach((c) => world.add(c));
-        scene.add(world);
         const clock = new THREE.Clock();
         const tick = () => {
           if (!visible || document.hidden) return;
@@ -358,7 +375,7 @@ export function ServiceStage3D({ active, label, className = "" }: { active: stri
       <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(60% 55% at 50% 45%, rgba(233,75,39,0.16), transparent 70%)" }} />
       <div ref={host} className="absolute inset-0" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-sm text-paper">
-        <span className="font-display text-lg font-bold tracking-tight">{label}</span>
+        <span className={`font-display text-lg font-bold tracking-tight ${showLabel ? "" : "sr-only"}`}>{label}</span>
         <span className={`text-ash transition-opacity ${ready ? "opacity-100" : "opacity-0"}`}>Drag to spin</span>
       </div>
     </div>

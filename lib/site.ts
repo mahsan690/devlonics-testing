@@ -1,5 +1,5 @@
-// Central site config. Change contact details, states or URLs here and
-// every page, the schema markup and the sitemap pick it up.
+// Central site config. Change contact details or URLs here and every page,
+// the schema markup and the sitemap pick it up.
 
 function resolveSiteUrl() {
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
@@ -14,8 +14,11 @@ export const site = {
   url: resolveSiteUrl(),
   tagline: "Websites that earn their keep.",
   description:
-    "Devlonic Solutions designs and builds websites, Shopify stores, apps and custom software for service businesses and ecommerce brands. Fixed price, agreed up front.",
+    "Web design and Shopify development for US service businesses and ecommerce brands: lead generation websites, online stores, local SEO and ads. Fixed price.",
   email: "info@devlonics.com",
+  // Every quote request is delivered to all of these inboxes.
+  // LEAD_TO_EMAIL (comma-separated) in Vercel overrides this list.
+  leadInboxes: ["info@devlonics.com", "m-ahsan@devlonics.com"],
   phoneDisplay: "+1 (201) 471-3717",
   phoneHref: "tel:+12014713717",
   founder: {
@@ -31,8 +34,24 @@ export const site = {
   },
   // How fast a written quote comes back. Shown in the hero, process and FAQ.
   quoteTurnaround: "one business day",
-  yearsExperience: "5+",
+  // Figures and promises from the founder's own Upwork profile. Keep in sync.
+  yearsExperience: "6+",
+  projectsDelivered: "100+",
+  freeFixesDays: 14,
 } as const;
+
+// Search engines index the site only in production on its real domain.
+// Preview deployments and the temporary *.vercel.app address stay noindex,
+// so Google never files the site under a URL it will later have to forget.
+// Set NEXT_PUBLIC_SITE_URL=https://devlonics.com when the domain is connected.
+export const isIndexable = (() => {
+  const isProduction = process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
+  let host = "";
+  try {
+    host = new URL(site.url).hostname;
+  } catch {}
+  return isProduction && !host.endsWith(".vercel.app") && host !== "localhost";
+})();
 
 export const nav = [
   { href: "/", label: "Home" },
@@ -41,6 +60,7 @@ export const nav = [
   { href: "/pricing", label: "Pricing" },
   { href: "/markets", label: "Markets we serve" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
 ] as const;
 
 export const absoluteUrl = (path = "/") => `${site.url}${path === "/" ? "" : path}`;

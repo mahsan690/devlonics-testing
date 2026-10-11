@@ -44,7 +44,7 @@ export function Header() {
           <Logo className="h-8 w-auto md:h-9" />
         </Link>
 
-        <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
+        <nav aria-label="Main" className="hidden items-center gap-5 lg:flex xl:gap-7">
           {nav.map((item) => {
             const active = pathname === item.href || pathname.startsWith(item.href + "/");
             return (

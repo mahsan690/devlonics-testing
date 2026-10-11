@@ -26,10 +26,43 @@ npm run build      # production build (also writes public/llms.txt and fetches p
 | 3D hero mark | `components/HeroMark3D.tsx` |
 | Quote form | `components/QuoteWizard.tsx` |
 | Quote form endpoint | `app/api/enquiry/route.ts` |
+| Blog posts (Markdown) | `content/blog/*.md` |
+| Inboxes that receive quote requests | `lib/site.ts` → `leadInboxes` |
 
 ### Adding a market
 
-Add an entry to `lib/markets.ts`, then add its slug to `KNOWN.markets` in `proxy.ts` and to the list in `scripts/build-llms.mjs`. The page, sitemap, schema and footer update automatically.
+Add an entry to `lib/markets.ts` and to the list in `scripts/build-llms.mjs`. The page, sitemap, schema, footer and 404 guard update automatically.
+
+## Publishing a blog post
+
+1. Create `content/blog/your-post-slug.md`. The file name becomes the URL (`/blog/your-post-slug`).
+2. Start it with frontmatter, then write the post in Markdown:
+
+```md
+---
+title: "Your Headline (under ~65 characters)"
+description: "The meta description, 140–160 characters."
+date: 2026-11-01
+category: Local SEO
+keyword: main search phrase
+takeaways:
+  - "Two to five short bullet points shown at the top."
+faqs:
+  - q: "A question people search?"
+    a: "A direct answer in 40–60 words."
+related:
+  - seo-and-marketing
+  - hvac
+---
+
+Your opening paragraph answers the headline directly...
+
+## Use question-style H2 headings
+```
+
+3. Commit to `main` (the GitHub web editor works fine). Vercel rebuilds and the post appears on the blog, home page, sitemap, RSS feed and `llms.txt`.
+
+A post dated in the future stays hidden until a build runs on or after that date; `draft: true` hides it entirely. The build stops with a clear message if required fields are missing. `related` takes service or market slugs and shows them as links under the post.
 
 ## Environment variables (Vercel → Project → Settings → Environment Variables)
 
@@ -38,9 +71,15 @@ Add an entry to `lib/markets.ts`, then add its slug to `KNOWN.markets` in `proxy
 | `NEXT_PUBLIC_SITE_URL` | When you connect a domain | Canonical URL, e.g. `https://devlonics.com`. Until then the Vercel production URL is used. |
 | `RESEND_API_KEY` | Recommended | Sends quote requests through [Resend](https://resend.com). |
 | `LEAD_FROM_EMAIL` | With Resend | Sender on a domain verified in Resend, e.g. `Website <leads@devlonics.com>`. |
-| `LEAD_TO_EMAIL` | Optional | Inbox for quote requests. Defaults to `info@devlonics.com`. |
+| `LEAD_TO_EMAIL` | Optional | Comma-separated inboxes for quote requests. Defaults to `leadInboxes` in `lib/site.ts` (info@ and m-ahsan@devlonics.com). |
+| `GOOGLE_SITE_VERIFICATION` | When verifying Search Console | The `content` value of Google's HTML-tag verification. |
+| `BING_SITE_VERIFICATION` | When verifying Bing Webmaster Tools | The `content` value of Bing's `msvalidate.01` tag. |
 
-Without `RESEND_API_KEY`, quote requests are delivered through FormSubmit. The **first** submission makes FormSubmit email an activation link to `info@devlonics.com`; click it once and every request after that is delivered.
+Without `RESEND_API_KEY`, quote requests are delivered through FormSubmit: sent to the first inbox and copied to the rest. The **first** submission makes FormSubmit email an activation link to `info@devlonics.com`; click it once and every request after that is delivered.
+
+### Indexing
+
+Search engines index the site only in production on its real domain. Preview deployments and the temporary `*.vercel.app` address carry a `noindex` tag. When devlonics.com is connected in Vercel, set `NEXT_PUBLIC_SITE_URL=https://devlonics.com` and redeploy: canonicals, sitemap and schema switch to the domain and indexing turns on.
 
 ## Portfolio images
 
@@ -49,7 +88,8 @@ The 2026 projects (`public/work/2026-*.webp`) are in the repo. Older portfolio a
 ## SEO and AEO built in
 
 - Per-page titles, descriptions and canonical URLs
-- JSON-LD: Organization + ProfessionalService (service-area, no street address), WebSite, Service, FAQPage, BreadcrumbList
-- `sitemap.xml`, `robots.txt` (AI crawlers allowed), `llms.txt`
-- Generated share images per service and market page
+- JSON-LD: Organization + ProfessionalService (service-area, no street address), WebSite, Service, FAQPage, BreadcrumbList, Person (founder), Blog, BlogPosting
+- Every service and market page targets one search phrase and opens with a direct, quotable answer
+- `sitemap.xml` with real modified dates, `robots.txt` (AI crawlers allowed), `llms.txt`, blog RSS feed
+- Generated share images per service, market and blog post
 - Preview deployments are `noindex`; only production is indexable

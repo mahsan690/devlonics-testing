@@ -3,12 +3,12 @@ import Link from "next/link";
 import { CtaBand, PageHero } from "@/components/Blocks";
 import { TestimonialDeck } from "@/components/TestimonialDeck";
 import { JsonLd } from "@/components/JsonLd";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, personSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Devlonic Solutions",
-  description: `Devlonic Solutions is a remote web design and development studio led by ${site.founder.name}, building websites, stores and software for US small businesses.`,
+  title: "About Devlonic Solutions and Muhammad Ahsan",
+  description: `Devlonic Solutions is a remote web design and Shopify studio led by ${site.founder.name}, a Top Rated developer with ${site.yearsExperience} years' experience and ${site.projectsDelivered} sites built.`,
   alternates: { canonical: "/about" },
 };
 
@@ -29,23 +29,34 @@ const skills = [
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd data={[breadcrumbSchema(crumbs), personSchema()]} />
       <PageHero
         crumbs={crumbs}
-        title="A small studio that builds websites for small businesses."
+        title="About Devlonic: a web design studio for service businesses and Shopify brands."
         lede={`Devlonic Solutions designs and builds websites, online stores, apps and custom software. We're a remote team led by ${site.founder.name}, working with service businesses and ecommerce brands across the US.`}
       />
 
-      <section className="border-t border-line py-20 md:py-24">
+      <section id="founder" className="scroll-mt-24 border-t border-line py-20 md:py-24">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <h2 className="t-h2">Who&apos;s behind it</h2>
+            <dl className="mt-8 grid grid-cols-2 gap-6">
+              <div className="flex flex-col gap-1 border-t border-line pt-4">
+                <dt className="text-sm text-graphite">years building websites</dt>
+                <dd className="order-first font-display text-4xl font-bold tracking-tight text-signal-ink">{site.yearsExperience}</dd>
+              </div>
+              <div className="flex flex-col gap-1 border-t border-line pt-4">
+                <dt className="text-sm text-graphite">websites and stores built</dt>
+                <dd className="order-first font-display text-4xl font-bold tracking-tight text-signal-ink">{site.projectsDelivered}</dd>
+              </div>
+            </dl>
           </div>
           <div className="space-y-5 text-[1.125rem] lg:col-span-7">
             <p>
-              {site.founder.name} founded Devlonic after {site.yearsExperience} years of building websites and online stores for clients around the world.
-              He holds a Top Rated status on Upwork, earned through consistently strong client feedback, and has built for agencies,
-              ecommerce brands, home care providers, contractors and startups.
+              {site.founder.name} founded Devlonic after {site.yearsExperience} years of building websites and online stores, more than{" "}
+              {site.projectsDelivered.replace("+", "")} of them, for clients in the US, UK, UAE and Australia. He holds Top Rated status on Upwork,
+              earned through consistently strong client feedback, and has built for home care agencies, cleaning companies, contractors,
+              real estate, fashion and fragrance brands, agencies and startups.
             </p>
             <p>
               The work spans WordPress and WooCommerce sites, Shopify stores, custom Laravel applications and modern Next.js builds,
@@ -53,8 +64,9 @@ export default function AboutPage() {
               businesses that want a website which pays for itself.
             </p>
             <p>
-              We work remotely, which keeps our prices lower than a big-city agency. You get one point of contact, calls booked
-              in your time zone, and written updates at every stage.
+              Every project follows the same process: a written plan, design approval, a build on a private staging site, then launch,
+              a recorded walkthrough so your team can run the site, and {site.freeFixesDays} days of free fixes. We work remotely, which keeps
+              prices lower than a big-city agency, with one point of contact and calls booked in your time zone.
             </p>
             <div className="flex flex-wrap gap-3 pt-3">
               <a href={site.founder.linkedin} className="btn btn-ink" target="_blank" rel="noopener">{site.founder.name} on LinkedIn</a>

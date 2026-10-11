@@ -44,6 +44,7 @@ export function Footer() {
             <li><Link href="/work" className="hover:text-signal">Work</Link></li>
             <li><Link href="/pricing" className="hover:text-signal">Pricing</Link></li>
             <li><Link href="/about" className="hover:text-signal">About</Link></li>
+            <li><Link href="/blog" className="hover:text-signal">Blog</Link></li>
             <li><Link href="/contact" className="hover:text-signal">Get a quote</Link></li>
             <li><a href={site.profiles.upwork} className="hover:text-signal" rel="noopener" target="_blank">Upwork profile</a></li>
             <li><a href={site.profiles.linkedin} className="hover:text-signal" rel="noopener" target="_blank">LinkedIn</a></li>

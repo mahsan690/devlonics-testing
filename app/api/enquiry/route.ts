@@ -2,11 +2,14 @@ import { site } from "@/lib/site";
 
 // Receives quote requests from the form and emails them to the team.
 // Delivery, in order of preference:
-//   1. Resend, when RESEND_API_KEY is set (LEAD_TO_EMAIL overrides the inbox,
-//      LEAD_FROM_EMAIL must be a sender on a domain verified in Resend).
-//   2. FormSubmit (no key needed). The very first submission makes FormSubmit
-//      email an activation link to the inbox; click it once and every lead
-//      after that is delivered.
+// Inboxes come from site.leadInboxes (or LEAD_TO_EMAIL, comma-separated).
+// Delivery, in order of preference:
+//   1. Resend, when RESEND_API_KEY is set (LEAD_FROM_EMAIL must be a sender
+//      on a domain verified in Resend). Every inbox is a direct recipient.
+//   2. FormSubmit (no key needed). Sent to the first inbox, copied (_cc) to
+//      the rest. The very first submission makes FormSubmit email an
+//      activation link to the first inbox; click it once and every lead after
+//      that is delivered.
 
 type Payload = {
   name?: string; email?: string; phone?: string; business?: string; message?: string;
@@ -44,7 +47,10 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, error: "Name and a valid email are required." }, { status: 422 });
   }
 
-  const to = process.env.LEAD_TO_EMAIL || site.email;
+  const inboxes = (process.env.LEAD_TO_EMAIL ? process.env.LEAD_TO_EMAIL.split(",") : [...site.leadInboxes])
+    .map((e) => e.trim())
+    .filter(Boolean);
+  const [to, ...cc] = inboxes;
   const subject = `New quote request: ${lead.name}${lead.business ? ` (${lead.business})` : ""}`;
   const rows: [string, string][] = [
     ["Name", lead.name], ["Email", lead.email], ["Phone", lead.phone], ["Business", lead.business],
@@ -60,7 +66,7 @@ export async function POST(request: Request) {
         headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
         body: JSON.stringify({
           from: process.env.LEAD_FROM_EMAIL || "Devlonic website <onboarding@resend.dev>",
-          to: [to],
+          to: inboxes,
           reply_to: lead.email,
           subject,
           text,
@@ -78,6 +84,8 @@ export async function POST(request: Request) {
         _replyto: lead.email,
         _template: "table",
         _captcha: "false",
+        // Copies to every other inbox. Only the first address needs FormSubmit activation.
+        ...(cc.length ? { _cc: cc.join(",") } : {}),
         ...Object.fromEntries(rows.filter(([, v]) => v)),
       }),
     });

@@ -42,17 +42,23 @@ export function HomeHero() {
 
       <div className="wrap relative grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
-          <h1 ref={headline} className="t-hero max-w-[12ch]">
-            <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">Websites that</span></span>
-            <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">earn their keep.</span></span>
+          {/* The H1 opens with what we do (for search), then the brand line. */}
+          <h1 ref={headline}>
+            <span className="hero-after mb-5 block max-w-xl font-sans text-[1.0625rem] font-semibold leading-snug tracking-normal text-signal sm:text-lg">
+              Web design and Shopify development for service businesses
+            </span>
+            <span className="t-hero block max-w-[12ch]">
+              <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">Websites that</span></span>
+              <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">earn their keep.</span></span>
+            </span>
           </h1>
           <p className="hero-after t-lede mt-7 max-w-xl text-ash">
-            We design and build websites, Shopify stores and custom software for service businesses and ecommerce brands,
-            then market them. Built to turn visitors into calls, bookings and orders.
+            Lead generation websites for HVAC, plumbing, roofing, cleaning and other home service companies, and Shopify stores
+            for ecommerce brands, plus the local SEO and ads that bring customers to them.
           </p>
           <ul className="hero-after mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] text-paper/85">
             <li>Top Rated on Upwork</li>
-            <li>{site.yearsExperience} years building websites</li>
+            <li>{site.projectsDelivered} websites and stores built</li>
             <li>Fixed price, agreed up front</li>
           </ul>
           <div className="hero-after mt-10 max-w-xl">
