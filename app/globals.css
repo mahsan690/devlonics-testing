@@ -177,3 +177,16 @@ html.no-preloader .preloader { display: none; }
 .article-body th, .article-body td { padding: 0.75rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-line); }
 .article-body thead th { background: var(--color-fog); font-weight: 650; }
 .article-body tbody tr:last-child td { border-bottom: 0; }
+
+/* Blinking cursor after the typed word in the home hero. */
+.typed-caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.74em;
+  margin-left: 0.06em;
+  vertical-align: -0.02em;
+  background: currentColor;
+  animation: dv-caret 1.05s steps(1) infinite;
+}
+@keyframes dv-caret { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .typed-caret { display: none; } }

@@ -7,24 +7,78 @@ import { site } from "@/lib/site";
 import { leadMailto, sendViaFormSubmit, type Lead } from "@/lib/lead";
 
 type Choice = { value: string; label: string };
-type Step =
-  | { id: "need"; kind: "multi"; title: string; help: string; choices: Choice[] }
-  | { id: "industry" | "budget" | "timeline"; kind: "single"; title: string; help: string; choices: Choice[]; optional?: boolean }
-  | { id: "contact"; kind: "contact"; title: string; help: string };
+type MultiStep = { id: "need"; kind: "multi"; title: string; help: string; choices: Choice[] };
+type SingleStep = { id: string; kind: "single"; title: string; help: string; choices: Choice[]; optional?: boolean };
+type Step = MultiStep | SingleStep | { id: "contact"; kind: "contact"; title: string; help: string };
 
-const STEPS: Step[] = [
-  {
-    id: "need", kind: "multi", title: "What do you need?", help: "Pick everything that applies.",
+// First question. Values match `wizardChoice` in lib/services.ts, so links like
+// /contact?need=store open with that answer picked.
+const NEED_STEP: MultiStep = {
+  id: "need", kind: "multi", title: "What are we building?", help: "Pick as many as you need. Each one gets its own question.",
+  choices: [
+    { value: "website", label: "Website" },
+    { value: "store", label: "Online store" },
+    { value: "app", label: "App" },
+    { value: "software", label: "Custom software" },
+    { value: "marketing", label: "SEO & marketing" },
+    { value: "unsure", label: "Not sure yet" },
+  ],
+};
+
+// One follow-up question per thing picked above, asked in this order.
+const FOLLOW_UPS: Record<string, SingleStep> = {
+  website: {
+    id: "website", kind: "single", title: "What kind of website?", help: "Pick the closest fit.",
     choices: [
-      { value: "website", label: "A new website" },
-      { value: "rebuild", label: "A rebuild of my current site" },
-      { value: "store", label: "An online store" },
-      { value: "app", label: "An app" },
-      { value: "software", label: "Custom software" },
-      { value: "marketing", label: "SEO or marketing" },
+      { value: "lead-gen", label: "Lead generation (calls and quote requests)" },
+      { value: "business", label: "Business or brochure site" },
+      { value: "bookings", label: "Bookings and appointments" },
+      { value: "landing", label: "Landing page" },
+      { value: "rebuild", label: "Rebuild of my current site" },
+      { value: "other", label: "Something else" },
+    ],
+  },
+  store: {
+    id: "store", kind: "single", title: "What should the store run on?", help: "Pick the closest fit.",
+    choices: [
+      { value: "shopify", label: "Shopify" },
+      { value: "woocommerce", label: "WooCommerce" },
+      { value: "migrate", label: "Moving an existing store" },
+      { value: "unsure", label: "Help me choose" },
+    ],
+  },
+  app: {
+    id: "app", kind: "single", title: "Where does it need to run?", help: "Pick the closest fit.",
+    choices: [
+      { value: "mobile", label: "iPhone and Android" },
+      { value: "web", label: "Web app, in a browser" },
+      { value: "both", label: "Both" },
       { value: "unsure", label: "Not sure yet" },
     ],
   },
+  software: {
+    id: "software", kind: "single", title: "What kind of system?", help: "Pick the closest fit.",
+    choices: [
+      { value: "crm", label: "CRM" },
+      { value: "portal", label: "Client portal" },
+      { value: "booking", label: "Booking or scheduling system" },
+      { value: "internal", label: "Internal tool or dashboard" },
+      { value: "other", label: "Something else" },
+    ],
+  },
+  marketing: {
+    id: "marketing", kind: "single", title: "Where do you want more customers from?", help: "Pick the closest fit.",
+    choices: [
+      { value: "seo", label: "Ranking on Google" },
+      { value: "maps", label: "Google Maps and local search" },
+      { value: "google-ads", label: "Google Ads" },
+      { value: "social-ads", label: "Facebook and Instagram ads" },
+      { value: "unsure", label: "Help me choose" },
+    ],
+  },
+};
+
+const TAIL: Step[] = [
   {
     id: "industry", kind: "single", title: "What does your business do?", help: "Pick the closest fit.",
     // Values match the `wizard` field of each market in lib/markets.ts.
@@ -64,7 +118,18 @@ const STEPS: Step[] = [
   { id: "contact", kind: "contact", title: "Where should we send your quote?", help: `You'll get scope, price and timeline in writing within ${site.quoteTurnaround}.` },
 ];
 
-type Answers = { need: string[]; industry?: string; budget?: string; timeline?: string };
+const ALL_SINGLE = [...Object.values(FOLLOW_UPS), ...TAIL.filter((s): s is SingleStep => s.kind === "single")];
+const labelFor = (stepId: string, value?: string) =>
+  ALL_SINGLE.find((s) => s.id === stepId)?.choices.find((c) => c.value === value)?.label ?? value ?? "";
+
+// Older links used need=rebuild; it's now a kind of website.
+const initialAnswers = (need?: string, industry?: string) => {
+  const picks: Record<string, string> = {};
+  if (industry) picks.industry = industry;
+  if (need === "rebuild") { picks.website = "rebuild"; need = "website"; }
+  const valid = NEED_STEP.choices.some((c) => c.value === need);
+  return { need: need && valid ? [need] : [], picks };
+};
 
 export function QuoteWizard({
   initialNeed,
@@ -78,17 +143,25 @@ export function QuoteWizard({
   headingLevel?: "h1" | "h2";
 }) {
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<Answers>({
-    need: initialNeed ? [initialNeed] : [],
-    industry: initialIndustry,
-  });
+  const [answers, setAnswers] = useState(() => initialAnswers(initialNeed, initialIndustry));
   const [contact, setContact] = useState({ name: "", email: "", phone: "", business: "", message: "", company_site: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "activation">("idle");
   const [error, setError] = useState("");
   const titleRef = useRef<HTMLHeadingElement>(null);
   const firstRender = useRef(true);
-  const current = STEPS[step];
-  const total = STEPS.length;
+
+  // The question list grows and shrinks with what's picked in the first step.
+  const steps = useMemo<Step[]>(
+    () => [
+      NEED_STEP,
+      ...NEED_STEP.choices.filter((c) => answers.need.includes(c.value) && FOLLOW_UPS[c.value]).map((c) => FOLLOW_UPS[c.value]),
+      ...TAIL,
+    ],
+    [answers.need],
+  );
+  const total = steps.length;
+  const current = steps[Math.min(step, total - 1)];
+  const picked = current.kind === "single" ? answers.picks[current.id] : undefined;
 
   useEffect(() => {
     if (firstRender.current) { firstRender.current = false; return; }
@@ -97,29 +170,29 @@ export function QuoteWizard({
 
   const canContinue = useMemo(() => {
     if (current.kind === "multi") return answers.need.length > 0;
-    if (current.kind === "single") return current.optional || Boolean(answers[current.id]);
+    if (current.kind === "single") return Boolean(current.optional || picked);
     return contact.name.trim().length > 1 && /\S+@\S+\.\S+/.test(contact.email);
-  }, [current, answers, contact]);
+  }, [current, answers.need, picked, contact]);
 
-  const choose = (id: Step["id"], value: string, multi: boolean) => {
-    if (multi) {
-      setAnswers((a) => {
-        let next = a.need.includes(value) ? a.need.filter((v) => v !== value) : [...a.need, value];
-        if (value === "unsure" && next.includes("unsure")) next = ["unsure"];
-        else next = next.filter((v) => v !== "unsure" || value === "unsure");
-        return { ...a, need: next };
-      });
-    } else {
-      setAnswers((a) => ({ ...a, [id]: value }));
-      // Single choices advance on their own, a beat after the selection shows.
-      if (step < total - 1) setTimeout(() => setStep((s) => Math.min(s + 1, total - 1)), 220);
-    }
+  const toggleNeed = (value: string) => {
+    setAnswers((a) => {
+      let next = a.need.includes(value) ? a.need.filter((v) => v !== value) : [...a.need, value];
+      if (value === "unsure" && next.includes("unsure")) next = ["unsure"];
+      else next = next.filter((v) => v !== "unsure" || value === "unsure");
+      return { ...a, need: next };
+    });
+  };
+
+  const pick = (stepId: string, value: string) => {
+    setAnswers((a) => ({ ...a, picks: { ...a.picks, [stepId]: value } }));
+    // Single choices advance on their own, a beat after the selection shows.
+    if (step < total - 1) setTimeout(() => setStep((s) => Math.min(s + 1, total - 1)), 220);
   };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (current.kind !== "contact") {
-      if (canContinue) setStep((s) => s + 1);
+      if (canContinue) setStep((s) => Math.min(s + 1, total - 1));
       return;
     }
     if (!canContinue) {
@@ -156,21 +229,27 @@ export function QuoteWizard({
       if (result !== "sent") { setStatus(result === "activation" ? "activation" : "error"); return; }
     }
     setStatus("sent");
-    track("Quote requested", { need: answers.need.join(","), industry: answers.industry ?? "" });
+    track("Quote requested", { need: answers.need.join(","), industry: answers.picks.industry ?? "" });
   };
 
   const buildLead = (): Lead => {
-    const label = (stepId: string, v?: string) =>
-      (STEPS.find((s) => s.id === stepId) as { choices?: Choice[] })?.choices?.find((c) => c.value === v)?.label ?? v ?? "";
+    // "Website: Lead generation (calls and quote requests), App: Both"
+    const need = NEED_STEP.choices
+      .filter((c) => answers.need.includes(c.value))
+      .map((c) => {
+        const detail = FOLLOW_UPS[c.value] && answers.picks[c.value] ? labelFor(c.value, answers.picks[c.value]) : "";
+        return detail ? `${c.label}: ${detail}` : c.label;
+      })
+      .join(", ");
     return {
       name: contact.name.trim(),
       email: contact.email.trim(),
       phone: contact.phone.trim(),
       business: contact.business.trim(),
-      need: answers.need.map((v) => label("need", v)).join(", "),
-      industry: label("industry", answers.industry),
-      budget: label("budget", answers.budget),
-      timeline: label("timeline", answers.timeline),
+      need,
+      industry: labelFor("industry", answers.picks.industry),
+      budget: labelFor("budget", answers.picks.budget),
+      timeline: labelFor("timeline", answers.picks.timeline),
       message: contact.message.trim(),
       page: typeof window !== "undefined" ? window.location.pathname : "",
     };
@@ -197,15 +276,15 @@ export function QuoteWizard({
   return (
     <form onSubmit={submit} className={shell} noValidate aria-label="Get a quote">
       <div className="flex items-center justify-between gap-4 text-sm text-graphite">
-        <span>Step {step + 1} of {total}</span>
+        <span>Step {Math.min(step, total - 1) + 1} of {total}</span>
         {step > 0 && (
-          <button type="button" onClick={() => setStep((s) => s - 1)} className="link font-medium text-ink">
+          <button type="button" onClick={() => setStep((s) => Math.max(0, Math.min(s, total - 1) - 1))} className="link font-medium text-ink">
             Back
           </button>
         )}
       </div>
       <div className="mt-3 h-1 overflow-hidden rounded-full bg-line" aria-hidden="true">
-        <div className="h-full rounded-full bg-signal transition-[width] duration-500 ease-out" style={{ width: `${((step + 1) / total) * 100}%` }} />
+        <div className="h-full rounded-full bg-signal transition-[width] duration-500 ease-out" style={{ width: `${((Math.min(step, total - 1) + 1) / total) * 100}%` }} />
       </div>
 
       <fieldset className="mt-6">
@@ -220,7 +299,7 @@ export function QuoteWizard({
           <div className="mt-5 flex flex-wrap gap-2.5">
             {current.choices.map((c) => {
               const multi = current.kind === "multi";
-              const checked = multi ? answers.need.includes(c.value) : answers[current.id] === c.value;
+              const checked = multi ? answers.need.includes(c.value) : picked === c.value;
               return (
                 <label
                   key={c.value}
@@ -233,7 +312,7 @@ export function QuoteWizard({
                     name={current.id}
                     value={c.value}
                     checked={checked}
-                    onChange={() => choose(current.id, c.value, multi)}
+                    onChange={() => (multi ? toggleNeed(c.value) : pick(current.id, c.value))}
                     className="sr-only"
                   />
                   {c.label}
@@ -288,9 +367,9 @@ export function QuoteWizard({
           <button type="submit" className="btn btn-signal" disabled={status === "sending"}>
             {status === "sending" ? "Sending…" : "Send my request"}
           </button>
-        ) : current.kind === "multi" || ("optional" in current && current.optional) ? (
+        ) : current.kind === "multi" || (current.kind === "single" && (current.optional || picked)) ? (
           <button type="submit" className="btn btn-ink disabled:opacity-40" disabled={!canContinue}>
-            {"optional" in current && current.optional && !answers[current.id as "budget"] ? "Skip" : "Next"}
+            {current.kind === "single" && current.optional && !picked ? "Skip" : "Next"}
           </button>
         ) : null}
         {current.kind === "contact" && (

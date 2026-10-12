@@ -12,7 +12,7 @@ export const site = {
   name: "Devlonic Solutions",
   shortName: "Devlonic",
   url: resolveSiteUrl(),
-  tagline: "Websites that earn their keep.",
+  tagline: "Built to convert.",
   description:
     "Web design and Shopify development for US service businesses and ecommerce brands: lead generation websites, online stores, local SEO and ads. Fixed price.",
   email: "info@devlonics.com",

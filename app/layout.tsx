@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     url: "/",
-    title: "Devlonic Solutions: websites that earn their keep",
+    title: "Devlonic Solutions: websites built to convert",
     description: site.description,
   },
-  twitter: { card: "summary_large_image", title: "Devlonic Solutions: websites that earn their keep", description: site.description },
+  twitter: { card: "summary_large_image", title: "Devlonic Solutions: websites built to convert", description: site.description },
   robots: isIndexable
     ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } }
     : { index: false, follow: true },

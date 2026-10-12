@@ -4,10 +4,12 @@ import { useEffect, useRef } from "react";
 import { HeroMark3D } from "./HeroMark3D";
 import { onPreloaded } from "@/lib/preload";
 import { QuoteWizard } from "./QuoteWizard";
+import { TypedWord } from "./TypedWord";
 import { site } from "@/lib/site";
 
 // Black hero: headline and the quote form on the left, the 3D mark on the right.
-// The headline lines rise in once, timed with the mark's own intro.
+// The headline lines rise in once, timed with the mark's own intro; then the
+// last word starts typing (TypedWord).
 export function HomeHero() {
   const headline = useRef<HTMLHeadingElement>(null);
 
@@ -42,19 +44,23 @@ export function HomeHero() {
 
       <div className="wrap relative grid gap-12 lg:grid-cols-12">
         <div className="lg:col-span-7">
-          {/* The H1 opens with what we do (for search), then the brand line. */}
+          {/* The H1 opens with what we do (for search), then the brand line,
+              whose last word types itself: convert, sell, perform, impress, get found. */}
           <h1 ref={headline}>
             <span className="hero-after mb-5 block max-w-xl font-sans text-[1.0625rem] font-semibold leading-snug tracking-normal text-signal sm:text-lg">
-              Web design and Shopify development for service businesses
+              Web design and Shopify development
             </span>
-            <span className="t-hero block max-w-[12ch]">
-              <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">Websites that</span></span>
-              <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">earn their keep.</span></span>
+            <span className="sr-only">Built to convert, sell, perform, impress and get found.</span>
+            <span aria-hidden="true" className="t-hero block">
+              <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">Built to</span></span>
+              <span className="hero-line block overflow-hidden pb-[0.16em]">
+                <span className="block whitespace-nowrap text-signal"><TypedWord /></span>
+              </span>
             </span>
           </h1>
           <p className="hero-after t-lede mt-7 max-w-xl text-ash">
-            Lead generation websites for HVAC, plumbing, roofing, cleaning and other home service companies, and Shopify stores
-            for ecommerce brands, plus the local SEO and ads that bring customers to them.
+            Websites, apps and custom software for businesses across the USA. A few quick questions, and a written plan with a fixed
+            price back within {site.quoteTurnaround}.
           </p>
           <ul className="hero-after mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] text-paper/85">
             <li>Top Rated on Upwork</li>
