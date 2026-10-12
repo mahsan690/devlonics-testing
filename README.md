@@ -25,7 +25,7 @@ npm run build      # production build (also writes public/llms.txt and fetches p
 | Structured data (JSON-LD) | `lib/schema.ts` |
 | 3D hero mark | `components/HeroMark3D.tsx` |
 | Quote form | `components/QuoteWizard.tsx` |
-| Quote form endpoint | `app/api/enquiry/route.ts` |
+| Quote form endpoint | `app/api/enquiry/route.ts` (Resend) and `lib/lead.ts` (FormSubmit) |
 | Blog posts (Markdown) | `content/blog/*.md` |
 | Inboxes that receive quote requests | `lib/site.ts` → `leadInboxes` |
 
@@ -71,11 +71,14 @@ A post dated in the future stays hidden until a build runs on or after that date
 | `NEXT_PUBLIC_SITE_URL` | When you connect a domain | Canonical URL, e.g. `https://devlonics.com`. Until then the Vercel production URL is used. |
 | `RESEND_API_KEY` | Recommended | Sends quote requests through [Resend](https://resend.com). |
 | `LEAD_FROM_EMAIL` | With Resend | Sender on a domain verified in Resend, e.g. `Website <leads@devlonics.com>`. |
-| `LEAD_TO_EMAIL` | Optional | Comma-separated inboxes for quote requests. Defaults to `leadInboxes` in `lib/site.ts` (info@ and m-ahsan@devlonics.com). |
+| `LEAD_TO_EMAIL` | Optional | Comma-separated inboxes for Resend delivery. Defaults to `leadInboxes` in `lib/site.ts` (info@ and m-ahsan@devlonics.com). |
+| `NEXT_PUBLIC_FORMSUBMIT_ID` | Optional | The random alias FormSubmit gives you after activation, used in place of `info@devlonics.com` in the page code. |
 | `GOOGLE_SITE_VERIFICATION` | When verifying Search Console | The `content` value of Google's HTML-tag verification. |
 | `BING_SITE_VERIFICATION` | When verifying Bing Webmaster Tools | The `content` value of Bing's `msvalidate.01` tag. |
 
-Without `RESEND_API_KEY`, quote requests are delivered through FormSubmit: sent to the first inbox and copied to the rest. The **first** submission makes FormSubmit email an activation link to `info@devlonics.com`; click it once and every request after that is delivered.
+Without `RESEND_API_KEY`, quote requests are delivered through FormSubmit, from the visitor's browser (FormSubmit blocks requests from Vercel's servers with a 403). Each request goes to the first inbox in `leadInboxes` and is copied to the rest. The **first** submission makes FormSubmit email an "Activate Form" link to `info@devlonics.com`; that one isn't delivered, and every request after the click is. If FormSubmit asks again after a domain change, click the new link.
+
+If delivery fails for any reason, the form shows an **Email my request** button that opens the visitor's email app with their answers already filled in, so no lead is lost. With Resend set up, a Resend failure falls back to FormSubmit automatically.
 
 ### Indexing
 

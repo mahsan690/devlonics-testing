@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@vercel/analytics";
 import { site } from "@/lib/site";
+import { leadMailto, sendViaFormSubmit, type Lead } from "@/lib/lead";
 
 type Choice = { value: string; label: string };
 type Step =
@@ -82,7 +83,7 @@ export function QuoteWizard({
     industry: initialIndustry,
   });
   const [contact, setContact] = useState({ name: "", email: "", phone: "", business: "", message: "", company_site: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error" | "activation">("idle");
   const [error, setError] = useState("");
   const titleRef = useRef<HTMLHeadingElement>(null);
   const firstRender = useRef(true);
@@ -127,27 +128,52 @@ export function QuoteWizard({
     }
     setError("");
     setStatus("sending");
-    const label = (stepId: string, v?: string) =>
-      (STEPS.find((s) => s.id === stepId) as { choices?: Choice[] })?.choices?.find((c) => c.value === v)?.label ?? v ?? "";
+    // Bots fill the hidden field: show success, send nothing.
+    if (contact.company_site.trim()) { setStatus("sent"); return; }
+
+    const lead = buildLead();
+    // 1. The server delivers it when Resend is set up (delivered: true).
+    let delivered = false;
     try {
       const res = await fetch("/api/enquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...contact,
-          need: answers.need.map((v) => label("need", v)),
-          industry: label("industry", answers.industry),
-          budget: label("budget", answers.budget),
-          timeline: label("timeline", answers.timeline),
-          page: typeof window !== "undefined" ? window.location.pathname : "",
-        }),
+        body: JSON.stringify({ ...lead, company_site: contact.company_site }),
       });
-      if (!res.ok) throw new Error();
-      setStatus("sent");
-      track("Quote requested", { need: answers.need.join(","), industry: answers.industry ?? "" });
+      if (res.status === 422) {
+        setStatus("idle");
+        setError("Add your name and a valid email address so we can send your quote.");
+        return;
+      }
+      const data = (await res.json().catch(() => ({}))) as { delivered?: boolean };
+      delivered = res.ok && data.delivered === true;
     } catch {
-      setStatus("error");
+      // Network or server trouble: fall through to FormSubmit.
     }
+    // 2. Otherwise the browser sends it through FormSubmit.
+    if (!delivered) {
+      const result = await sendViaFormSubmit(lead);
+      if (result !== "sent") { setStatus(result === "activation" ? "activation" : "error"); return; }
+    }
+    setStatus("sent");
+    track("Quote requested", { need: answers.need.join(","), industry: answers.industry ?? "" });
+  };
+
+  const buildLead = (): Lead => {
+    const label = (stepId: string, v?: string) =>
+      (STEPS.find((s) => s.id === stepId) as { choices?: Choice[] })?.choices?.find((c) => c.value === v)?.label ?? v ?? "";
+    return {
+      name: contact.name.trim(),
+      email: contact.email.trim(),
+      phone: contact.phone.trim(),
+      business: contact.business.trim(),
+      need: answers.need.map((v) => label("need", v)).join(", "),
+      industry: label("industry", answers.industry),
+      budget: label("budget", answers.budget),
+      timeline: label("timeline", answers.timeline),
+      message: contact.message.trim(),
+      page: typeof window !== "undefined" ? window.location.pathname : "",
+    };
   };
 
   const Heading = headingLevel;
@@ -240,11 +266,21 @@ export function QuoteWizard({
       </fieldset>
 
       {error && <p className="mt-4 text-sm font-medium text-signal-ink" role="alert">{error}</p>}
-      {status === "error" && (
-        <p className="mt-4 text-sm font-medium text-signal-ink" role="alert">
-          Your request didn&apos;t go through. Email <a className="link" href={`mailto:${site.email}`}>{site.email}</a> or call{" "}
-          <a className="link" href={site.phoneHref}>{site.phoneDisplay}</a> and we&apos;ll reply the same way.
-        </p>
+      {(status === "error" || status === "activation") && (
+        <div className="mt-4 rounded-xl border-[1.5px] border-signal/40 bg-paper p-4 text-sm" role="alert">
+          <p className="font-medium text-signal-ink">
+            {status === "activation"
+              ? `This form is waiting for a one-time activation. The link has just been emailed to ${site.leadInboxes[0]}.`
+              : "Your request didn't go through, but nothing you typed is lost."}
+          </p>
+          <p className="mt-1.5 text-graphite">
+            Send it by email instead (your answers are already filled in), or call{" "}
+            <a className="link text-ink" href={site.phoneHref}>{site.phoneDisplay}</a>.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3">
+            <a href={leadMailto(buildLead())} className="btn btn-ink">Email my request</a>
+          </div>
+        </div>
       )}
 
       <div className="mt-6 flex flex-wrap items-center gap-4">
