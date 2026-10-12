@@ -84,6 +84,10 @@ If delivery fails for any reason, the form shows an **Email my request** button 
 
 Search engines index the site only in production on its real domain. Preview deployments and the temporary `*.vercel.app` address carry a `noindex` tag. When devlonics.com is connected in Vercel, set `NEXT_PUBLIC_SITE_URL=https://devlonics.com` and redeploy: canonicals, sitemap and schema switch to the domain and indexing turns on.
 
+## Old WordPress addresses
+
+`next.config.ts` permanently redirects the old WordPress URLs (`/news`, `/portfolio/*`, dated posts, `/category/*`, `/author/*`, `/feed`, `/wp-sitemap*.xml`, `/sample-page`) to their nearest new page. `/`, `/services`, `/about` and `/contact` keep their addresses.
+
 ## Portfolio images
 
 The 2026 projects (`public/work/2026-*.webp`) are in the repo. Older portfolio and review images are copied from the devlonics.com media library before each build by `scripts/fetch-portfolio.mjs`. Run the **Sync portfolio images** action once (GitHub → Actions) to commit them to the repo before moving the devlonics.com domain.
