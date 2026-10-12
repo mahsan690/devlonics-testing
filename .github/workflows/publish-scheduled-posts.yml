@@ -1,0 +1,87 @@
+# Publishes scheduled blog posts.
+#
+# Posts dated in the future stay hidden until a build runs on or after their
+# date (scripts/build-content.mjs). Every morning (12:05 UTC, 8:05 am New York
+# in summer) this checks for posts dated today. If there are any, it records
+# them in content/blog/.published.log and pushes, which makes Vercel rebuild
+# and publish them. It then waits for each new page to go live and submits it
+# to IndexNow (Bing, Yandex, Seznam, Naver) so it's crawled within hours.
+#
+# Run it by hand from the Actions tab too: leave "date" empty for today, or
+# tick "submit_all" to send every published post and page to IndexNow.
+name: Publish scheduled posts
+on:
+  schedule:
+    - cron: "5 12 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Publish posts dated (YYYY-MM-DD, empty = today UTC)"
+        required: false
+      submit_all:
+        description: "Submit every published URL to IndexNow"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+concurrency:
+  group: publish-scheduled-posts
+  cancel-in-progress: false
+env:
+  SITE: https://devlonics.com
+  INDEXNOW_KEY: 5c67333a1224147b6475d63bc13f793a
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Find posts due today
+        id: due
+        run: |
+          DAY="${{ github.event.inputs.date }}"
+          [ -z "$DAY" ] && DAY=$(date -u +%F)
+          SLUGS=$(node scripts/scheduled-posts.mjs due "$DAY" | tr '\n' ' ' | xargs)
+          echo "day=$DAY" >> "$GITHUB_OUTPUT"
+          echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
+          echo "Posts dated $DAY: ${SLUGS:-none}"
+
+      - name: Trigger a rebuild
+        if: steps.due.outputs.slugs != ''
+        run: |
+          echo "${{ steps.due.outputs.day }}: ${{ steps.due.outputs.slugs }}" >> content/blog/.published.log
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/blog/.published.log
+          git commit -m "Publish scheduled posts for ${{ steps.due.outputs.day }}"
+          git pull --rebase origin main
+          git push
+
+      - name: Wait for the new posts to go live
+        if: steps.due.outputs.slugs != ''
+        run: |
+          for slug in ${{ steps.due.outputs.slugs }}; do
+            url="$SITE/blog/$slug"
+            for i in $(seq 1 40); do
+              code=$(curl -s -o /dev/null -w "%{http_code}" "$url")
+              [ "$code" = "200" ] && echo "Live: $url" && break
+              sleep 15
+            done
+          done
+
+      - name: Submit to IndexNow
+        if: steps.due.outputs.slugs != '' || github.event.inputs.submit_all == 'true'
+        run: |
+          if [ "${{ github.event.inputs.submit_all }}" = "true" ]; then
+            URLS=$(curl -s "$SITE/sitemap.xml" | grep -o '<loc>[^<]*</loc>' | sed -e 's/<loc>//' -e 's/<\/loc>//')
+          else
+            URLS=$(for s in ${{ steps.due.outputs.slugs }}; do echo "$SITE/blog/$s"; done; echo "$SITE/blog"; echo "$SITE/sitemap.xml")
+          fi
+          LIST=$(echo "$URLS" | sed '/^$/d' | sed 's/.*/"&"/' | paste -sd, -)
+          BODY="{\"host\":\"devlonics.com\",\"key\":\"$INDEXNOW_KEY\",\"keyLocation\":\"$SITE/$INDEXNOW_KEY.txt\",\"urlList\":[$LIST]}"
+          echo "$BODY"
+          curl -s -o /dev/null -w "IndexNow responded %{http_code}\n" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" -d "$BODY"

@@ -3,6 +3,8 @@ title: "Local SEO for Home Service Businesses: A 2026 Checklist"
 description: "A step-by-step local SEO checklist for HVAC, plumbing, roofing and cleaning companies: Google Business Profile, reviews, service-area pages and tracking."
 date: 2026-10-11
 category: Local SEO
+cover: map
+coverTone: light
 keyword: local seo for home service businesses
 takeaways:
   - "Google ranks local results on relevance, distance and prominence, and says there's no way to pay for a better local ranking."

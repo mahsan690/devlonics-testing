@@ -3,6 +3,8 @@ title: "How Much Does a Small Business Website Cost in 2026?"
 description: "Small business website costs in 2026: DIY, freelancer and agency price ranges, monthly running costs, and the five factors that decide your quote."
 date: 2026-10-11
 category: Pricing
+cover: pricing
+coverTone: light
 keyword: small business website cost
 takeaways:
   - "Pricing guides published in 2026 put freelancer-built small business sites at roughly $500 to $5,000 and agency builds at about $5,000 to $15,000."

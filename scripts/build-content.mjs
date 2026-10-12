@@ -14,9 +14,15 @@
 //   takeaways:   required, 2–5 short bullet points shown at the top
 //   faqs:        optional, list of { q, a } shown at the end and as FAQ schema
 //   related:     optional, list of service or market slugs to link to
+//   cover:       optional, illustration for the featured image (scripts/make-covers.mjs)
+//   coverTone:   optional, dark | light | signal
+//   imageAlt:    optional, alt text for the featured image (defaults to a description from the title)
 //   draft:       optional, true hides the post everywhere
+//
+// A featured image at public/blog/<slug>.webp is picked up automatically.
 
 import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { join, basename } from "node:path";
 import matter from "gray-matter";
 import { Marked } from "marked";
@@ -94,6 +100,7 @@ async function main() {
     if (fm.draft === true || (isDate(fm.date) && fm.date > today)) continue;
 
     const { html, toc, words, readingMinutes } = render(content);
+    const hasImage = existsSync(join(root, "public", "blog", `${slug}.webp`));
     posts.push({
       slug,
       title: fm.title,
@@ -105,6 +112,8 @@ async function main() {
       takeaways: fm.takeaways || [],
       faqs: fm.faqs || [],
       related: fm.related || [],
+      image: hasImage ? `/blog/${slug}.webp` : "",
+      imageAlt: hasImage ? fm.imageAlt || `Illustration for the article: ${fm.title}` : "",
       toc,
       words,
       readingMinutes,

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { formatDate, type Post } from "@/lib/blog";
 import { site } from "@/lib/site";
@@ -15,7 +16,18 @@ export function PostMeta({ post, className = "" }: { post: Post; className?: str
 
 export function PostCard({ post, large = false }: { post: Post; large?: boolean }) {
   return (
-    <article className="group relative flex h-full flex-col rounded-[1.5rem] border border-line bg-paper p-7 transition-colors hover:border-ink">
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-line bg-paper p-7 transition-colors hover:border-ink">
+      {post.image && (
+        <div className="relative -mx-7 -mt-7 mb-6 aspect-[16/9] overflow-hidden border-b border-line bg-fog">
+          <Image
+            src={post.image}
+            alt=""
+            fill
+            sizes={large ? "(min-width: 1024px) 60vw, 100vw" : "(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"}
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
       <span className="self-start rounded-full bg-fog px-3 py-1 text-xs font-semibold">{post.category}</span>
       <h3 className={`mt-5 font-display font-bold tracking-tight ${large ? "text-[clamp(1.6rem,2.6vw,2.25rem)] leading-[1.08]" : "text-xl leading-snug"}`}>
         <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:content-['']">

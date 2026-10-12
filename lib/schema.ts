@@ -91,6 +91,7 @@ export function serviceSchema(s: Service) {
     serviceType: s.name,
     description: s.metaDescription,
     url: absoluteUrl(`/services/${s.slug}`),
+    image: absoluteUrl(`/services/${s.slug}.webp`),
     provider: { "@id": orgId },
     areaServed: us,
   };
@@ -127,7 +128,7 @@ export function personSchema() {
   };
 }
 
-export function blogPostingSchema(p: { slug: string; title: string; description: string; date: string; updated: string; category: string; keyword: string; words: number }) {
+export function blogPostingSchema(p: { slug: string; title: string; description: string; date: string; updated: string; category: string; keyword: string; words: number; image?: string }) {
   const url = absoluteUrl(`/blog/${p.slug}`);
   return {
     "@context": "https://schema.org",
@@ -137,7 +138,7 @@ export function blogPostingSchema(p: { slug: string; title: string; description:
     description: p.description,
     url,
     mainEntityOfPage: url,
-    image: `${url}/opengraph-image`,
+    image: p.image ? [absoluteUrl(p.image), `${url}/opengraph-image`] : `${url}/opengraph-image`,
     datePublished: p.date,
     dateModified: p.updated,
     articleSection: p.category,

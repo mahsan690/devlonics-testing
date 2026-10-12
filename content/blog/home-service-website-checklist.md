@@ -3,6 +3,8 @@ title: "Home Service Website Checklist: 15 Things That Bring In Calls"
 description: "A practical checklist for HVAC, plumbing, roofing, cleaning and landscaping websites: the pages, features and trust signals that turn visitors into calls."
 date: 2026-10-11
 category: Web design
+cover: home
+coverTone: dark
 keyword: home service business website
 takeaways:
   - "Put a tap-to-call button and your service area in the first screen of every page."

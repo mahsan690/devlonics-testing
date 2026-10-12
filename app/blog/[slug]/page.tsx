@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs, CtaBand } from "@/components/Blocks";
@@ -71,6 +72,11 @@ export default async function BlogPost(props: PageProps<"/blog/[slug]">) {
             <h1 className="t-h1 mt-5 max-w-[22ch]">{post.title}</h1>
             <p className="t-lede mt-6 max-w-2xl text-graphite">{post.description}</p>
             <PostMeta post={post} className="mt-6" />
+            {post.image && (
+              <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-[1.5rem] border border-line bg-fog">
+                <Image src={post.image} alt={post.imageAlt} fill priority sizes="(min-width: 1280px) 1200px, 100vw" className="object-cover" />
+              </div>
+            )}
           </div>
         </header>
 

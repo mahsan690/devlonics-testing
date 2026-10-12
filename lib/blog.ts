@@ -13,6 +13,8 @@ export type Post = {
   takeaways: string[];
   faqs: { q: string; a: string }[];
   related: string[];
+  image: string; // "" when the post has no featured image
+  imageAlt: string;
   toc: { id: string; text: string }[];
   words: number;
   readingMinutes: number;

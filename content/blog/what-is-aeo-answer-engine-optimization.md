@@ -3,6 +3,8 @@ title: "What Is AEO? How to Get Recommended by AI Search"
 description: "Answer engine optimization (AEO) explained: how ChatGPT, Google AI Overviews and Perplexity choose businesses to recommend, and practical steps to show up."
 date: 2026-10-11
 category: AI search
+cover: ai
+coverTone: dark
 keyword: what is aeo
 takeaways:
   - "AEO (answer engine optimization) means making your business easy for AI assistants to understand, trust and recommend."
