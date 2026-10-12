@@ -33,7 +33,7 @@ const body = `# Devlonic Solutions
 > Devlonic Solutions is a remote web design and development studio that builds websites, Shopify stores, apps and custom software for US service businesses and ecommerce brands, and runs SEO and paid ads (TikTok, Meta, Google) for them. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated WordPress and Shopify developer on Upwork with 6+ years of experience and 100+ websites and stores built.
 
 ## Key facts
-- Contact: info@devlonics.com, +1 (201) 471-3717
+- Contact: info@devlonics.com, +1 (773) 915-7523
 - Service area: United States (remote); clients also in the UK, UAE and Australia
 - Industries: HVAC, plumbing, roofing, cleaning, contractors, landscaping, home care and clinics, ecommerce and Shopify brands
 - No physical office; projects run remotely with calls in the client's time zone

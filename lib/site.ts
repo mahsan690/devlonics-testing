@@ -19,8 +19,8 @@ export const site = {
   // Every quote request is delivered to all of these inboxes.
   // LEAD_TO_EMAIL (comma-separated) in Vercel overrides this list.
   leadInboxes: ["info@devlonics.com", "m-ahsan@devlonics.com"],
-  phoneDisplay: "+1 (201) 471-3717",
-  phoneHref: "tel:+12014713717",
+  phoneDisplay: "+1 (773) 915-7523",
+  phoneHref: "tel:+17739157523",
   founder: {
     name: "Muhammad Ahsan",
     role: "Founder and lead developer",
