@@ -1,3 +1,32 @@
 {
-  "images": []
+  "images": [
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0008-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T195416Z&X-Amz-Expires=80672&X-Amz-Signature=8c1c60475356f2872e7b9f666f92b5e3e01a7d5755495ddd8b1268fea6104f27&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A18%3A48%20GMT",
+      "out": "public/blog/should-you-put-prices-on-your-website.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0009-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T084459Z&X-Amz-Expires=34251&X-Amz-Signature=d20abe723d271e8a17a8cc230ea29346c8f02dec44633f8e0e7df275f793dca8&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A15%3A50%20GMT",
+      "out": "public/blog/home-service-website-mistakes.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0010-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T180334Z&X-Amz-Expires=87641&X-Amz-Signature=7e870bee6d43b3cea67ea2d738c7992be789b5133b57e6ed3d08afbc6884f455&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A24%3A15%20GMT",
+      "out": "public/blog/ada-website-compliance-small-business.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0011-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T160040Z&X-Amz-Expires=9656&X-Amz-Signature=dd2487c7af33036acc7b725bb30441e81769e87ec664825bd9e3d3a603330aaf&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A41%3A36%20GMT",
+      "out": "public/blog/service-area-pages-seo.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0012-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T045908Z&X-Amz-Expires=49426&X-Amz-Signature=2a599aa23ae766adb30fdcb245ae402d64a31e3a54e38bcc0697a87844cef126&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A42%3A54%20GMT",
+      "out": "public/blog/core-web-vitals-small-business-website.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0013-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T151115Z&X-Amz-Expires=10597&X-Amz-Signature=95974bfd7713f69c0abe919f0896d775aa216735ee92351bb82fabc6368c4ab5&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A07%3A52%20GMT",
+      "out": "public/blog/angi-vs-thumbtack-vs-your-own-website.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0014-4951100760328950019.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T140311Z&X-Amz-Expires=14804&X-Amz-Signature=f6a5922fe35b582a32089a2f5918902ce4d724c7e520f4b92f6f6dc2f6d32833&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A09%3A55%20GMT",
+      "out": "public/blog/facebook-marketing-home-service-business.webp"
+    }
+  ]
 }
