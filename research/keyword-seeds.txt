@@ -1,0 +1,62 @@
+# One seed phrase per line. Pushing a change to this file runs the
+# "Keyword suggestions" workflow, which saves Google and Bing autocomplete
+# suggestions for every seed to research/keyword-suggestions.json.
+web design for small business
+web design for service businesses
+small business website design
+website design company
+web design agency
+fixed price website
+lead generation website
+lead generation website design
+home service website
+home service website design
+home service marketing
+contractor website
+contractor website design
+contractor marketing
+hvac website
+hvac website design
+hvac marketing
+plumbing website
+plumbing website design
+plumber marketing
+roofing website
+roofing website design
+roofing marketing
+cleaning business website
+cleaning company website
+cleaning business marketing
+landscaping website
+landscaping website design
+landscaping marketing
+home care agency website
+home care marketing
+shopify store development
+shopify developer
+shopify expert
+shopify store design
+shopify marketing agency
+woocommerce developer
+ecommerce website for small business
+app development for small business
+mobile app for small business
+custom software for small business
+custom crm for small business
+client portal for small business
+local seo for
+local seo for contractors
+local seo for small business
+seo for home service businesses
+google business profile
+google local services ads
+website design cost
+how much does a website cost
+how much does a small business website cost
+website redesign
+web design portfolio
+website examples for
+what should a website include
+how to get more leads for
+how to get more customers for
+answer engine optimization

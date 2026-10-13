@@ -1,0 +1,28 @@
+# Saves Google and Bing autocomplete suggestions for the seed phrases in
+# research/keyword-seeds.txt to research/keyword-suggestions.json.
+name: Keyword suggestions
+on:
+  push:
+    branches: [main]
+    paths: [research/keyword-seeds.txt]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  suggest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/keyword-suggestions.mjs
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/keyword-suggestions.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update keyword suggestions"
+          git pull --rebase origin main
+          git push
