@@ -1,0 +1,58 @@
+# Saves images exported from Canva into the site.
+#
+# Canva export links are temporary and can't be downloaded from the editing
+# environment, so they're listed in content/canva-imports.json as
+#   { "images": [ { "url": "<Canva export link>", "out": "public/blog/<slug>.webp" } ] }
+# and pushed. This workflow downloads each one, converts it to a 1600x900
+# WebP, commits the files and empties the list. Vercel then redeploys.
+name: Import Canva images
+on:
+  push:
+    branches: [main]
+    paths: [content/canva-imports.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: import-canva-images
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install WebP tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq webp jq > /dev/null
+      - name: Download and convert
+        run: |
+          set -euo pipefail
+          count=$(jq '.images | length' content/canva-imports.json)
+          echo "Images listed: $count"
+          [ "$count" -eq 0 ] && exit 0
+          mkdir -p /tmp/canva
+          for i in $(seq 0 $((count - 1))); do
+            url=$(jq -r ".images[$i].url" content/canva-imports.json)
+            out=$(jq -r ".images[$i].out" content/canva-imports.json)
+            host=$(echo "$url" | sed -E 's#^https://([^/]+)/.*#\1#')
+            case "$host" in
+              *.canva.com|canva.com|*.canva-web-media.com) ;;
+              *) echo "Skipping $out: $host isn't a Canva host"; continue ;;
+            esac
+            case "$out" in
+              public/blog/*.webp|public/services/*.webp|public/images/*.webp) ;;
+              *) echo "Skipping $out: not an allowed destination"; continue ;;
+            esac
+            curl -fsSL --retry 3 "$url" -o /tmp/canva/src
+            cwebp -quiet -q 82 -resize 1600 900 /tmp/canva/src -o "$out"
+            echo "Saved $out ($(du -h "$out" | cut -f1))"
+          done
+          echo '{ "images": [] }' | jq . > content/canva-imports.json
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public content/canva-imports.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Add images exported from Canva"
+          git pull --rebase origin main
+          git push
