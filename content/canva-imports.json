@@ -1,3 +1,24 @@
 {
-  "images": []
+  "images": [
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0002-5768504092321112338.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T174841Z&X-Amz-Expires=89357&X-Amz-Signature=a85d7f367340bff3baa1147ac645a28327eb61b218eddf3d7abe526976e69323&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A37%3A58%20GMT",
+      "out": "public/blog/speed-to-lead-home-service-businesses.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0003-5768504092321112338.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T010116Z&X-Amz-Expires=61807&X-Amz-Signature=aeca11a8bc8369f6fd9272e8dc0b5d7e917c6bd639236f73b11d6d29eff9de18&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A11%3A23%20GMT",
+      "out": "public/blog/local-services-ads-moving-to-google-ads.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0004-5768504092321112338.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T084458Z&X-Amz-Expires=36306&X-Amz-Signature=bb70ed2b401cd3323c2ba11d5c8e035dea9f62a3365da5bf6ed7319c3fd5ced9&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A50%3A04%20GMT",
+      "out": "public/blog/ai-overviews-local-search-service-businesses.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0005-5768504092321112338.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T054923Z&X-Amz-Expires=44012&X-Amz-Signature=3b831f587a55d49c99309cb1d73e670ccab10ceba14c646f6a315d6c0180c77a&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A02%3A55%20GMT",
+      "out": "public/blog/website-redesign-without-losing-seo.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0006-5768504092321112338.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T171813Z&X-Amz-Expires=92080&X-Amz-Signature=fc4f637b53d88080f1d866008ff2d0ca1a79b1b293ee7be8b9a055760c6c724a&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A52%3A53%20GMT",
+      "out": "public/blog/how-to-get-more-google-reviews.webp"
+    }
+  ]
 }
