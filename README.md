@@ -64,6 +64,24 @@ Your opening paragraph answers the headline directly...
 
 A post dated in the future stays hidden until a build runs on or after that date; `draft: true` hides it entirely. The build stops with a clear message if required fields are missing. `related` takes service or market slugs and shows them as links under the post.
 
+The build also checks every internal link in a post: a link to a page that doesn't exist, or to a post scheduled later than the one linking to it, stops the build and names the link.
+
+### Scheduled posts
+
+The **Publish scheduled posts** action (`.github/workflows/publish-scheduled-posts.yml`) runs every day at 12:05 UTC, which is 8:05 am Eastern and 5:05 pm in Pakistan. When posts are dated today it adds them to `content/blog/.published.log` and commits, which makes Vercel rebuild so they go live. It then waits until each new post answers on devlonics.com and submits the addresses to IndexNow (Bing and other IndexNow search engines), using the key file in `public/`. To publish by hand, open GitHub → Actions → Publish scheduled posts → Run workflow; leave the date empty for today.
+
+The 20-day calendar, the off-page SEO plan and a ready-to-paste LinkedIn post for each article are in the Devlonic Blog Calendar doc.
+
+### Cover images
+
+A featured image at `public/blog/<slug>.webp` (1600×900) is picked up automatically, and a post without one shows no image. `node scripts/make-covers.mjs` draws a simple brand illustration for any post that's missing one, using `cover` and `coverTone` from the frontmatter. Service page images live in `public/services/`.
+
+The covers are made in Canva. Canva export links are temporary, so they're brought in by the **Import Canva images** action: list each export link and destination in `content/canva-imports.json`, for example `{ "images": [ { "url": "<Canva export link>", "out": "public/blog/my-post.webp" } ] }`, and push. The action downloads from Canva hosts only, converts each image to WebP, commits it and empties the list.
+
+## Keyword research
+
+`research/keyword-seeds.txt` holds seed phrases, one per line. Pushing a change to it runs the **Keyword suggestions** action, which collects Google and Bing autocomplete suggestions for every seed into `research/keyword-suggestions.json` and commits the file. The page-by-page keyword map is in the Devlonic SEO Keyword Map doc.
+
 ## Environment variables (Vercel → Project → Settings → Environment Variables)
 
 | Variable | Needed? | Purpose |
