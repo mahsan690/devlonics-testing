@@ -8,7 +8,7 @@ import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Website Design Pricing: Fixed Quotes",
+  title: "Website Design Cost for Small Businesses (2026)",
   description: `How much a website costs, what drives the price, and how Devlonic quotes websites, Shopify stores and software: a fixed price in writing within ${site.quoteTurnaround}.`,
   alternates: { canonical: "/pricing" },
 };
@@ -44,7 +44,7 @@ export default function PricingPage() {
 
       <section className="border-t border-line py-16 md:py-20" aria-labelledby="cost">
         <div className="wrap grid gap-8 lg:grid-cols-12">
-          <h2 id="cost" className="t-h2 lg:col-span-5">How much does a website cost?</h2>
+          <h2 id="cost" className="t-h2 lg:col-span-5">How much does a small business website cost in 2026?</h2>
           <div className="lg:col-span-7">
             <p className="t-lede">
               Pricing guides published in 2026 put freelancer-built small business websites at roughly $500 to $5,000 and agency
@@ -79,7 +79,7 @@ export default function PricingPage() {
 
       <section className="bg-ink py-20 text-paper md:py-28">
         <div className="wrap">
-          <h2 className="t-h2 max-w-3xl">Most projects fall into one of four shapes</h2>
+          <h2 className="t-h2 max-w-3xl">Website design packages: the four most common projects</h2>
           <div className="mt-12 grid gap-px overflow-hidden rounded-[1.5rem] bg-white/15 md:grid-cols-2">
             {shapes.map((s) => (
               <div key={s.name} className="bg-ink p-8">
@@ -97,7 +97,7 @@ export default function PricingPage() {
 
       <section className="py-20 md:py-28">
         <div className="wrap grid gap-12 lg:grid-cols-12">
-          <h2 className="t-h2 lg:col-span-4">Pricing questions</h2>
+          <h2 className="t-h2 lg:col-span-4">Website pricing questions</h2>
           <div className="lg:col-span-8"><FaqList faqs={pricingFaqs} /></div>
         </div>
       </section>

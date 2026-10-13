@@ -35,8 +35,8 @@ export default function Home() {
         <div className="wrap">
           <div id="what-we-build">
             <SectionHead
-              title="What we build"
-              lede="Six services that help service businesses and online stores win more customers. Each one has its own model: drag it to spin."
+              title="Web design services for small businesses"
+              lede="Six services that help service businesses and online stores win more customers: lead generation websites, small business websites, Shopify stores, apps, custom software and local SEO. Each one has its own model: drag it to spin."
             />
           </div>
           <div className="mt-12">
@@ -48,7 +48,7 @@ export default function Home() {
       <section className="bg-fog py-20 md:py-28" aria-labelledby="recent-work">
         <div className="wrap">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <div id="recent-work"><SectionHead title="Recent work" lede="A few of the Shopify and WordPress projects we've delivered this year." /></div>
+            <div id="recent-work"><SectionHead title="Recent website design work" lede="Shopify stores and small business websites we've delivered this year." /></div>
             <Link href="/work" className="btn btn-ghost shrink-0">See all projects</Link>
           </div>
           <div className="mt-12 grid gap-x-6 gap-y-12 md:grid-cols-2">
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-28" id="how-it-works">
-              <SectionHead title="How it works" lede="From a two-minute form to a website that brings in work. You know the price and the timeline before anything starts." />
+              <SectionHead title="How fixed-price website design works" lede="From a two-minute form to a website that brings in work. You know the price and the timeline before anything starts." />
               <Link href="/contact" data-magnetic className="btn btn-signal mt-8">Start with the form</Link>
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Home() {
             <div id="markets-we-serve">
               <SectionHead
                 title="Markets we serve"
-                lede="Each industry has its own customers, questions and buying habits. We build for the way yours actually buys."
+                lede="Website design and marketing for HVAC, plumbing, roofing, cleaning, contractors, landscaping, home care and Shopify brands. Each industry buys differently, so we build for the way yours does."
               />
             </div>
             <Link href="/markets" className="btn btn-ghost shrink-0">All markets</Link>
@@ -95,7 +95,7 @@ export default function Home() {
           <div className="wrap">
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
               <div id="from-the-blog">
-                <SectionHead title="From the blog" lede="Straight answers on website costs, local SEO, AI search and Shopify." />
+                <SectionHead title="Web design and local SEO guides" lede="Straight answers on website costs, local SEO, AI search and Shopify, plus the problems service businesses are facing right now." />
               </div>
               <Link href="/blog" className="btn btn-ghost shrink-0">All guides</Link>
             </div>
@@ -109,7 +109,7 @@ export default function Home() {
       <section className="bg-fog py-20 md:py-28" aria-labelledby="faq">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4" id="faq">
-            <SectionHead title="Common questions" />
+            <SectionHead title="Web design questions, answered" />
             <p className="mt-5 text-graphite">
               Something else on your mind? <Link href="/contact" className="link text-ink">Ask us directly</Link>.
             </p>

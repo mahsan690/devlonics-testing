@@ -32,7 +32,7 @@ export default function AboutPage() {
       <JsonLd data={[breadcrumbSchema(crumbs), personSchema()]} />
       <PageHero
         crumbs={crumbs}
-        title="About Devlonic: a web design studio for service businesses and Shopify brands."
+        title="About Devlonic: a web design agency for US service businesses and Shopify brands."
         lede={`Devlonic Solutions designs and builds websites, online stores, apps and custom software. We're a remote team led by ${site.founder.name}, working with service businesses and ecommerce brands across the US.`}
       />
 

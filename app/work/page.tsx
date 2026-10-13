@@ -11,17 +11,17 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Web Design Portfolio: Shopify and WordPress",
   description:
-    "Our web design portfolio: Shopify stores, WordPress websites and apps for service businesses and ecommerce brands, plus our Gladiolaz Shopify case study.",
+    "Our web design portfolio: small business website examples, Shopify stores and apps for service businesses and ecommerce brands, plus a Shopify case study.",
   alternates: { canonical: "/work" },
 };
 
 const crumbs = [{ name: "Home", path: "/" }, { name: "Work", path: "/work" }];
 
 const groups = [
-  { title: "Service businesses", tags: ["services", "health"] },
-  { title: "Online stores", tags: ["store"] },
-  { title: "Brands and agencies", tags: ["brand"] },
-  { title: "Apps and software", tags: ["app", "software"] },
+  { title: "Service business website examples", tags: ["services", "health"] },
+  { title: "Shopify and ecommerce store examples", tags: ["store"] },
+  { title: "Brand and agency websites", tags: ["brand"] },
+  { title: "Apps and custom software", tags: ["app", "software"] },
 ] as const;
 
 export default function WorkPage() {
@@ -34,8 +34,8 @@ export default function WorkPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        title="Our work."
-        lede="Shopify stores, WordPress websites, apps and dashboards for service businesses, ecommerce brands and agencies."
+        title="Web design portfolio: websites, Shopify stores and apps."
+        lede="Small business website examples, Shopify stores, apps and dashboards we've built for service businesses, ecommerce brands and agencies."
       />
 
       <section className="pb-8">
@@ -69,7 +69,7 @@ export default function WorkPage() {
 
       <section className="py-16 md:py-20">
         <div className="wrap">
-          <h2 className="t-h2">This year</h2>
+          <h2 className="t-h2">2026 website and Shopify projects</h2>
           <p className="t-lede mt-4 max-w-2xl text-graphite">Shopify and WordPress projects from 2026.</p>
           <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
             {thisYear.map((p, i) => <WorkTile key={p.file} project={p} priority={i < 3} />)}

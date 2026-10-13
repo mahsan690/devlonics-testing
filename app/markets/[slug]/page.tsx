@@ -7,6 +7,7 @@ import { PostCard } from "@/components/BlogParts";
 import { JsonLd } from "@/components/JsonLd";
 import { TestimonialDeck } from "@/components/TestimonialDeck";
 import { getMarket, markets } from "@/lib/markets";
+import { marketGrowth } from "@/lib/market-growth";
 import { getService, type Service } from "@/lib/services";
 import { postsBySlugs } from "@/lib/blog";
 import { projectsFor } from "@/lib/work";
@@ -46,11 +47,14 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
   const work = projectsFor(m.workTags, 3);
   const quoteHref = `/contact?industry=${m.wizard}${m.slug === "ecommerce" ? "&need=store" : ""}`;
   const relatedServices = m.relatedServices.map(getService).filter((x): x is Service => Boolean(x));
-  const guides = postsBySlugs(m.relatedPosts);
+  const growth = marketGrowth[m.slug];
+  const faqs = [...m.faqs, ...(growth?.faqs ?? [])];
+  // Trade-specific guides first; postsBySlugs skips posts not yet published.
+  const guides = postsBySlugs([...new Set([...(growth?.posts ?? []), ...m.relatedPosts])]).slice(0, 6);
 
   return (
     <>
-      <JsonLd data={[breadcrumbSchema(crumbs), marketServiceSchema(m), faqSchema([m.answer, ...m.faqs])]} />
+      <JsonLd data={[breadcrumbSchema(crumbs), marketServiceSchema(m), faqSchema([m.answer, ...faqs])]} />
       <section className="bg-paper pb-14 pt-28 md:pb-20 md:pt-36">
         <div className="wrap grid gap-12 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
@@ -76,7 +80,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
         <div className="wrap">
           <div className="flex items-start gap-5">
             <MarketIcon icon={m.icon} className="mt-1 hidden h-12 w-12 shrink-0 text-signal sm:block" />
-            <h2 className="t-h2 max-w-3xl">What gets in the way</h2>
+            <h2 className="t-h2 max-w-3xl">{m.slug === "ecommerce" ? "Why Shopify stores lose sales" : `Why ${lower(m.name)} lose calls online`}</h2>
           </div>
           <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-3">
             {m.problems.map((p) => (
@@ -103,6 +107,29 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
           </div>
         </div>
       </section>
+
+      {growth && (
+        <section className="border-t border-line bg-fog py-20 md:py-28">
+          <div className="wrap">
+            <div className="grid gap-8 lg:grid-cols-12">
+              <h2 className="t-h2 lg:col-span-5">{growth.heading}</h2>
+              <p className="t-lede text-graphite lg:col-span-7">{growth.intro}</p>
+            </div>
+            <ol className="mt-12 grid gap-5 md:grid-cols-2">
+              {growth.points.map((pt, i) => (
+                <li key={pt.title} className="rounded-[1.5rem] bg-paper p-7">
+                  <span className="font-display text-sm font-bold text-signal">{String(i + 1).padStart(2, "0")}</span>
+                  <h3 className="t-h3 mt-3">{pt.title}</h3>
+                  <p className="mt-2 text-graphite">{pt.body}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-10 text-graphite">
+              We handle this through our <Link href="/services/seo-and-marketing" className="link text-ink">SEO and marketing service</Link>, alongside the website.
+            </p>
+          </div>
+        </section>
+      )}
 
       {work.length > 0 && (
         <section className="bg-fog py-20 md:py-28">
@@ -152,7 +179,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
       <section className="bg-fog py-20 md:py-28">
         <div className="wrap grid gap-12 lg:grid-cols-12">
           <h2 className="t-h2 lg:col-span-4">{m.keyword.charAt(0).toUpperCase() + m.keyword.slice(1)}: common questions</h2>
-          <div className="lg:col-span-8"><FaqList faqs={m.faqs} /></div>
+          <div className="lg:col-span-8"><FaqList faqs={faqs} /></div>
         </div>
       </section>
 

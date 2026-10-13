@@ -64,6 +64,7 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "What should a home service website include?", a: "Your phone number one tap away on every page, a short quote form, the towns you serve, your hours, real reviews and photos, license and insurance details, a page for each service and a short FAQ. Most leads are lost when one of these is missing." },
       { q: "Is a lead generation website better than buying leads from Angi or Thumbtack?", a: "They do different jobs. Lead apps can fill gaps, but the same lead often goes to several pros and you pay whether or not you win the job. Your own site brings in enquiries only you receive, and the cost per lead falls as it ranks." },
+      { q: "Do you build lead generation websites for roofers and remodelers?", a: "Yes. Roofers, remodelers, HVAC companies, plumbers, cleaners and landscapers are the businesses we build lead generation websites for most. Each gets pages for its own job types and towns, plus forms tuned to the details that trade needs, such as photos of the damage or the room." },
     ],
   },
 
@@ -109,6 +110,7 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "How long does a small business website take to build?", a: "Most launch in three to six weeks from an approved design. The biggest factor is usually how quickly content, photos and feedback come back." },
       { q: "Do you offer website redesign services?", a: "Yes. We redesign existing sites on WordPress, Shopify or custom code, keep the URLs that already rank, redirect the rest and check Search Console after launch." },
+      { q: "How much does a website redesign cost?", a: "It depends on how many pages move across, whether the content is rewritten, and what features are added. We quote every redesign as a fixed price, and it always includes redirects from your old addresses so you keep the Google rankings you've earned." },
     ],
   },
 
@@ -153,6 +155,7 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "Do I need a Shopify developer, or can I set it up myself?", a: "You can launch a simple store yourself. A Shopify developer earns their fee when you need a custom theme, a large product import, integrations with suppliers or apps, or tracking set up correctly for ads." },
       { q: "How do I reduce cart abandonment on Shopify?", a: "Show shipping costs and delivery times before checkout, allow guest checkout, offer express wallets like Shop Pay and Apple Pay, put reviews and your returns policy near the buy button, and send an abandoned-cart email within a few hours." },
+      { q: "How much does Shopify store development cost?", a: "It depends on whether you start from a theme or need a custom design, how many products and integrations you have, and whether you need dropshipping or fulfilment set up. We send a fixed price in writing after a short questionnaire." },
     ],
   },
 
@@ -196,6 +199,7 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "How much does app development cost for a small business?", a: "It depends on the screens, the integrations and whether you need iPhone, Android or both. We break it into phases with a fixed price for each, so you can launch a first version and spread the cost." },
       { q: "Do you build web apps as well as mobile apps?", a: "Yes. Many projects start as a web app, such as a customer portal or booking tool, and add mobile apps once customers are using it." },
+      { q: "Does a small business need a mobile app?", a: "Often not at first. If customers mainly need to find you, book or buy, a fast website does the job. An app earns its cost when people use it repeatedly, for example for bookings, loyalty, ordering or a client portal, or when your team needs a tool in the field." },
     ],
   },
 
@@ -239,6 +243,7 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "How much does custom software cost?", a: "It depends on the users, the workflows and the integrations. We scope the first phase around the most painful problem and give a fixed price for it, so you see value before committing to more." },
       { q: "What technology do you build custom software with?", a: "Mostly Laravel (PHP) and Next.js with MySQL or PostgreSQL, hosted on reliable cloud infrastructure. The code is yours if you ever want to move it." },
+      { q: "Is a custom CRM better than an off-the-shelf CRM for a small business?", a: "Start with an off-the-shelf CRM if it fits how you sell. A custom CRM makes sense when you're paying for many seats you don't use, bending your process to fit the software, or copying data between tools by hand. We'll tell you honestly which side you're on." },
     ],
   },
 
@@ -286,6 +291,8 @@ export const landing: Record<string, ServiceLanding> = {
     moreFaqs: [
       { q: "What do local SEO services include each month?", a: "Google Business Profile updates and posts, review requests and replies, new or improved service and area pages, technical fixes, citation clean-up and a monthly report of rankings, calls and leads." },
       { q: "Do you manage Google Local Services Ads?", a: "Yes. We set up and optimize Local Services Ads alongside Google Ads, tighten service areas and job types, and review charged leads each month." },
+      { q: "Do you do local SEO for HVAC and roofing contractors?", a: "Yes. Local SEO for HVAC contractors, roofers, plumbers and other home service companies is most of our SEO work: Google Business Profile optimization, review growth, service and town pages, and tracking calls from search." },
+      { q: "Do you offer answer engine optimization services?", a: "Yes. Our answer engine optimization (AEO) work makes your business easy for AI assistants to understand and cite: clear answers to common questions on your pages, consistent business details across the web, structured data, and reviews and mentions on trusted sites." },
     ],
   },
 };

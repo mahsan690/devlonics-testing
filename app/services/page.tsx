@@ -7,9 +7,9 @@ import { services } from "@/lib/services";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Web Design, Shopify and SEO Services",
+  title: "Web Design Services for Small Businesses",
   description:
-    "Web design services for service businesses and ecommerce brands: lead generation websites, Shopify stores, apps, custom software, local SEO and ads. Fixed price.",
+    "Web design services for small businesses and ecommerce brands: lead generation websites, Shopify stores, apps, custom software, local SEO and ads. Fixed price.",
   alternates: { canonical: "/services" },
 };
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        title="Web design, Shopify and SEO services for growing businesses."
+        title="Web design services for small businesses: websites, Shopify stores, apps and SEO."
         lede="Six services, one team. Pick the one that fits, or tell us what you're trying to achieve and we'll recommend where to start. Every project gets a fixed price before work begins."
       >
         <Link href="/contact?need=unsure" data-magnetic className="btn btn-signal mt-8">Help me choose</Link>

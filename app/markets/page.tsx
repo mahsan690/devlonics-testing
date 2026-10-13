@@ -20,7 +20,7 @@ export default function MarketsPage() {
       <PageHero
         crumbs={crumbs}
         title="Websites built for the way your industry buys."
-        lede="A homeowner with a burst pipe, a family choosing home care and a shopper comparing jewelry all decide differently. Pick your market to see what we build for it."
+        lede="Website design and marketing for HVAC companies, plumbers, roofers, cleaning companies, contractors, landscapers, home care agencies and Shopify brands. A homeowner with a burst pipe and a family choosing home care decide differently, so pick your market to see what we build for it."
       />
       <section className="pb-20 md:pb-28">
         <div className="wrap"><MarketsGrid /></div>

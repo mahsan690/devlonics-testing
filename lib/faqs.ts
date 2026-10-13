@@ -34,6 +34,10 @@ export const homeFaqs: Faq[] = [
     a: "Technical SEO is included on every site: fast loading, unique page titles and descriptions, schema markup, an XML sitemap and Google Search Console setup. Ongoing local SEO, content and AI search optimization are available as a monthly service.",
   },
   {
+    q: "What makes a good website for a service business?",
+    a: "A good service business website makes the next step obvious on every page: your phone number one tap away, a short quote form, the services and towns you cover, real reviews and photos, and clear answers to common questions. It loads fast on a phone and tracks every call and form, so you can see what it earns.",
+  },
+  {
     q: "Are you a local web design agency?",
     a: `We're a remote web design studio led by ${site.founder.name}, serving businesses across the US. Remote work keeps prices lower, and you still get one point of contact, calls scheduled in your time zone and written progress updates.`,
   },
@@ -43,6 +47,10 @@ export const pricingFaqs: Faq[] = [
   {
     q: "Why don't you publish a price list?",
     a: "Because two 'five-page websites' can be very different jobs. A fixed quote based on what you need is fairer than a package you have to squeeze into, and it only takes a couple of minutes to request one.",
+  },
+  {
+    q: "Do you offer small business website design packages?",
+    a: "We quote each project individually rather than selling fixed packages, but most fall into four common shapes: a landing page, a service business website, an online store, or an app or custom software build. Each quote lists exactly what's included, the price and the timeline.",
   },
   {
     q: "Is the budget I enter in the quote form binding?",

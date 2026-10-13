@@ -43,7 +43,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "HVAC Website Design That Books More Calls",
     metaDescription:
-      "HVAC website design for heating and cooling companies: emergency tap-to-call, service-area pages, maintenance plan sign-ups and local SEO. Fixed price.",
+      "HVAC website design and marketing for heating and cooling companies: emergency tap-to-call, service-area pages, local SEO and ads that book calls. Fixed price.",
     heroTitle: "HVAC website design that books calls in peak season.",
     heroLede:
       "When the AC dies in July or the furnace quits in January, homeowners call the first company that looks reliable and answers fast. We design HVAC websites that make you that company, and keep the schedule full between heat waves.",
@@ -85,7 +85,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "Plumbing Website Design for Plumbers",
     metaDescription:
-      "Plumbing website design that turns emergency searches into calls: sticky call bar, pages for every job type, service-area pages and local SEO. Fixed price.",
+      "Plumbing website design services and plumber marketing: a sticky call bar, a page for every job, service-area pages and local SEO that turn searches into calls.",
     heroTitle: "Plumbing website design built for the 2am call.",
     heroLede:
       "Nobody shops around with water on the floor. They call the plumber who looks trustworthy and is easy to reach. We build plumbing websites that win those calls, then help you land the bigger jobs: water heaters, repipes and remodels.",
@@ -127,7 +127,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "Roofing Website Design That Books Inspections",
     metaDescription:
-      "Roofing website design that wins trust and books inspections: storm damage pages, project galleries, financing, service-area pages and local SEO. Fixed price.",
+      "Roofing website design and roofing marketing that book inspections: storm damage pages, project galleries, financing, service-area pages and local SEO.",
     heroTitle: "Roofing website design that turns storm searches into inspections.",
     heroLede:
       "Roof replacements are expensive and homeowners are wary of storm chasers. The roofer who looks established, local and honest gets the inspection. We design roofing websites that earn that trust before the first call.",
@@ -169,7 +169,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "Cleaning Company Website Design",
     metaDescription:
-      "Cleaning company website design with instant quote forms, online booking, recurring plans and local SEO, for residential and commercial cleaners. Fixed price.",
+      "Cleaning company website design and marketing: instant quotes, online booking, recurring plans and local SEO for home and commercial cleaners. Fixed price.",
     heroTitle: "Cleaning company website design that fills the calendar.",
     heroLede:
       "People choosing a cleaner want to know three things: the price, whether they can trust you in their home, and when you can come. We design cleaning websites that answer all three and let customers book on the spot.",
@@ -211,7 +211,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "Contractor Website Design for Remodelers",
     metaDescription:
-      "Contractor website design for general contractors, remodelers, concrete and flooring pros: project galleries, quote forms with photos, credentials and local SEO.",
+      "Contractor website design and marketing for general contractors and remodelers: project galleries, quote forms with photos, credentials and local SEO.",
     heroTitle: "Contractor website design that sells the next project.",
     heroLede:
       "Remodels, additions, concrete and flooring jobs are big decisions. Clients compare portfolios, check credentials and want to know you'll show up. We build contractor websites that do the selling before the site visit.",
@@ -253,7 +253,7 @@ export const markets: Market[] = [
     workTags: ["services"],
     metaTitle: "Landscaping and Lawn Care Website Design",
     metaDescription:
-      "Landscaping and lawn care website design: seasonal service pages, project galleries, maintenance plan sign-ups, quote forms and local SEO. Fixed price.",
+      "Landscaping and lawn care website design and marketing: seasonal service pages, project galleries, maintenance plans, quote forms and local SEO. Fixed price.",
     heroTitle: "Landscaping website design that grows with the seasons.",
     heroLede:
       "Spring clean-ups, summer maintenance, fall leaf removal, winter snow work: your services change with the calendar, and so do the searches. We design landscaping websites that show the right offer at the right time and turn one-off jobs into maintenance contracts.",
@@ -295,7 +295,7 @@ export const markets: Market[] = [
     workTags: ["health"],
     metaTitle: "Home Care Agency and Clinic Website Design",
     metaDescription:
-      "Home care agency and medical clinic website design: clear services, family inquiry forms, caregiver recruiting pages, online check-in and local SEO.",
+      "Home care agency, home health and clinic website design: clear services, family inquiry forms, caregiver recruiting pages, online check-in and local SEO.",
     heroTitle: "Home care agency and clinic website design people trust.",
     heroLede:
       "Families choosing care for a parent, and patients choosing a clinic, need reassurance before anything else. We design calm, clear websites that explain your services, show your credentials and make the next step easy.",
