@@ -81,6 +81,16 @@ async function main() {
   const errors = [];
   const posts = [];
 
+  // Internal links must point at pages that exist on the day the post goes
+  // live: a post can't link to another post scheduled after it.
+  const dates = {};
+  for (const file of files) {
+    const { data } = matter(await readFile(join(contentDir, file), "utf8"));
+    if (data.draft !== true) dates[basename(file, ".md")] = toDateString(data.date);
+  }
+  const slugsIn = async (file) => [...(await readFile(join(root, file), "utf8")).matchAll(/^\s{4}slug: "([a-z0-9-]+)"/gm)].map((m) => m[1]);
+  const pages = { services: await slugsIn("lib/services.ts"), markets: await slugsIn("lib/markets.ts") };
+
   for (const file of files) {
     const slug = basename(file, ".md");
     const raw = await readFile(join(contentDir, file), "utf8");
@@ -96,6 +106,15 @@ async function main() {
     if (fm.updated && !isDate(fm.updated)) errors.push(`${where}: "updated" must be YYYY-MM-DD`);
     if (!Array.isArray(fm.takeaways) || fm.takeaways.length < 1) errors.push(`${where}: add at least one "takeaways" bullet`);
     if (fm.faqs && (!Array.isArray(fm.faqs) || fm.faqs.some((f) => !f?.q || !f?.a))) errors.push(`${where}: each faq needs "q" and "a"`);
+
+    for (const [, section, target] of content.matchAll(/\]\(\/(blog|services|markets)\/([a-z0-9-]+)\)/g)) {
+      if (section === "blog" && !(target in dates)) errors.push(`${where}: links to /blog/${target}, which doesn't exist`);
+      else if (section === "blog" && dates[target] > fm.date) errors.push(`${where}: links to /blog/${target}, which isn't published until ${dates[target]}`);
+      else if (section !== "blog" && !pages[section].includes(target)) errors.push(`${where}: links to /${section}/${target}, which doesn't exist`);
+    }
+    for (const r of fm.related || []) {
+      if (![...pages.services, ...pages.markets].includes(r)) errors.push(`${where}: related "${r}" isn't a service or market slug`);
+    }
 
     if (fm.draft === true || (isDate(fm.date) && fm.date > today)) continue;
 
