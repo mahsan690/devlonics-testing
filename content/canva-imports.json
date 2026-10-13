@@ -1,3 +1,36 @@
 {
-  "images": []
+  "images": [
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0023-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T093140Z&X-Amz-Expires=32494&X-Amz-Signature=0b4e2da0e4035c138f43794cc3a4d5fd63d4243a37a205322f76e00aa404644d&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A33%3A14%20GMT",
+      "out": "public/blog/roofing-leads-after-storms.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0024-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T005502Z&X-Amz-Expires=64081&X-Amz-Signature=a237bb8474591b1c5572618d5b60cc9aaeb5f5ff76794457bbfaff35f28f0061&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A43%3A03%20GMT",
+      "out": "public/blog/cleaning-business-marketing-recurring-clients.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0025-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T124727Z&X-Amz-Expires=20828&X-Amz-Signature=3cf18e5b306f4d81bddbac50b16579538a5d70d4b810434f60e9dc36bcd1d203&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A34%3A35%20GMT",
+      "out": "public/blog/home-care-agency-marketing.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0026-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T184558Z&X-Amz-Expires=87112&X-Amz-Signature=a20fe88af94f95de897b7e1589decaab3678bf44f668dc0d7cca4b64837611f7&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A57%3A50%20GMT",
+      "out": "public/blog/landscaping-marketing-ideas.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0027-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261012%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261012T210556Z&X-Amz-Expires=76064&X-Amz-Signature=5ef42e31fac771b28dce9237ee82a0f9e4d8d09dbdacdc06fee4345687e883b4&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A13%3A40%20GMT",
+      "out": "public/blog/contractor-website-remodeling-leads.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0028-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T125544Z&X-Amz-Expires=21205&X-Amz-Signature=69d092652e76df538262929acc34e3fb91541732ab467d908ed48f6f0b59bf97&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A49%3A09%20GMT",
+      "out": "public/blog/shopify-store-not-selling.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0029-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T033740Z&X-Amz-Expires=53934&X-Amz-Signature=5e0c8d87febc845403fed7d5ce19251e54c7a1408286c6a0880c68266ed04e75&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A36%3A34%20GMT",
+      "out": "public/blog/tiktok-ads-for-shopify-small-budget.webp"
+    },
+    {
+      "url": "https://export-download.canva.com/fLa8o/DAHX6OfLa8o/-1/0/0030-7806382927960238627.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20261013%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261013T101130Z&X-Amz-Expires=29364&X-Amz-Signature=71bfb83962cd7c017b5ec137c2eaf4efb27685467d948a973736605ec7796bba&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Tue%2C%2013%20Oct%202026%2018%3A20%3A54%20GMT",
+      "out": "public/blog/measure-website-roi-call-tracking-ga4.webp"
+    }
+  ]
 }
