@@ -68,7 +68,9 @@ The build also checks every internal link in a post: a link to a page that doesn
 
 ### Scheduled posts
 
-The **Publish scheduled posts** action (`.github/workflows/publish-scheduled-posts.yml`) runs every day at 12:05 UTC, which is 8:05 am Eastern and 5:05 pm in Pakistan. When posts are dated today it adds them to `content/blog/.published.log` and commits, which makes Vercel rebuild so they go live. It then waits until each new post answers on devlonics.com and submits the addresses to IndexNow (Bing and other IndexNow search engines), using the key file in `public/`. To publish by hand, open GitHub → Actions → Publish scheduled posts → Run workflow; leave the date empty for today.
+The **Publish scheduled posts** action (`.github/workflows/publish-scheduled-posts.yml`) runs from 12:05 UTC, which is 8:05 am Eastern and 5:05 pm in Pakistan. It checks every post dated in the last seven days, and any that isn't live yet is added to `content/blog/.published.log` and committed, which makes Vercel rebuild so it goes live. It then waits until each new post answers on devlonics.com and submits the addresses to IndexNow (Bing and other IndexNow search engines), using the key file in `public/`.
+
+GitHub sometimes starts scheduled runs hours late or skips them, so the check also runs at 13:35, 16:20 and 19:50 UTC. Those runs find everything live and stop without committing, unless an earlier one didn't happen. To publish by hand, open GitHub → Actions → Publish scheduled posts → Run workflow; leave the date empty to catch up on anything due.
 
 The 20-day calendar, the off-page SEO plan and a ready-to-paste LinkedIn post for each article are in the Devlonic Blog Calendar doc.
 

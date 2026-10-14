@@ -1,11 +1,15 @@
 # Publishes scheduled blog posts.
 #
 # Posts dated in the future stay hidden until a build runs on or after their
-# date (scripts/build-content.mjs). Every morning (12:05 UTC, 8:05 am New York
-# in summer) this checks for posts dated today. If there are any, it records
-# them in content/blog/.published.log and pushes, which makes Vercel rebuild
-# and publish them. It then waits for each new page to go live and submits it
-# to IndexNow (Bing, Yandex, Seznam, Naver) so it's crawled within hours.
+# date (scripts/build-content.mjs). From 12:05 UTC (8:05 am New York in
+# summer) this checks every post dated in the last seven days. Any that isn't
+# live yet is recorded in content/blog/.published.log and pushed, which makes
+# Vercel rebuild and publish it. It then waits for each new page to go live
+# and submits it to IndexNow (Bing, Yandex, Seznam, Naver).
+#
+# GitHub can start scheduled runs hours late or skip them when it's busy, so
+# the check runs four times a day. Runs after the first find everything live
+# and stop without committing, and a skipped day is caught up on the next run.
 #
 # Run it by hand from the Actions tab too: leave "date" empty for today, or
 # tick "submit_all" to send every published post and page to IndexNow.
@@ -13,6 +17,9 @@ name: Publish scheduled posts
 on:
   schedule:
     - cron: "5 12 * * *"
+    - cron: "35 13 * * *"
+    - cron: "20 16 * * *"
+    - cron: "50 19 * * *"
   workflow_dispatch:
     inputs:
       date:
@@ -39,15 +46,26 @@ jobs:
         with:
           node-version: 22
 
-      - name: Find posts due today
+      - name: Find posts that are due but not live
         id: due
         run: |
           DAY="${{ github.event.inputs.date }}"
-          [ -z "$DAY" ] && DAY=$(date -u +%F)
-          SLUGS=$(node scripts/scheduled-posts.mjs due "$DAY" | tr '\n' ' ' | xargs)
+          if [ -n "$DAY" ]; then
+            # Run by hand for a specific date: publish that day's posts.
+            SLUGS=$(node scripts/scheduled-posts.mjs due "$DAY" | tr '\n' ' ' | xargs)
+          else
+            DAY=$(date -u +%F)
+            SLUGS=""
+            for slug in $(node scripts/scheduled-posts.mjs recent 7); do
+              code=$(curl -s -o /dev/null -w "%{http_code}" "$SITE/blog/$slug")
+              echo "$slug: $code"
+              [ "$code" = "200" ] || SLUGS="$SLUGS $slug"
+            done
+            SLUGS=$(echo "$SLUGS" | xargs)
+          fi
           echo "day=$DAY" >> "$GITHUB_OUTPUT"
           echo "slugs=$SLUGS" >> "$GITHUB_OUTPUT"
-          echo "Posts dated $DAY: ${SLUGS:-none}"
+          echo "To publish on $DAY: ${SLUGS:-none}"
 
       - name: Trigger a rebuild
         if: steps.due.outputs.slugs != ''
