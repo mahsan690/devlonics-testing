@@ -14,7 +14,7 @@ export const site = {
   url: resolveSiteUrl(),
   tagline: "Built to convert.",
   description:
-    "Web design and Shopify development for US service businesses and ecommerce brands: lead generation websites, online stores, local SEO and ads. Fixed price.",
+    "Web design, Shopify development and AI automation for US service businesses and ecommerce brands: lead generation websites, AI agents and local SEO.",
   email: "info@devlonics.com",
   // Every quote request is delivered to all of these inboxes.
   // LEAD_TO_EMAIL (comma-separated) in Vercel overrides this list.
@@ -56,6 +56,7 @@ export const isIndexable = (() => {
 export const nav = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/ai", label: "AI automation" },
   { href: "/work", label: "Work" },
   { href: "/pricing", label: "Pricing" },
   { href: "/markets", label: "Markets we serve" },

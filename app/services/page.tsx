@@ -4,12 +4,13 @@ import { CtaBand, PageHero } from "@/components/Blocks";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceStage3D } from "@/components/ServiceStage3D";
 import { services } from "@/lib/services";
+import { aiCaseStudies, aiOffers, aiListing } from "@/lib/ai";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Web Design Services for Small Businesses",
   description:
-    "Web design services for small businesses and ecommerce brands: lead generation websites, Shopify stores, apps, custom software, local SEO and ads. Fixed price.",
+    "Web design services for small businesses and ecommerce brands: lead generation websites, Shopify stores, apps, custom software, SEO and AI automation.",
   alternates: { canonical: "/services" },
 };
 
@@ -21,8 +22,8 @@ export default function ServicesPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        title="Web design services for small businesses: websites, Shopify stores, apps and SEO."
-        lede="Six services, one team. Pick the one that fits, or tell us what you're trying to achieve and we'll recommend where to start. Every project gets a fixed price before work begins."
+        title="Web design services for small businesses: websites, Shopify stores, apps, SEO and AI."
+        lede="Seven services, one team. Pick the one that fits, or tell us what you're trying to achieve and we'll recommend where to start. Every project gets a fixed price before work begins."
       >
         <Link href="/contact?need=unsure" data-magnetic className="btn btn-signal mt-8">Help me choose</Link>
       </PageHero>
@@ -48,6 +49,25 @@ export default function ServicesPage() {
               </div>
             </article>
           ))}
+
+          <article className="grid items-center gap-10 border-t border-line pt-12 lg:grid-cols-12">
+            <div className="lg:col-span-6">
+              <span className="inline-block rounded-full bg-signal px-3 py-1 text-sm font-semibold text-ink">New</span>
+              <h2 className="t-h2 mt-4">{aiListing.name}</h2>
+              <p className="t-lede mt-5 text-graphite">{aiListing.short}</p>
+              <ul className="ray-list mt-6 space-y-2.5">
+                {aiOffers.map((o) => <li key={o.id}>{o.title}</li>)}
+              </ul>
+              <p className="mt-6 text-sm text-graphite">{aiCaseStudies.length} case studies. Most single agents and workflows go live in one to three weeks.</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link href="/ai" className="btn btn-ink">Explore AI automation</Link>
+                <Link href="/contact?need=ai" className="btn btn-ghost">Get a free audit</Link>
+              </div>
+            </div>
+            <div className="lg:col-span-6">
+              <ServiceStage3D active={aiListing.slug} label={aiListing.name} showLabel={false} className="aspect-[4/3]" />
+            </div>
+          </article>
         </div>
       </section>
       <CtaBand title="Not sure which service you need?" body="Tell us what you're trying to achieve. We'll recommend the simplest way to get there, with a fixed price." />

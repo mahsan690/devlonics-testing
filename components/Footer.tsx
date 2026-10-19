@@ -12,7 +12,7 @@ export function Footer() {
         <div className="md:col-span-4">
           <Logo className="h-10 w-auto" />
           <p className="mt-5 max-w-xs text-ash">
-            Websites, Shopify stores, apps and marketing for service businesses and ecommerce brands.
+            Websites, Shopify stores, apps, AI automation and marketing for service businesses and ecommerce brands.
           </p>
           <div className="mt-6 space-y-1.5">
             <a href={`mailto:${site.email}`} className="link block text-lg">{site.email}</a>
@@ -26,6 +26,7 @@ export function Footer() {
             {services.map((s) => (
               <li key={s.slug}><Link href={`/services/${s.slug}`} className="hover:text-signal">{s.name}</Link></li>
             ))}
+            <li><Link href="/ai" className="hover:text-signal">AI automation</Link></li>
           </ul>
         </nav>
 

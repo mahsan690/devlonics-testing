@@ -80,6 +80,12 @@ A featured image at `public/blog/<slug>.webp` (1600×900) is picked up automatic
 
 The covers are made in Canva. Canva export links are temporary, so they're brought in by the **Import Canva images** action: list each export link and destination in `content/canva-imports.json`, for example `{ "images": [ { "url": "<Canva export link>", "out": "public/blog/my-post.webp" } ] }`, and push. The action downloads from Canva hosts only, converts each image to WebP, commits it and empties the list.
 
+## AI automation pages
+
+`/ai` is the AI automation landing page and `/ai/case-studies/<slug>` holds one page per case study. All the copy (offers, case studies, FAQs) is in `lib/ai.ts`; each case study's cover is `public/ai/<slug>.webp` (4:3). To add a case study, add an entry to `aiCaseStudies` and drop its image in `public/ai/`: the grid, filters, sitemap and case study page pick it up automatically. Update the list in `scripts/build-llms.mjs` too.
+
+The AI offer also appears on the home page (services list and the dark AI band), on `/services`, in the main menu, the footer and the quote form ("AI automation").
+
 ## Keyword research
 
 `research/keyword-seeds.txt` holds seed phrases, one per line. Pushing a change to it runs the **Keyword suggestions** action, which collects Google and Bing autocomplete suggestions for every seed into `research/keyword-suggestions.json` and commits the file. The page-by-page keyword map is in the Devlonic SEO Keyword Map doc.

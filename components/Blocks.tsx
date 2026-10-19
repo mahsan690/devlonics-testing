@@ -123,9 +123,9 @@ export function CtaBand({
   );
 }
 
-export function Breadcrumbs({ items }: { items: { name: string; path: string }[] }) {
+export function Breadcrumbs({ items, dark = false }: { items: { name: string; path: string }[]; dark?: boolean }) {
   return (
-    <nav aria-label="Breadcrumb" className="text-sm text-graphite">
+    <nav aria-label="Breadcrumb" className={`text-sm ${dark ? "text-ash" : "text-graphite"}`}>
       <ol className="flex flex-wrap items-center gap-2">
         {items.map((it, i) => (
           <li key={it.path} className="flex items-center gap-2">
@@ -133,7 +133,7 @@ export function Breadcrumbs({ items }: { items: { name: string; path: string }[]
             {i < items.length - 1 ? (
               <Link href={it.path} className="link">{it.name}</Link>
             ) : (
-              <span aria-current="page" className="text-ink">{it.name}</span>
+              <span aria-current="page" className={dark ? "text-paper" : "text-ink"}>{it.name}</span>
             )}
           </li>
         ))}

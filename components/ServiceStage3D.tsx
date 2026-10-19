@@ -249,6 +249,41 @@ export function ServiceStage3D({
           };
         };
 
+        // AI automation: a chat bubble whose dots type, over a live voice waveform.
+        builders["ai-automation"] = () => {
+          const g = new THREE.Group();
+          const bubble = new THREE.Group();
+          bubble.add(rbox(2.7, 1.6, 0.34, 0.34, ink));
+          const tail = rbox(0.5, 0.5, 0.3, 0.06, ink);
+          tail.rotation.z = Math.PI / 4;
+          bubble.add(at(tail, -0.8, -0.72, 0));
+          const dotGeo = new THREE.SphereGeometry(0.16, 24, 24);
+          geos.push(dotGeo);
+          const dots = [-0.55, 0, 0.55].map((x) => {
+            const d = at(new THREE.Mesh(dotGeo, orange), x, 0, 0.22);
+            bubble.add(d);
+            return d;
+          });
+          at(bubble, -0.25, 0.55, 0);
+          g.add(bubble);
+          const bars = Array.from({ length: 9 }, (_, i) => {
+            const b = rbox(0.18, 1, 0.18, 0.06, i % 3 === 1 ? orange : paper);
+            at(b, -0.2 + (i - 4) * 0.3, -1.05, 0.25);
+            g.add(b);
+            return b;
+          });
+          return {
+            group: g,
+            tick: (t) => {
+              dots.forEach((d, i) => (d.position.y = Math.max(0, Math.sin(t * 4 - i * 0.7)) * 0.18));
+              bars.forEach((b, i) => {
+                const h = 0.25 + Math.abs(Math.sin(t * 3 + i * 0.8)) * 0.75 * (1 - Math.abs(i - 4) / 6);
+                b.scale.y = h;
+              });
+            },
+          };
+        };
+
         const world = new THREE.Group();
         scene.add(world);
         const getModel = (slug: string) => {

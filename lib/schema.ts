@@ -1,6 +1,7 @@
 import { site, absoluteUrl } from "./site";
 import { markets, type Market } from "./markets";
 import type { Faq, Service } from "./services";
+import type { AiCaseStudy } from "./ai";
 
 // Structured data (JSON-LD). Devlonic is a remote, service-area business:
 // no street address is published and the service area is the United States.
@@ -35,6 +36,7 @@ export function organizationSchema() {
           "Web design", "Website development", "WordPress", "Shopify", "WooCommerce",
           "Local SEO", "Answer engine optimization", "TikTok ads", "Meta ads",
           "App development", "Custom software",
+          "AI automation", "AI voice agents", "AI chatbots", "n8n", "Make.com", "HubSpot", "CRM development",
         ],
         sameAs: [site.profiles.upwork, site.profiles.linkedin, site.profiles.trustpilot],
         contactPoint: {
@@ -173,5 +175,54 @@ export function caseStudySchema(cs: { name: string; headline: string; summary: s
     author: { "@id": orgId },
     publisher: { "@id": orgId },
     about: { "@type": "Organization", name: cs.name },
+  };
+}
+
+// The AI automation offer on /ai.
+export function aiServiceSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "AI automation services",
+    serviceType: "AI automation",
+    description: "AI voice agents, chatbots, n8n and Make.com workflow automation, CRM setup and operations workspaces for US businesses.",
+    url: absoluteUrl("/ai"),
+    provider: { "@id": orgId },
+    areaServed: us,
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI automation services",
+      itemListElement: ["AI voice agents", "AI chatbots", "AI workflow automation", "CRM setup and automation", "ERP and operations workspaces", "Custom AI apps"].map((n) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: n },
+      })),
+    },
+  };
+}
+
+export function aiCaseListSchema(list: AiCaseStudy[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "AI and automation case studies",
+    itemListElement: list.map((cs, i) => ({ "@type": "ListItem", position: i + 1, url: absoluteUrl(`/ai/case-studies/${cs.slug}`), name: cs.title })),
+  };
+}
+
+export function aiCaseStudySchema(cs: AiCaseStudy) {
+  const url = absoluteUrl(`/ai/case-studies/${cs.slug}`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: cs.title,
+    description: cs.summary,
+    image: absoluteUrl(`/ai/${cs.slug}.webp`),
+    url,
+    mainEntityOfPage: url,
+    keywords: cs.stack.join(", "),
+    author: { "@id": orgId },
+    publisher: { "@id": orgId },
+    about: { "@type": "Thing", name: cs.industry },
   };
 }

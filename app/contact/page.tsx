@@ -8,7 +8,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Get a Fixed Quote for Your Website or Store",
+  title: "Get a Fixed Quote for Your Website, Store or AI Project",
   description: `Answer a few quick questions about your project and get a fixed-price quote from Devlonic Solutions within ${site.quoteTurnaround}.`,
   alternates: { canonical: "/contact" },
 };

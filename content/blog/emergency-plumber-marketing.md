@@ -42,7 +42,7 @@ In Service Direct's call performance study, [in-house teams answered about 66% o
 
 **Fixes:**
 
-- An answering service or on-call rotation that covers nights and weekends.
+- An answering service, an [AI voice receptionist](/ai) or an on-call rotation that covers nights and weekends.
 - Overflow routing so a second phone rings when the first is busy.
 - Instant text-back for any missed call: "We got your call. Is it an emergency? Reply YES and we'll call right back."
 

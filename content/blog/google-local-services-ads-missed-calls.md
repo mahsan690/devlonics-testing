@@ -56,7 +56,7 @@ Pull last month's Local Services Ads lead report and your phone system's call lo
 
 - **Overflow routing:** ring a second phone, the owner's cell or an office manager when the first line is busy.
 - **An answering service** for peak hours and lunch breaks. Service Direct's numbers suggest the gap between 66% and 99% answered is where the money is.
-- **An AI receptionist** can take details and book simple jobs, but test it on your own calls before trusting it with angry or urgent customers.
+- **An [AI receptionist](/ai/case-studies/ai-voice-receptionist-home-services)** can take details and book simple jobs, but test it on your own calls before trusting it with angry or urgent customers.
 
 ### 3. Set business hours you can actually staff
 

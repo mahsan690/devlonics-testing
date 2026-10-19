@@ -59,7 +59,7 @@ export function HomeHero() {
             </span>
           </h1>
           <p className="hero-after t-lede mt-7 max-w-xl text-ash">
-            Websites, apps and custom software for businesses across the USA. A few quick questions, and a written plan with a fixed
+            Websites, apps, custom software and AI automation for businesses across the USA. A few quick questions, and a written plan with a fixed
             price back within {site.quoteTurnaround}.
           </p>
           <ul className="hero-after mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] text-paper/85">

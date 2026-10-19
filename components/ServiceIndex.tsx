@@ -2,13 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import type { Service } from "@/lib/services";
+// Anything with a slug (which picks the 3D model), a name and a line of copy.
+// Services link to /services/<slug>; the AI offer passes its own href.
+type Item = { slug: string; name: string; short: string; href?: string };
 import { ServiceStage3D } from "./ServiceStage3D";
 
 // Services list with a 3D stage. Desktop: hovering or focusing a row swaps the
 // model. Phones: the stage sits above the list and cycles while on screen,
 // until the visitor touches it.
-export function ServiceIndex({ items }: { items: Service[] }) {
+export function ServiceIndex({ items }: { items: Item[] }) {
   const [active, setActive] = useState(0);
   const root = useRef<HTMLDivElement>(null);
   const touched = useRef(false);
@@ -43,7 +45,7 @@ export function ServiceIndex({ items }: { items: Service[] }) {
         {items.map((service, i) => (
           <li key={service.slug} className="border-b border-line">
             <Link
-              href={`/services/${service.slug}`}
+              href={service.href ?? `/services/${service.slug}`}
               onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
               className="group grid gap-2 py-6 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-8"

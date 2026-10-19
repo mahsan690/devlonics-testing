@@ -1,6 +1,6 @@
 # Devlonic Solutions
 
-> Devlonic Solutions is a remote web design and development studio that builds websites, Shopify stores, apps and custom software for US service businesses and ecommerce brands, and runs SEO and paid ads (TikTok, Meta, Google) for them. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated WordPress and Shopify developer on Upwork with 6+ years of experience and 100+ websites and stores built.
+> Devlonic Solutions is a remote web design, development and AI automation studio that builds websites, Shopify stores, apps, custom software and AI agents for US service businesses and ecommerce brands, and runs SEO and paid ads (TikTok, Meta, Google) for them. Every project has a fixed price agreed in writing before work starts. Founded and led by Muhammad Ahsan, a Top Rated WordPress and Shopify developer on Upwork with 6+ years of experience and 100+ websites and stores built.
 
 ## Key facts
 - Contact: info@devlonics.com, +1 (773) 915-7523
@@ -20,6 +20,26 @@
 - [Custom software](https://devlonics.com/services/custom-software): CRMs, client portals, booking systems and dashboards built in Laravel and Next.js.
 - [SEO and marketing](https://devlonics.com/services/seo-and-marketing): Local SEO, Google Business Profile, answer engine optimization (AEO) and paid ads on Google, Meta and TikTok.
 
+## AI automation
+- [AI automation services](https://devlonics.com/ai): AI voice agents and receptionists, WhatsApp and website chatbots, n8n and Make.com workflow automation, HubSpot, GoHighLevel and Airtable CRM systems, ClickUp and monday.com operations workspaces, and custom AI apps. Free audit, then a fixed price.
+- [AI voice receptionist for an HVAC and plumbing company](https://devlonics.com/ai/case-studies/ai-voice-receptionist-home-services): VAPI voice agent that answers 24/7, books jobs and escalates emergencies; n8n posts call summaries to Slack.
+- [AI WhatsApp assistant for an auto parts retailer](https://devlonics.com/ai/case-studies/ai-whatsapp-assistant-auto-parts): n8n, OpenAI and a Supabase vector store answering text, voice notes and photos on WhatsApp.
+- [AI lead qualification agent for a freight forwarder](https://devlonics.com/ai/case-studies/ai-lead-qualification-freight): GPT-4.1 scores and routes inbound quotes in under 2 seconds, with Slack alerts and Airtable sync.
+- [PatientFlow AI for medical tourism clinics](https://devlonics.com/ai/case-studies/patientflow-ai-medical-tourism): Multi-language enquiry classification and WhatsApp replies with GPT-4o, in under 3 seconds.
+- [AI abandoned cart recovery for WooCommerce](https://devlonics.com/ai/case-studies/ai-abandoned-cart-recovery): n8n and OpenAI write a personalized recovery email for every abandoned checkout.
+- [AI-powered Google Ads reporting](https://devlonics.com/ai/case-studies/ai-google-ads-reporting): Daily Google Ads API analysis that flags wasted spend and ranks fixes by impact.
+- [AI warranty claim approval](https://devlonics.com/ai/case-studies/ai-warranty-claim-approval): Make.com and OpenAI decide warranty claims against policy in under 30 seconds.
+- [AI product photography automation](https://devlonics.com/ai/case-studies/ai-product-photography-automation): n8n and Gemini turn one product photo into eight studio and room shots.
+- [HubSpot for an engineering consultancy](https://devlonics.com/ai/case-studies/hubspot-engineering-consultancy): 8-stage pipeline, BANT scoring and Make.com links to Better Proposal, Xero and Asana.
+- [HubSpot for a bookkeeping firm](https://devlonics.com/ai/case-studies/hubspot-bookkeeping-onboarding): Deals open when a call is booked; a 6-stage onboarding pipeline starts when a deal is won.
+- [HubSpot growth engine for an edtech platform](https://devlonics.com/ai/case-studies/hubspot-edtech-growth-engine): Four audience pipelines, dunning and win-back flows, and MRR dashboards by plan and channel.
+- [HubSpot for a residential solar installer](https://devlonics.com/ai/case-studies/hubspot-solar-sales-system): GoHighLevel migration, three pipelines and sales coaching dashboards.
+- [Airtable account health system](https://devlonics.com/ai/case-studies/airtable-account-health-system): 11-table base syncing HubSpot, Zendesk and Stripe with a nightly health score.
+- [monday.com for a physiotherapy clinic group](https://devlonics.com/ai/case-studies/physiotherapy-monday-automation): Bookings, patient records, reminders and referrals for three clinics.
+- [ClickUp for a two-location med spa](https://devlonics.com/ai/case-studies/med-spa-clickup-automation): Calendly, JotForm and RingCentral automated around one master schedule.
+- [ClickUp operations for a print-on-demand brand](https://devlonics.com/ai/case-studies/print-on-demand-clickup-operations): Five departments, 14 lists and 20+ automations synced with Shopify.
+- [Stayline vacation rental dashboard](https://devlonics.com/ai/case-studies/stayline-vacation-rental-dashboard): Full-stack MERN dashboard with live KPIs, listings and Google sign-in.
+
 ## Markets we serve
 - [Websites for HVAC companies](https://devlonics.com/markets/hvac)
 - [Websites for plumbing companies](https://devlonics.com/markets/plumbing)
@@ -34,6 +54,15 @@
 - [Gladiolaz: from a dead Shopify store to orders in 15 days](https://devlonics.com/work/gladiolaz): Shopify rebuild, AutoDS dropshipping with Amazon and Alibaba suppliers, AI video ads and TikTok ads at $20/day; about 10 orders in the first 15 days at a $120 average order value.
 
 ## Guides
+- [3 Things Most Home Service Websites Are Missing](https://devlonics.com/blog/home-service-website-mistakes): Most home service websites skip service areas, business hours or an FAQ, according to a 2026 survey of 1,050 owners. Why each one costs calls and how to fix it fast.
+- [Should a Home Service Business Show Prices on Its Website?](https://devlonics.com/blog/should-you-put-prices-on-your-website): Price is the top factor customers weigh when hiring a home service pro. When to show prices, ranges or starting prices on your website, and when a quote is better.
+- [The FTC Fake Review Rule: What Small Businesses Can and Can't Do](https://devlonics.com/blog/ftc-fake-review-rule-small-business): The FTC's rule on consumer reviews took effect in October 2024. What it bans, what's still allowed and how home service businesses can collect reviews safely.
+- [How to Get More Google Reviews (What Customers Expect in 2026)](https://devlonics.com/blog/how-to-get-more-google-reviews): Customers now want recent reviews, a 4.5-star rating and replies from the owner. How to get more Google reviews the right way, with the 2026 numbers that matter.
+- [AI Search Is Changing How Customers Find Local Services](https://devlonics.com/blog/ai-overviews-local-search-service-businesses): Google AI Overviews and ChatGPT now answer many local questions before anyone clicks. What the data shows and how service businesses stay visible in AI search.
+- [How to Redesign Your Website Without Losing Google Rankings](https://devlonics.com/blog/website-redesign-without-losing-seo): A website redesign can wipe out years of search traffic if URLs change carelessly. A step-by-step checklist based on Google's guidance and our own WordPress-to-new-site move.
+- [Local Services Ads Are Moving Into Google Ads: A 2026 Checklist](https://devlonics.com/blog/local-services-ads-moving-to-google-ads): Google is moving Local Services Ads into Google Ads in phases through 2027. What transfers, what doesn't, and the checklist to run before your account migrates.
+- [Google Now Charges for Missed Calls on Local Services Ads](https://devlonics.com/blog/google-local-services-ads-missed-calls): Since October 1, 2026, Google bills Local Services Ads for missed calls over 20 seconds during business hours. What changed, what it costs and how to stop paying for calls you never answer.
+- [Speed to Lead: How Fast Home Service Businesses Must Reply](https://devlonics.com/blog/speed-to-lead-home-service-businesses): More than half of home service customers expect a reply within the hour. How fast you need to respond to calls, forms and texts, and how to get there without hiring.
 - [Home Service Website Checklist: 15 Things That Bring In Calls](https://devlonics.com/blog/home-service-website-checklist): A practical checklist for HVAC, plumbing, roofing, cleaning and landscaping websites: the pages, features and trust signals that turn visitors into calls.
 - [How Much Does a Small Business Website Cost in 2026?](https://devlonics.com/blog/how-much-does-a-small-business-website-cost): Small business website costs in 2026: DIY, freelancer and agency price ranges, monthly running costs, and the five factors that decide your quote.
 - [Local SEO for Home Service Businesses: A 2026 Checklist](https://devlonics.com/blog/local-seo-checklist-home-service-businesses): A step-by-step local SEO checklist for HVAC, plumbing, roofing and cleaning companies: Google Business Profile, reviews, service-area pages and tracking.

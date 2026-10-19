@@ -9,6 +9,8 @@ import { CaseStudyFeature } from "@/components/CaseStudyFeature";
 import { TestimonialDeck } from "@/components/TestimonialDeck";
 import { ClientMarquee, CtaBand, MarketsGrid, SectionHead, WorkTile } from "@/components/Blocks";
 import { PostCard } from "@/components/BlogParts";
+import { AiTeaser } from "@/components/AiParts";
+import { aiListing } from "@/lib/ai";
 import { allPosts } from "@/lib/blog";
 import { services } from "@/lib/services";
 import { projects } from "@/lib/work";
@@ -36,14 +38,16 @@ export default function Home() {
           <div id="what-we-build">
             <SectionHead
               title="Web design services for small businesses"
-              lede="Six services that help service businesses and online stores win more customers: lead generation websites, small business websites, Shopify stores, apps, custom software and local SEO. Each one has its own model: drag it to spin."
+              lede="Seven services that help service businesses and online stores win more customers: lead generation websites, small business websites, Shopify stores, apps, custom software, local SEO and AI automation. Each one has its own model: drag it to spin."
             />
           </div>
           <div className="mt-12">
-            <ServiceIndex items={services} />
+            <ServiceIndex items={[...services, aiListing]} />
           </div>
         </div>
       </section>
+
+      <AiTeaser />
 
       <section className="bg-fog py-20 md:py-28" aria-labelledby="recent-work">
         <div className="wrap">

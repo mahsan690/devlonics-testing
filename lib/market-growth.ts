@@ -23,7 +23,7 @@ export const marketGrowth: Record<string, MarketGrowth> = {
       "A strong website is the base, but HVAC leads come from three places at once: Google's map results, paid search in peak season and repeat customers on maintenance plans. This is the HVAC marketing we set up for heating and cooling companies.",
     points: [
       { title: "Show up for \"AC repair near me\"", body: "A complete Google Business Profile, steady new reviews and a page for every service and town are what move you into the map results homeowners call from." },
-      { title: "Answer every call in peak season", body: "Overflow routing, missed-call text-back and an answering service for evenings, so the July rush books jobs instead of voicemails." },
+      { title: "Answer every call in peak season", body: "Overflow routing, missed-call text-back and an answering service or AI voice receptionist for evenings, so the July rush books jobs instead of voicemails." },
       { title: "Fill spring and fall", body: "Tune-up campaigns, online booking and maintenance plan sign-ups keep technicians busy between heat waves and cold snaps." },
       { title: "Track which pages book jobs", body: "Call and form tracking per page and campaign, so budget moves to what brings in work." },
     ],
@@ -41,7 +41,7 @@ export const marketGrowth: Record<string, MarketGrowth> = {
       "Most plumbing jobs start with an urgent search and a phone call. Plumber marketing that works keeps your number in front of people at that moment and makes sure someone answers it.",
     points: [
       { title: "Win the emergency search", body: "A sticky call bar, an emergency page for burst pipes, clogs and water heaters, and a Google Business Profile that shows your real hours." },
-      { title: "Answer at 2am, or call back in minutes", body: "After-hours routing and missed-call text-back stop urgent callers from moving on to the next plumber." },
+      { title: "Answer at 2am, or call back in minutes", body: "After-hours routing, an AI voice receptionist and missed-call text-back stop urgent callers from moving on to the next plumber." },
       { title: "Own your leads", body: "Every call from your own site and profile is one you don't share with three competitors or pay per lead for." },
       { title: "Earn reviews after every job", body: "A short text with your review link right after the visit builds the steady stream of reviews that local rankings reward." },
     ],

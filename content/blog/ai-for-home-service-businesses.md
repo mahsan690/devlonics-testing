@@ -52,7 +52,7 @@ Recording apps with AI transcription (with customer consent where required) can 
 
 ## 5. Answering after-hours calls and messages
 
-An AI receptionist or chat assistant can answer common questions, collect details and book simple jobs when your office is closed. With Google now [charging for missed Local Services Ads calls](/blog/google-local-services-ads-missed-calls), capturing overflow calls is worth more than ever. Test it on real calls and set a clear handoff to a person for emergencies.
+An AI receptionist or chat assistant can answer common questions, collect details and book simple jobs when your office is closed. With Google now [charging for missed Local Services Ads calls](/blog/google-local-services-ads-missed-calls), capturing overflow calls is worth more than ever. Test it on real calls and set a clear handoff to a person for emergencies. Here's [how we built one for an HVAC and plumbing company](/ai/case-studies/ai-voice-receptionist-home-services): it answers around the clock, books into the calendar and sends emergencies to the on-call tech.
 
 ## 6. Writing for your website and social media
 
@@ -73,7 +73,7 @@ The biggest time savings often come from connecting the systems you already have
 
 Pick one task that eats time every day, try AI on it for two weeks, and measure the hours saved. Then pick the next one.
 
-If your team is copying data between apps or chasing follow-ups by hand, we build [custom software and automation](/services/custom-software) around how you work, and [lead generation websites](/services/lead-generation-websites) that feed leads straight into your systems. [Get a fixed quote](/contact).
+If your team is copying data between apps or chasing follow-ups by hand, we build [AI agents and automations](/ai) around how you work, and [lead generation websites](/services/lead-generation-websites) that feed leads straight into your systems. [Get a fixed quote](/contact).
 
 ## Sources
 

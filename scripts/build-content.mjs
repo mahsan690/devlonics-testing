@@ -90,6 +90,7 @@ async function main() {
   }
   const slugsIn = async (file) => [...(await readFile(join(root, file), "utf8")).matchAll(/^\s{4}slug: "([a-z0-9-]+)"/gm)].map((m) => m[1]);
   const pages = { services: await slugsIn("lib/services.ts"), markets: await slugsIn("lib/markets.ts") };
+  const aiCases = await slugsIn("lib/ai.ts");
 
   for (const file of files) {
     const slug = basename(file, ".md");
@@ -111,6 +112,9 @@ async function main() {
       if (section === "blog" && !(target in dates)) errors.push(`${where}: links to /blog/${target}, which doesn't exist`);
       else if (section === "blog" && dates[target] > fm.date) errors.push(`${where}: links to /blog/${target}, which isn't published until ${dates[target]}`);
       else if (section !== "blog" && !pages[section].includes(target)) errors.push(`${where}: links to /${section}/${target}, which doesn't exist`);
+    }
+    for (const [, target] of content.matchAll(/\]\(\/ai\/case-studies\/([a-z0-9-]+)\)/g)) {
+      if (!aiCases.includes(target)) errors.push(`${where}: links to /ai/case-studies/${target}, which doesn't exist`);
     }
     for (const r of fm.related || []) {
       if (![...pages.services, ...pages.markets].includes(r)) errors.push(`${where}: related "${r}" isn't a service or market slug`);

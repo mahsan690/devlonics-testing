@@ -7,7 +7,7 @@ export const ogSize = { width: 1200, height: 630 };
 
 // Shared 1200×630 share image: black field, the orange mark large on the right,
 // the page title in Bricolage on the left.
-export async function renderOg(title: string, kicker = "Devlonic Solutions") {
+export async function renderOg(title: string, kicker = "Devlonic Solutions", footer = "Fixed-price websites, stores and software") {
   const [bold, medium] = await Promise.all([
     readFile(join(process.cwd(), "assets/fonts/BricolageGrotesque-Bold.ttf")),
     readFile(join(process.cwd(), "assets/fonts/DMSans-Medium.ttf")),
@@ -24,7 +24,7 @@ export async function renderOg(title: string, kicker = "Devlonic Solutions") {
         <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", width: 840, height: "100%" }}>
           <div style={{ fontFamily: "DM Sans", fontSize: 30, color: "#A3A3A3" }}>{kicker}</div>
           <div style={{ fontFamily: "Bricolage", fontSize: title.length > 48 ? 64 : 80, lineHeight: 1, letterSpacing: "-0.03em" }}>{title}</div>
-          <div style={{ fontFamily: "DM Sans", fontSize: 28, color: "#E94B27" }}>Fixed-price websites, stores and software</div>
+          <div style={{ fontFamily: "DM Sans", fontSize: 28, color: "#E94B27" }}>{footer}</div>
         </div>
       </div>
     ),

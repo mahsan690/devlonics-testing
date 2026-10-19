@@ -66,7 +66,7 @@ When a call rings out, an automatic text ("Sorry we missed you, this is Mike fro
 
 ### Overflow routing and an answering service
 
-Ring a second phone when the first is busy. Use an answering service for lunch hours, evenings and peak season. Service Direct's numbers suggest the gap between 66% and 99% answered is worth paying for.
+Ring a second phone when the first is busy. Use an answering service or an [AI voice receptionist](/ai) for lunch hours, evenings and peak season. Service Direct's numbers suggest the gap between 66% and 99% answered is worth paying for.
 
 ### A callback routine
 

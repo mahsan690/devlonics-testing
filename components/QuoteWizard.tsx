@@ -20,6 +20,7 @@ const NEED_STEP: MultiStep = {
     { value: "store", label: "Online store" },
     { value: "app", label: "App" },
     { value: "software", label: "Custom software" },
+    { value: "ai", label: "AI automation" },
     { value: "marketing", label: "SEO & marketing" },
     { value: "unsure", label: "Not sure yet" },
   ],
@@ -64,6 +65,17 @@ const FOLLOW_UPS: Record<string, SingleStep> = {
       { value: "booking", label: "Booking or scheduling system" },
       { value: "internal", label: "Internal tool or dashboard" },
       { value: "other", label: "Something else" },
+    ],
+  },
+  ai: {
+    id: "ai", kind: "single", title: "What should the AI handle?", help: "Pick the closest fit.",
+    choices: [
+      { value: "voice", label: "Answering phone calls (AI voice agent)" },
+      { value: "chat", label: "Website or WhatsApp chat" },
+      { value: "workflow", label: "Automating a workflow" },
+      { value: "crm", label: "CRM setup or migration" },
+      { value: "operations", label: "Operations workspace (ClickUp, monday.com, Airtable)" },
+      { value: "unsure", label: "Help me choose" },
     ],
   },
   marketing: {

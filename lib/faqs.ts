@@ -38,6 +38,10 @@ export const homeFaqs: Faq[] = [
     a: "A good service business website makes the next step obvious on every page: your phone number one tap away, a short quote form, the services and towns you cover, real reviews and photos, and clear answers to common questions. It loads fast on a phone and tracks every call and form, so you can see what it earns.",
   },
   {
+    q: "Do you build AI automations, chatbots and voice agents?",
+    a: "Yes. We build AI voice receptionists that answer and book calls, WhatsApp and website chatbots, n8n and Make.com workflows, and HubSpot, ClickUp and monday.com systems. Each one gets a free audit and a fixed price first. See the AI automation page for 17 case studies.",
+  },
+  {
     q: "Are you a local web design agency?",
     a: `We're a remote web design studio led by ${site.founder.name}, serving businesses across the US. Remote work keeps prices lower, and you still get one point of contact, calls scheduled in your time zone and written progress updates.`,
   },
