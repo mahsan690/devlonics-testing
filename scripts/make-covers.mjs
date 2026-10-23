@@ -328,14 +328,10 @@ const MOTIFS = {
 };
 
 // Illustrations for the service landing pages: public/services/<slug>.webp
-const SERVICE_COVERS = {
-  "lead-generation-websites": ["missed", "light"],
-  "small-business-websites": ["home", "light"],
-  "online-stores": ["cart", "light"],
-  "app-development": ["phone", "light"],
-  "custom-software": ["tools", "light"],
-  "seo-and-marketing": ["map", "light"],
-};
+// The current six service images were drawn by hand (October 2026), so none
+// are generated here. Add "slug": [motif, tone] only for a new service that
+// doesn't have an image yet; --force would otherwise overwrite the drawn ones.
+const SERVICE_COVERS = {};
 
 const hash = (s) => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
 

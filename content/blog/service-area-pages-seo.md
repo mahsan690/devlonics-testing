@@ -19,9 +19,10 @@ faqs:
   - q: "Do service area pages help with Google Maps rankings?"
     a: "Indirectly. Map rankings depend mostly on your Google Business Profile, distance and prominence. Area pages strengthen relevance for a town, help your regular search rankings, and give the profile a strong page to link to."
 related:
-  - seo-and-marketing
+  - google-business-profile
   - roofing
   - landscaping
+
 ---
 
 Service area pages are pages on your website for the towns you serve, built to show up when someone searches "AC repair Plano" or "roof replacement Frisco." Done well, they're among the best local SEO assets a service business has. Done badly, as near-identical copies with the city name swapped, they're what Google calls doorway abuse.
@@ -73,7 +74,7 @@ Area pages build on the basics most sites still miss, starting with [clearly lis
 
 ## Want area pages that actually rank?
 
-We write and build service area pages as part of our [local SEO service](/services/seo-and-marketing), for [roofers](/markets/roofing), [landscapers](/markets/landscaping) and other trades, each with real local content rather than templates. [Get a fixed quote](/contact).
+We write and build service area pages as part of our [local SEO service](/services/google-business-profile), for [roofers](/markets/roofing), [landscapers](/markets/landscaping) and other trades, each with real local content rather than templates. [Get a fixed quote](/contact).
 
 ## Sources
 

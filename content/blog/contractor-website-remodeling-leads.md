@@ -20,8 +20,9 @@ faqs:
     a: "Typical ranges, yes. A line like 'most kitchen remodels we complete land between $40,000 and $85,000' attracts serious buyers and saves time on enquiries that don't fit your minimum."
 related:
   - contractors
-  - lead-generation-websites
-  - small-business-websites
+  - lead-generation
+  - website-design
+
 ---
 
 Homeowners planning a $50,000 remodel don't hire the first contractor they find. They research for weeks, compare portfolios, read reviews and try to understand how the project will go. A contractor website that wins bigger jobs gives them proof: detailed projects like theirs, a clear process and an honest sense of cost.
@@ -69,7 +70,7 @@ A short form with project type, rough budget, timeline and photo upload. Respond
 
 ## Contractor websites we've built
 
-Our recent work includes a WordPress site for Florida Surface Pro, a concrete floor coating contractor, and WordPress work for national homebuilder Taylor Morrison. See more on our [work page](/work), or how we build [contractor and remodeler websites](/markets/contractors) as part of our [lead generation websites](/services/lead-generation-websites). [Get a fixed quote](/contact).
+Our recent work includes a WordPress site for Florida Surface Pro, a concrete floor coating contractor, and WordPress work for national homebuilder Taylor Morrison. See more on our [work page](/work), or how we build [contractor and remodeler websites](/markets/contractors) as part of our [lead generation websites](/services/lead-generation). [Get a fixed quote](/contact).
 
 ## Sources
 

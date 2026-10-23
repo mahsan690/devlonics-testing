@@ -20,8 +20,9 @@ faqs:
     a: "Your phone number at the top, whether you're available now, how fast you typically arrive, what to do while waiting (like shutting off the main valve), after-hours pricing or fees, license and insurance, and recent reviews."
 related:
   - plumbing
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
+
 ---
 
 Emergency plumbing calls go to the first plumber who answers and seems trustworthy. Someone with water pouring through the ceiling isn't comparing websites; they're calling down the list until a human picks up. So emergency plumber marketing is mostly about being visible at the right moment and answering every single call.
@@ -42,7 +43,7 @@ In Service Direct's call performance study, [in-house teams answered about 66% o
 
 **Fixes:**
 
-- An answering service, an [AI voice receptionist](/ai) or an on-call rotation that covers nights and weekends.
+- An answering service, an [AI voice receptionist](/services/automation) or an on-call rotation that covers nights and weekends.
 - Overflow routing so a second phone rings when the first is busy.
 - Instant text-back for any missed call: "We got your call. Is it an emergency? Reply YES and we'll call right back."
 
@@ -69,7 +70,7 @@ Only advertise 24/7 if someone really answers and can dispatch at night. Show of
 
 Emergency customers can become long-term customers. Follow up the next day, ask for a review while the relief is fresh (see [how to get more Google reviews](/blog/how-to-get-more-google-reviews)), and offer a maintenance plan or inspection.
 
-We build [plumbing websites](/markets/plumbing) designed for emergency calls, with click-to-call everywhere and call tracking, as part of our [lead generation websites](/services/lead-generation-websites) and [local SEO](/services/seo-and-marketing). [Get a fixed quote](/contact).
+We build [plumbing websites](/markets/plumbing) designed for emergency calls, with click-to-call everywhere and call tracking, as part of our [lead generation websites](/services/lead-generation) and [local SEO](/services/google-business-profile). [Get a fixed quote](/contact).
 
 ## Sources
 

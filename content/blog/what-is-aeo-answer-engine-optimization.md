@@ -21,8 +21,9 @@ faqs:
   - q: "Does AEO replace SEO?"
     a: "No. AI answers draw heavily on pages that already rank and on trusted third-party sources. Businesses that do the SEO basics well, with useful content, good reviews and consistent details, are the ones AI assistants recommend."
 related:
-  - seo-and-marketing
-  - lead-generation-websites
+  - google-business-profile
+  - lead-generation
+
 ---
 
 Ask ChatGPT for "a good roofer near me" or Google for "how much does a kitchen remodel cost," and you'll often get an answer before you see a single link. **Answer engine optimization (AEO)** is the work of making sure your business is part of that answer.
@@ -105,4 +106,4 @@ An llms.txt file is a plain-text summary of your business and key pages, placed 
 
 ## Want help getting found in AI search?
 
-AEO is part of our [SEO and marketing service](/services/seo-and-marketing): clear answer-first pages, consistent business details, review systems, structured data and monthly visibility checks. Every website we build launches with these foundations in place. [Get a fixed quote](/contact) to see what it would take for your business.
+AEO is part of our [Google Business Profile and local SEO service](/services/google-business-profile): clear answer-first pages, consistent business details, review systems, structured data and monthly visibility checks. Every website we build launches with these foundations in place. [Get a fixed quote](/contact) to see what it would take for your business.

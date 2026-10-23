@@ -19,9 +19,10 @@ faqs:
   - q: "How short should a job application be?"
     a: "Short enough to finish on a phone in a couple of minutes: name, phone, email, role, experience and licenses, with an optional resume upload. Collect the rest in the interview."
 related:
-  - lead-generation-websites
+  - lead-generation
   - hvac
   - home-care-and-clinics
+
 ---
 
 A careers page is a page on your website that sells your company to the technicians you want to hire. With labor shortages limiting growth for nearly a quarter of home service businesses, it's one of the cheapest recruiting tools you have. Good candidates check your website before they apply, just as customers do.
@@ -75,7 +76,7 @@ Most candidates apply from a phone. Ask for name, phone, email, role, years of e
 
 The same principles apply to home care agencies, where caregiver turnover is a constant challenge, and to cleaning and landscaping crews. Show the pay, the schedule, the people and an easy way to apply.
 
-We add careers pages to the websites we build for [HVAC companies](/markets/hvac), [home care agencies](/markets/home-care-and-clinics) and other trades, as part of our [lead generation websites](/services/lead-generation-websites). [Get a fixed quote](/contact).
+We add careers pages to the websites we build for [HVAC companies](/markets/hvac), [home care agencies](/markets/home-care-and-clinics) and other trades, as part of our [lead generation websites](/services/lead-generation). [Get a fixed quote](/contact).
 
 ## Sources
 

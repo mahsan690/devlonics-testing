@@ -19,9 +19,10 @@ faqs:
   - q: "How long does it take for a website to replace lead apps?"
     a: "It depends on your market and competition. Google Business Profile improvements and a better website can show results within weeks; ranking for competitive searches usually takes several months. Many businesses run both while the website builds momentum."
 related:
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
   - contractors
+
 ---
 
 Lead apps like Angi and Thumbtack can fill your calendar quickly, but you're renting customers: leads are often shared with other pros, you pay whether or not you win the job, and the relationship belongs to the platform. Your own website and Google Business Profile take longer to build, but every lead is exclusive, and the cost per lead falls as you rank.
@@ -79,7 +80,7 @@ If you use them, track cost per booked job, not cost per lead, and respond in mi
 
 ## Ready to own your leads?
 
-We build [lead generation websites](/services/lead-generation-websites) and run [local SEO](/services/seo-and-marketing) for [contractors](/markets/contractors) and home service businesses that want fewer shared leads and more of their own. [Get a fixed quote](/contact).
+We build [lead generation websites](/services/lead-generation) and run [local SEO](/services/google-business-profile) for [contractors](/markets/contractors) and home service businesses that want fewer shared leads and more of their own. [Get a fixed quote](/contact).
 
 ## Sources
 

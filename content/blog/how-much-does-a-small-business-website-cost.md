@@ -21,8 +21,9 @@ faqs:
   - q: "Why do website quotes vary so much?"
     a: "Because 'a website' covers very different jobs. A five-page brochure site and a five-page site with online booking, payments and a CRM connection are priced differently. Ask every provider for a written scope so you can compare like with like."
 related:
-  - small-business-websites
-  - lead-generation-websites
+  - website-design
+  - lead-generation
+
 ---
 
 Most small businesses spend **between $500 and $15,000** on a professionally built website. Where you land in that range depends on who builds it and what the site has to do. A simple site from a freelancer sits at the low end; a custom site from an agency, with booking, payments or integrations, sits at the high end. Online stores and custom software cost more again.

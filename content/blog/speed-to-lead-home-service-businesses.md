@@ -19,9 +19,10 @@ faqs:
   - q: "Do I need to hire someone to answer every call?"
     a: "Not necessarily. Overflow routing to a second phone, an answering service for peak times and automatic text-back for missed calls close most of the gap. Hire when call volume consistently outgrows those."
 related:
-  - lead-generation-websites
+  - lead-generation
   - hvac
   - plumbing
+
 ---
 
 Speed to lead is the time between a customer reaching out and you replying, and in home services it often decides who gets the job. More than half of customers now expect to hear back within the hour. The good news is that most businesses can get there with better routing and a few automations, not more staff.
@@ -66,7 +67,7 @@ When a call rings out, an automatic text ("Sorry we missed you, this is Mike fro
 
 ### Overflow routing and an answering service
 
-Ring a second phone when the first is busy. Use an answering service or an [AI voice receptionist](/ai) for lunch hours, evenings and peak season. Service Direct's numbers suggest the gap between 66% and 99% answered is worth paying for.
+Ring a second phone when the first is busy. Use an answering service or an [AI voice receptionist](/services/automation) for lunch hours, evenings and peak season. Service Direct's numbers suggest the gap between 66% and 99% answered is worth paying for.
 
 ### A callback routine
 
@@ -74,7 +75,7 @@ Agree on a rule, such as every lead gets a human reply within 15 minutes during 
 
 ## What your website can do
 
-Your website sets expectations before anyone calls. On a [lead generation website](/services/lead-generation-websites) we put the phone number one tap away on every page, keep forms to name, phone and what they need, and show "we reply within 15 minutes" only when the team can actually do it. If you advertise on Local Services Ads, fast answering matters even more now: Google [charges for missed calls since October 1, 2026](/blog/google-local-services-ads-missed-calls).
+Your website sets expectations before anyone calls. On a [lead generation website](/services/lead-generation) we put the phone number one tap away on every page, keep forms to name, phone and what they need, and show "we reply within 15 minutes" only when the team can actually do it. If you advertise on Local Services Ads, fast answering matters even more now: Google [charges for missed calls since October 1, 2026](/blog/google-local-services-ads-missed-calls).
 
 ## A quick checklist
 

@@ -52,8 +52,8 @@ export function AuthorBox() {
         <p className="font-display text-lg font-bold tracking-tight">{site.founder.name}</p>
         <p className="text-sm text-graphite">{site.founder.role}, {site.name}</p>
         <p className="mt-3 max-w-[60ch] text-[0.975rem]">
-          Muhammad is a Top Rated WordPress and Shopify developer with {site.yearsExperience} years of experience and {site.projectsDelivered} websites
-          and stores built for clients in the US, UK, UAE and Australia. He writes about what makes small business websites bring in customers.
+          Muhammad is a Top Rated WordPress developer with {site.yearsExperience} years of experience and {site.projectsDelivered} websites
+          built for clients in the US, UK, UAE and Australia. He writes about how local service businesses get found, earn reviews and turn more leads into booked jobs.
         </p>
         <p className="mt-3 flex flex-wrap gap-4 text-sm font-semibold">
           <a href={site.founder.linkedin} target="_blank" rel="noopener" className="link">LinkedIn</a>

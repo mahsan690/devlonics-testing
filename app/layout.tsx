@@ -38,7 +38,7 @@ const verification = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Web Design for Service Businesses & Shopify Brands | Devlonic",
+    default: "Marketing for Local Service Businesses | Devlonic",
     template: "%s | Devlonic",
   },
   description: site.description,
@@ -49,16 +49,16 @@ export const metadata: Metadata = {
     siteName: site.name,
     locale: "en_US",
     url: "/",
-    title: "Devlonic Solutions: websites built to convert",
+    title: "Devlonic Solutions: marketing for local service businesses",
     description: site.description,
   },
-  twitter: { card: "summary_large_image", title: "Devlonic Solutions: websites built to convert", description: site.description },
+  twitter: { card: "summary_large_image", title: "Devlonic Solutions: marketing for local service businesses", description: site.description },
   robots: isIndexable
     ? { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 } }
     : { index: false, follow: true },
   verification,
   authors: [{ name: site.founder.name, url: `${site.url}/about` }],
-  category: "Web design",
+  category: "Marketing",
   formatDetection: { telephone: false },
 };
 

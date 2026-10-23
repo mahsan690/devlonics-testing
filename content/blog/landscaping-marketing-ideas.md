@@ -20,8 +20,9 @@ faqs:
     a: "In late winter. Publish spring pages and open booking for cleanups and installs in January or February so they're indexed and filling before the first warm weekend."
 related:
   - landscaping
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
+
 ---
 
 The best landscaping marketing ideas all serve one goal: a calendar that stays full outside of spring. That means selling maintenance contracts, promoting each season's services before demand peaks, and letting photos of your work do the selling. Here's a plan you can run all year.
@@ -80,7 +81,7 @@ A page for each main town, with projects you've done there, helps you show up fo
 
 ## A landscaping website that sells maintenance
 
-We've built websites for landscaping companies like Indy Cardinal Landscaping, and we design [landscaping websites](/markets/landscaping) around maintenance plans, project galleries and photo-friendly quote forms, as part of our [lead generation websites](/services/lead-generation-websites). [Get a fixed quote](/contact).
+We've built websites for landscaping companies like Indy Cardinal Landscaping, and we design [landscaping websites](/markets/landscaping) around maintenance plans, project galleries and photo-friendly quote forms, as part of our [lead generation websites](/services/lead-generation). [Get a fixed quote](/contact).
 
 ## Sources
 

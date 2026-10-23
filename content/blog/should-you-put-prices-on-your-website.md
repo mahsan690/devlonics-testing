@@ -19,9 +19,10 @@ faqs:
   - q: "What is good, better, best pricing?"
     a: "It means offering three options at different price points, for example repair, repair plus maintenance plan, or full replacement. It lets customers choose their budget instead of saying yes or no to one number."
 related:
-  - lead-generation-websites
+  - lead-generation
   - hvac
   - cleaning
+
 ---
 
 Yes, most home service businesses should show some pricing on their website, just not necessarily a full price list. Starting prices, typical ranges and clear service or trip fees answer the first question every customer has, without locking you into numbers for jobs that vary. Customers rank price above everything else when choosing who to call.
@@ -82,7 +83,7 @@ Large or highly variable jobs, such as full remodels, roofing replacements or cu
 
 That FAQ is worth doing anyway: Jobber found **74%** of home service businesses have no FAQ section on their site at all.
 
-We help clients decide what to publish and present it clearly on their [lead generation websites](/services/lead-generation-websites), whether you run an [HVAC company](/markets/hvac) or a [cleaning business](/markets/cleaning). [Get a fixed quote](/contact) for your site.
+We help clients decide what to publish and present it clearly on their [lead generation websites](/services/lead-generation), whether you run an [HVAC company](/markets/hvac) or a [cleaning business](/markets/cleaning). [Get a fixed quote](/contact) for your site.
 
 ## Sources
 

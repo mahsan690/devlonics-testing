@@ -88,41 +88,39 @@ export function ServiceStage3D({
         const models: Record<string, Model> = {};
         const builders: Record<string, () => Model> = {};
 
-        // Lead generation: a phone whose call button sends out rings.
-        builders["lead-generation-websites"] = () => {
-          const g = new THREE.Group();
-          g.add(rbox(1.6, 3.1, 0.2, 0.2, ink));
-          g.add(at(rbox(1.42, 2.84, 0.04, 0.12, paper), 0, 0, 0.1));
-          g.add(at(rbox(1.15, 0.22, 0.04, 0.05, orange), 0, 1.05, 0.13));
-          [0.72, 0.56, 0.4].forEach((y, i) => g.add(at(rbox(i === 0 ? 1.1 : 0.85, 0.08, 0.03, 0.02, line), i === 0 ? 0 : -0.12, y, 0.13)));
-          const btnGeo = new THREE.CylinderGeometry(0.34, 0.34, 0.1, 40);
-          geos.push(btnGeo);
-          const btn = at(new THREE.Mesh(btnGeo, orange), 0, -0.6, 0.16);
-          btn.rotation.x = Math.PI / 2;
-          g.add(btn);
-          const ringGeo = new THREE.TorusGeometry(0.42, 0.025, 8, 48);
-          geos.push(ringGeo);
-          const rings = [0, 1, 2].map(() => {
-            const m = orange.clone();
-            m.transparent = true;
-            mats.push(m);
-            const r = at(new THREE.Mesh(ringGeo, m), 0, -0.6, 0.2);
-            g.add(r);
-            return r;
-          });
-          return {
-            group: g,
-            tick: (t) =>
-              rings.forEach((r, i) => {
-                const p = (t * 0.6 + i / 3) % 1;
-                r.scale.setScalar(1 + p * 1.8);
-                (r.material as import("three").MeshStandardMaterial).opacity = 1 - p;
-              }),
-          };
+        // Small shapes shared by the models below.
+        const pinMesh = (scale = 1) => {
+          const p = new THREE.Group();
+          const head = new THREE.SphereGeometry(0.5 * scale, 40, 40);
+          const tip = new THREE.ConeGeometry(0.43 * scale, 0.95 * scale, 40);
+          const hole = new THREE.CylinderGeometry(0.19 * scale, 0.19 * scale, 0.08, 32);
+          geos.push(head, tip, hole);
+          p.add(new THREE.Mesh(head, orange));
+          const cone = at(new THREE.Mesh(tip, orange), 0, -0.6 * scale, 0);
+          cone.rotation.x = Math.PI;
+          p.add(cone);
+          const dot = at(new THREE.Mesh(hole, paper), 0, 0, 0.47 * scale);
+          dot.rotation.x = Math.PI / 2;
+          p.add(dot);
+          return p;
         };
+        const starGeo = (() => {
+          const shape = new THREE.Shape();
+          for (let i = 0; i < 10; i++) {
+            const r = i % 2 ? 0.14 : 0.32;
+            const a = Math.PI / 2 + (i * Math.PI) / 5;
+            if (i === 0) shape.moveTo(Math.cos(a) * r, Math.sin(a) * r);
+            else shape.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+          }
+          shape.closePath();
+          const g = new THREE.ExtrudeGeometry(shape, { depth: 0.12, bevelEnabled: true, bevelSize: 0.025, bevelThickness: 0.025, bevelSegments: 2 });
+          g.center();
+          geos.push(g);
+          return g;
+        })();
 
-        // Small business websites: a browser window whose layers float apart.
-        builders["small-business-websites"] = () => {
+        // Website design and redesign: a browser window whose layers float apart.
+        builders["website-design"] = () => {
           const g = new THREE.Group();
           g.add(rbox(3.4, 2.3, 0.12, 0.12, paper));
           g.add(at(rbox(3.4, 0.32, 0.16, 0.12, ink), 0, 0.99, 0.02));
@@ -145,112 +143,159 @@ export function ServiceStage3D({
           };
         };
 
-        // Online stores: a shopping bag, a payment card and a parcel.
-        builders["online-stores"] = () => {
+        // Reputation management: five stars light up over a review card.
+        builders["reputation-management"] = () => {
           const g = new THREE.Group();
-          const bag = rbox(1.9, 2.1, 0.95, 0.08, orange);
-          g.add(bag);
-          const handleGeo = new THREE.TorusGeometry(0.45, 0.065, 12, 40, Math.PI);
-          geos.push(handleGeo);
-          g.add(at(new THREE.Mesh(handleGeo, ink), 0, 1.05, 0));
-          const card = new THREE.Group();
-          card.add(rbox(1.35, 0.85, 0.05, 0.07, ink));
-          card.add(at(rbox(1.35, 0.15, 0.06, 0.01, orange), 0, 0.18, 0));
-          card.add(at(rbox(0.32, 0.22, 0.07, 0.03, paper), -0.38, -0.12, 0));
-          at(card, 1.15, -0.45, 0.75);
-          card.rotation.set(0.15, -0.5, 0.2);
-          const box = at(rbox(0.75, 0.75, 0.75, 0.06, paper), -1.25, -0.75, 0.35);
-          g.add(card, box);
-          return {
-            group: g,
-            tick: (t) => {
-              card.position.y = -0.45 + Math.sin(t * 1.6) * 0.12;
-              card.rotation.y = -0.5 + Math.sin(t * 0.9) * 0.25;
-              box.rotation.y = t * 0.4;
-            },
-          };
-        };
-
-        // Apps: two phones and a grid of app icons that pop in turn.
-        builders["app-development"] = () => {
-          const g = new THREE.Group();
-          const phone = (x: number, z: number, ry: number) => {
-            const p = new THREE.Group();
-            p.add(rbox(1.35, 2.7, 0.18, 0.18, ink));
-            p.add(at(rbox(1.2, 2.48, 0.04, 0.1, paper), 0, 0, 0.09));
-            at(p, x, 0, z);
-            p.rotation.y = ry;
-            g.add(p);
-            return p;
-          };
-          phone(-0.75, -0.4, 0.35);
-          const front = phone(0.6, 0.2, -0.2);
-          const icons: import("three").Mesh[] = [];
-          for (let r = 0; r < 3; r++)
-            for (let c = 0; c < 3; c++) {
-              const m = at(rbox(0.28, 0.28, 0.12, 0.07, (r + c) % 3 === 0 ? orange : (r + c) % 3 === 1 ? ink : line), -0.36 + c * 0.36, 0.55 - r * 0.38, 0.16);
-              front.add(m);
-              icons.push(m);
-            }
-          return {
-            group: g,
-            tick: (t) => icons.forEach((m, i) => m.scale.setScalar(1 + Math.max(0, Math.sin(t * 2.4 - i * 0.55)) * 0.28)),
-          };
-        };
-
-        // Custom software: a dashboard slab with live bars.
-        builders["custom-software"] = () => {
-          const g = new THREE.Group();
-          g.add(rbox(3.4, 0.14, 2.3, 0.07, ink));
-          const bars: import("three").Mesh[] = [];
-          for (let i = 0; i < 6; i++) {
-            const b = rbox(0.34, 1, 0.34, 0.05, i % 2 ? paper : orange);
-            at(b, -1.25 + i * 0.5, 0.57, 0.35);
-            g.add(b);
-            bars.push(b);
-          }
-          [-0.55, -0.85].forEach((z, i) => g.add(at(rbox(i ? 1.6 : 2.6, 0.06, 0.12, 0.03, line), i ? -0.7 : -0.2, 0.1, z)));
-          g.rotation.x = 0.42;
+          const card = at(new THREE.Group(), 0, -0.6, 0);
+          card.add(rbox(3.2, 1.45, 0.14, 0.14, paper));
+          const avatarGeo = new THREE.CylinderGeometry(0.22, 0.22, 0.06, 32);
+          geos.push(avatarGeo);
+          const avatar = at(new THREE.Mesh(avatarGeo, ink), -1.15, 0.25, 0.1);
+          avatar.rotation.x = Math.PI / 2;
+          card.add(avatar);
+          card.add(at(rbox(1.5, 0.12, 0.04, 0.03, ink), -0.1, 0.32, 0.09));
+          card.add(at(rbox(2.5, 0.09, 0.04, 0.03, line), 0, -0.12, 0.09));
+          card.add(at(rbox(1.9, 0.09, 0.04, 0.03, line), -0.3, -0.36, 0.09));
+          g.add(card);
+          const stars = [-1.2, -0.6, 0, 0.6, 1.2].map((x) => {
+            const s = at(new THREE.Mesh(starGeo, orange), x, 0.75, 0.15);
+            g.add(s);
+            return s;
+          });
           return {
             group: g,
             tick: (t) =>
-              bars.forEach((b, i) => {
-                const h = 0.4 + (Math.sin(t * 1.3 + i * 0.9) * 0.5 + 0.5) * 1.3;
-                b.scale.y = h;
-                b.position.y = 0.07 + h / 2;
+              stars.forEach((s, i) => {
+                const p = Math.max(0, Math.sin(t * 2.2 - i * 0.55));
+                s.scale.setScalar(1 + p * 0.32);
+                s.position.y = 0.75 + p * 0.12;
+                s.rotation.y = Math.sin(t * 1.4 + i) * 0.35;
               }),
           };
         };
 
-        // SEO and marketing: a magnifier gliding over rising bars.
-        builders["seo-and-marketing"] = () => {
+        // Google Business Profile: a map pin bouncing over a profile card.
+        builders["google-business-profile"] = () => {
           const g = new THREE.Group();
-          [0.7, 1.2, 1.9].forEach((h, i) => g.add(at(rbox(0.55, h, 0.55, 0.06, i === 2 ? orange : i === 1 ? ink : line), -0.8 + i * 0.8, -1.1 + h / 2, 0)));
-          const mag = new THREE.Group();
-          const ringGeo = new THREE.TorusGeometry(0.62, 0.11, 16, 56);
-          const lensGeo = new THREE.CylinderGeometry(0.58, 0.58, 0.04, 48);
-          const handleGeo = new THREE.CylinderGeometry(0.09, 0.11, 1.0, 24);
-          geos.push(ringGeo, lensGeo, handleGeo);
-          mag.add(new THREE.Mesh(ringGeo, orange));
-          const lens = new THREE.Mesh(lensGeo, glass);
-          lens.rotation.x = Math.PI / 2;
-          mag.add(lens);
-          const handle = at(new THREE.Mesh(handleGeo, ink), 0.62, -0.62, 0);
-          handle.rotation.z = Math.PI / 4;
-          mag.add(handle);
-          at(mag, 0.2, 0.55, 0.7);
-          g.add(mag);
+          const card = at(new THREE.Group(), -0.35, -0.5, 0);
+          card.add(rbox(2.7, 1.9, 0.14, 0.14, paper));
+          card.add(at(rbox(2.7, 0.5, 0.16, 0.12, ink), 0, 0.7, 0.01));
+          card.add(at(rbox(1.6, 0.12, 0.04, 0.03, ink), -0.45, 0.12, 0.09));
+          [-0.62, -0.31, 0, 0.31, 0.62].forEach((x) => {
+            const s = at(new THREE.Mesh(starGeo, orange), x - 0.45, -0.22, 0.12);
+            s.scale.setScalar(0.38);
+            card.add(s);
+          });
+          card.add(at(rbox(0.9, 0.3, 0.06, 0.08, orange), -0.75, -0.62, 0.1));
+          card.add(at(rbox(0.9, 0.3, 0.06, 0.08, line), 0.3, -0.62, 0.1));
+          g.add(card);
+          const pin = at(pinMesh(1), 0.95, 0.85, 0.6);
+          g.add(pin);
+          const ringGeo = new THREE.TorusGeometry(0.35, 0.03, 8, 40);
+          geos.push(ringGeo);
+          const ring = at(new THREE.Mesh(ringGeo, line), 0.95, -0.15, 0.6);
+          ring.rotation.x = Math.PI / 2;
+          g.add(ring);
           return {
             group: g,
             tick: (t) => {
-              mag.position.x = 0.2 + Math.sin(t * 0.8) * 0.6;
-              mag.position.y = 0.55 + Math.cos(t * 1.1) * 0.15;
+              const b = Math.abs(Math.sin(t * 2.1));
+              pin.position.y = 0.75 + b * 0.35;
+              ring.scale.setScalar(1.15 - b * 0.35);
             },
           };
         };
 
-        // AI automation: a chat bubble whose dots type, over a live voice waveform.
-        builders["ai-automation"] = () => {
+        // Lead generation and lead flow: a quote form whose leads travel to
+        // three destinations (inbox, sheet, CRM).
+        builders["lead-generation"] = () => {
+          const g = new THREE.Group();
+          const form = at(new THREE.Group(), -1.35, 0, 0);
+          form.add(rbox(1.35, 2.1, 0.14, 0.14, paper));
+          [0.6, 0.25, -0.1].forEach((y) => form.add(at(rbox(1.0, 0.18, 0.04, 0.04, line), 0, y, 0.09)));
+          form.add(at(rbox(1.0, 0.28, 0.06, 0.08, orange), 0, -0.6, 0.1));
+          g.add(form);
+          const ys = [0.85, 0, -0.85];
+          ys.forEach((y, i) => {
+            const tile = at(new THREE.Group(), 1.35, y, 0);
+            tile.add(rbox(1.0, 0.62, 0.14, 0.1, i === 2 ? orange : i === 1 ? paper : ink));
+            tile.add(at(rbox(0.6, 0.08, 0.04, 0.03, i === 0 ? line : ink), 0, 0.08, 0.09));
+            tile.add(at(rbox(0.4, 0.08, 0.04, 0.03, i === 0 ? line : ink), -0.1, -0.1, 0.09));
+            g.add(tile);
+          });
+          const curves = ys.map((y) => new THREE.CatmullRomCurve3([
+            new THREE.Vector3(-0.68, -0.6, 0.12),
+            new THREE.Vector3(0, (y - 0.6) / 2, 0.3),
+            new THREE.Vector3(0.82, y, 0.12),
+          ]));
+          curves.forEach((c) => {
+            const tube = new THREE.TubeGeometry(c, 40, 0.02, 8, false);
+            geos.push(tube);
+            g.add(new THREE.Mesh(tube, line));
+          });
+          const dotGeo = new THREE.SphereGeometry(0.08, 20, 20);
+          geos.push(dotGeo);
+          const dots = curves.map(() => {
+            const d = new THREE.Mesh(dotGeo, orange);
+            g.add(d);
+            return d;
+          });
+          return {
+            group: g,
+            tick: (t) => dots.forEach((d, i) => d.position.copy(curves[i].getPoint((t * 0.55 + i * 0.12) % 1))),
+          };
+        };
+
+        // Local ads: a service-area map with a pin, radius rings and homes
+        // that pop up as the rings reach them.
+        builders["local-ads"] = () => {
+          const g = new THREE.Group();
+          const area = new THREE.Group();
+          const discGeo = new THREE.CylinderGeometry(2.1, 2.1, 0.12, 72);
+          geos.push(discGeo);
+          area.add(new THREE.Mesh(discGeo, paper));
+          const roofGeo = new THREE.ConeGeometry(0.2, 0.18, 4);
+          geos.push(roofGeo);
+          const homes = [[1.2, 0.5], [-1.1, 0.8], [0.4, -1.3], [-0.6, -1.0], [1.3, -0.7], [-1.5, -0.2], [0.2, 1.4]].map(([x, z], i) => {
+            const h = at(new THREE.Group(), x, 0.06, z);
+            h.add(at(rbox(0.26, 0.22, 0.26, 0.03, i % 3 === 0 ? ink : line), 0, 0.11, 0));
+            const roof = at(new THREE.Mesh(roofGeo, i % 3 === 0 ? orange : ink), 0, 0.31, 0);
+            roof.rotation.y = Math.PI / 4;
+            h.add(roof);
+            area.add(h);
+            return { h, r: Math.hypot(x, z) };
+          });
+          const ringGeo = new THREE.TorusGeometry(1, 0.025, 8, 72);
+          geos.push(ringGeo);
+          const rings = [0, 1].map(() => {
+            const m = orange.clone();
+            m.transparent = true;
+            mats.push(m);
+            const r = at(new THREE.Mesh(ringGeo, m), 0, 0.08, 0);
+            r.rotation.x = Math.PI / 2;
+            area.add(r);
+            return r;
+          });
+          area.add(at(pinMesh(0.55), 0, 0.72, 0));
+          area.rotation.x = 0.55;
+          at(area, 0, -0.35, 0);
+          g.add(area);
+          return {
+            group: g,
+            tick: (t) => {
+              rings.forEach((r, i) => {
+                const p = (t * 0.35 + i / 2) % 1;
+                r.scale.setScalar(0.25 + p * 1.75);
+                (r.material as import("three").MeshStandardMaterial).opacity = 1 - p;
+              });
+              const front = ((t * 0.35) % 1) * 2;
+              homes.forEach(({ h, r }) => h.scale.setScalar(1 + Math.max(0, 0.35 - Math.abs(front - r)) * 1.2));
+            },
+          };
+        };
+
+        // Automation: a chat bubble whose dots type, over a live voice waveform.
+        builders["automation"] = () => {
           const g = new THREE.Group();
           const bubble = new THREE.Group();
           bubble.add(rbox(2.7, 1.6, 0.34, 0.34, ink));

@@ -1,4 +1,6 @@
 ---
+# Parked: off-topic since the October 2026 repositioning to local service businesses.
+draft: true
 title: "Shopify vs WooCommerce for Small Businesses (2026 Comparison)"
 description: "Shopify vs WooCommerce in 2026: monthly fees, payment costs, hosting, ease of use and flexibility compared, with clear advice on which to pick for your store."
 date: 2026-10-11

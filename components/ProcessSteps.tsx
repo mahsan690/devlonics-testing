@@ -13,12 +13,12 @@ const steps = [
     body: `Within ${site.quoteTurnaround} you get a written plan: what we'll build, the price, and the timeline. No obligation.`,
   },
   {
-    title: "Approve the design, then we build",
-    body: "You see and sign off the design before development starts. While we build, you get regular previews and nothing goes live without your OK.",
+    title: "Approve the plan, then we build",
+    body: "You sign off the design, the lead flow and the ad areas before anything goes live. While we work, you get previews and test leads, and nothing launches without your OK.",
   },
   {
-    title: "Launch and look after",
-    body: "We put the site live on your domain, set up tracking and search console, and keep it updated and backed up on an optional care plan.",
+    title: "Launch, then keep it growing",
+    body: "We put it live, connect call and form tracking, and send every lead to your email, phone and CRM. On a monthly plan we keep your reviews, Google profile and ads working, with a short report each month.",
   },
 ];
 

@@ -1,4 +1,6 @@
 ---
+# Parked: off-topic since the October 2026 repositioning to local service businesses.
+draft: true
 title: "TikTok Ads for Shopify on $20 a Day: Lessons From a Relaunch"
 description: "How we relaunched a stalled Shopify store with TikTok ads at $20 a day: what we fixed first, how we made the creative and the lessons for small budgets."
 date: 2026-11-01

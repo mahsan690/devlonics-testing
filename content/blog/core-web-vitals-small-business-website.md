@@ -19,8 +19,9 @@ faqs:
   - q: "Do Core Web Vitals affect Google rankings?"
     a: "They're part of Google's page experience signals. Content relevance matters far more, but between similar pages a faster, more stable site has an edge, and it converts better either way."
 related:
-  - small-business-websites
-  - lead-generation-websites
+  - website-design
+  - lead-generation
+
 ---
 
 Core Web Vitals are three measurements Google uses to judge how fast and stable your website feels to real visitors: how quickly the main content loads, how fast the page responds when someone taps, and whether things jump around while it loads. For a small business, they're a practical checklist for a site that doesn't lose visitors before they call.
@@ -75,7 +76,7 @@ Core Web Vitals are part of Google's page experience signals. Relevance and cont
 
 ## Speed is a design decision
 
-Most slow sites aren't slow because of one bug; they're slow because of how they were built. We build [small business websites](/services/small-business-websites) and [lead generation websites](/services/lead-generation-websites) with optimized images, minimal scripts and fast hosting from the start, and test Core Web Vitals before launch. If you're planning a rebuild, our guide to [redesigning without losing rankings](/blog/website-redesign-without-losing-seo) covers the rest. [Get a fixed quote](/contact).
+Most slow sites aren't slow because of one bug; they're slow because of how they were built. We build [small business websites](/services/website-design) and [lead generation websites](/services/lead-generation) with optimized images, minimal scripts and fast hosting from the start, and test Core Web Vitals before launch. If you're planning a rebuild, our guide to [redesigning without losing rankings](/blog/website-redesign-without-losing-seo) covers the rest. [Get a fixed quote](/contact).
 
 ## Sources
 

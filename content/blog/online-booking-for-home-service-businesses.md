@@ -19,9 +19,9 @@ faqs:
   - q: "What booking software works for home service businesses?"
     a: "Field service platforms such as Jobber, Housecall Pro and ServiceTitan include online booking that syncs with your schedule. Simple scheduling tools work for estimates. The right choice is the one your team already uses to dispatch."
 related:
-  - lead-generation-websites
+  - lead-generation
   - cleaning
-  - app-development
+
 ---
 
 Online booking is worth it for most home service businesses, but only for the right jobs and only if it's connected to your real schedule. It answers customers instantly, at 10 p.m. as easily as 10 a.m., and it saves your office time. For complex or urgent work, a short request form and a fast callback still win.
@@ -73,11 +73,11 @@ Put your phone number next to every booking button for people who'd rather talk,
 
 ## What about a custom booking app?
 
-Most home service businesses don't need one: the booking built into Jobber, Housecall Pro or ServiceTitan covers standard needs. A custom booking system or [app](/services/app-development) makes sense when you have unusual rules, such as complex pricing, multiple crews with different skills or memberships, that off-the-shelf tools can't handle.
+Most home service businesses don't need one: the booking built into Jobber, Housecall Pro or ServiceTitan covers standard needs. A custom booking system makes sense when you have unusual rules, such as complex pricing, multiple crews with different skills or memberships, that off-the-shelf tools can't handle.
 
 ## Put booking where customers decide
 
-Booking buttons work best on service pages, next to your prices, reviews and phone number. We build [lead generation websites](/services/lead-generation-websites) that integrate with your booking software, for [cleaning companies](/markets/cleaning) and other trades. Pair it with a fast reply routine, covered in our guide to [speed to lead](/blog/speed-to-lead-home-service-businesses). [Get a fixed quote](/contact).
+Booking buttons work best on service pages, next to your prices, reviews and phone number. We build [lead generation websites](/services/lead-generation) that integrate with your booking software, for [cleaning companies](/markets/cleaning) and other trades. Pair it with a fast reply routine, covered in our guide to [speed to lead](/blog/speed-to-lead-home-service-businesses). [Get a fixed quote](/contact).
 
 ## Sources
 

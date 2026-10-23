@@ -19,9 +19,9 @@ faqs:
   - q: "What shouldn't I use AI for?"
     a: "Final pricing decisions, technical diagnoses, legal or safety advice, and fake reviews or testimonials, which the FTC's rule on consumer reviews explicitly bans."
 related:
-  - custom-software
-  - lead-generation-websites
-  - app-development
+  - automation
+  - lead-generation
+
 ---
 
 AI is already part of everyday work for half of home service businesses. The owners getting the most from it use it for repetitive office tasks, like estimates, follow-ups, review replies and call notes, rather than expecting it to run the business. Here are seven practical uses and where to keep a human in charge.
@@ -52,7 +52,7 @@ Recording apps with AI transcription (with customer consent where required) can 
 
 ## 5. Answering after-hours calls and messages
 
-An AI receptionist or chat assistant can answer common questions, collect details and book simple jobs when your office is closed. With Google now [charging for missed Local Services Ads calls](/blog/google-local-services-ads-missed-calls), capturing overflow calls is worth more than ever. Test it on real calls and set a clear handoff to a person for emergencies. Here's [how we built one for an HVAC and plumbing company](/ai/case-studies/ai-voice-receptionist-home-services): it answers around the clock, books into the calendar and sends emergencies to the on-call tech.
+An AI receptionist or chat assistant can answer common questions, collect details and book simple jobs when your office is closed. With Google now [charging for missed Local Services Ads calls](/blog/google-local-services-ads-missed-calls), capturing overflow calls is worth more than ever. Test it on real calls and set a clear handoff to a person for emergencies. Here's [how we built one for an HVAC and plumbing company](/work/ai-voice-receptionist-home-services): it answers around the clock, books into the calendar and sends emergencies to the on-call tech.
 
 ## 6. Writing for your website and social media
 
@@ -60,7 +60,7 @@ AI can help draft service descriptions, FAQs, job posts and social captions. Use
 
 ## 7. Automating the busywork between tools
 
-The biggest time savings often come from connecting the systems you already have: a form that creates a job in your software, sends a confirmation text and adds the customer to your email list, or a weekly report that pulls jobs, revenue and leads into one place. That's where [custom software and automation](/services/custom-software) earn their keep.
+The biggest time savings often come from connecting the systems you already have: a form that creates a job in your software, sends a confirmation text and adds the customer to your email list, or a weekly report that pulls jobs, revenue and leads into one place. That's where [automation](/services/automation) earn their keep.
 
 ## Where to keep a human in charge
 
@@ -73,7 +73,7 @@ The biggest time savings often come from connecting the systems you already have
 
 Pick one task that eats time every day, try AI on it for two weeks, and measure the hours saved. Then pick the next one.
 
-If your team is copying data between apps or chasing follow-ups by hand, we build [AI agents and automations](/ai) around how you work, and [lead generation websites](/services/lead-generation-websites) that feed leads straight into your systems. [Get a fixed quote](/contact).
+If your team is copying data between apps or chasing follow-ups by hand, we build [automations](/services/automation) around how you work, and [lead generation websites](/services/lead-generation) that feed leads straight into your systems. [Get a fixed quote](/contact).
 
 ## Sources
 

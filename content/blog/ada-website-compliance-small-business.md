@@ -19,9 +19,9 @@ faqs:
   - q: "What accessibility standard should my website meet?"
     a: "WCAG 2.1 level AA is the standard most accessibility policies, settlements and audits refer to. It covers things like text alternatives for images, color contrast, keyboard navigation and form labels."
 related:
-  - small-business-websites
+  - website-design
   - home-care-and-clinics
-  - ecommerce
+
 ---
 
 Website accessibility lawsuits are a real risk for small businesses, especially online stores. More than 2,000 were filed in the first half of 2025 alone. The good news: most of what makes a site accessible is basic, well-understood work, and it makes the site better for every visitor. What doesn't work is a one-line overlay widget.
@@ -86,7 +86,7 @@ Automated tools catch only part of the problems, so a manual review matters, esp
 
 ## Build it in from the start
 
-Every site we build, from [small business websites](/services/small-business-websites) to [Shopify stores](/markets/ecommerce) and [home care and clinic sites](/markets/home-care-and-clinics), uses accessible components, proper labels, keyboard support and tested color contrast. [Get a fixed quote](/contact) for a new site or an accessibility pass on your current one.
+Every site we build, from [contractor websites](/services/website-design) to [home care and clinic sites](/markets/home-care-and-clinics), uses accessible components, proper labels, keyboard support and tested color contrast. [Get a fixed quote](/contact) for a new site or an accessibility pass on your current one.
 
 *This article is general information, not legal advice. Talk to a lawyer about your specific situation.*
 

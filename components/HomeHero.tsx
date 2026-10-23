@@ -48,9 +48,9 @@ export function HomeHero() {
               whose last word types itself: convert, sell, perform, impress, get found. */}
           <h1 ref={headline}>
             <span className="hero-after mb-5 block max-w-xl font-sans text-[1.0625rem] font-semibold leading-snug tracking-normal text-signal sm:text-lg">
-              Web design and Shopify development
+              Marketing for local service businesses
             </span>
-            <span className="sr-only">Built to convert, sell, perform, impress and get found.</span>
+            <span className="sr-only">Built to get found, earn reviews, book jobs and convert.</span>
             <span aria-hidden="true" className="t-hero block">
               <span className="hero-line block overflow-hidden pb-[0.06em]"><span className="block">Built to</span></span>
               <span className="hero-line block overflow-hidden pb-[0.16em]">
@@ -59,12 +59,12 @@ export function HomeHero() {
             </span>
           </h1>
           <p className="hero-after t-lede mt-7 max-w-xl text-ash">
-            Websites, apps, custom software and AI automation for businesses across the USA. A few quick questions, and a written plan with a fixed
-            price back within {site.quoteTurnaround}.
+            Websites, reviews, Google profiles, lead flows and local ads for contractors, home services and clinics across the USA. A few quick
+            questions, and a written plan with a fixed price back within {site.quoteTurnaround}.
           </p>
           <ul className="hero-after mt-6 flex flex-wrap gap-x-6 gap-y-2 text-[0.95rem] text-paper/85">
             <li>Top Rated on Upwork</li>
-            <li>{site.projectsDelivered} websites and stores built</li>
+            <li>{site.projectsDelivered} websites built</li>
             <li>Fixed price, agreed up front</li>
           </ul>
           <div className="hero-after mt-10 max-w-xl">

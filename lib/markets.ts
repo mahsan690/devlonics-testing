@@ -1,6 +1,6 @@
 import type { Faq } from "./services";
 
-// "Markets we serve": one landing page per industry. To add a market, add an
+// "Markets we serve": one landing page per local service industry. To add a market, add an
 // entry here and its slug to KNOWN.markets in proxy.ts.
 // Each page targets one search phrase (`keyword`) and answers the question
 // buyers search most ("What should a ___ website include?") near the top.
@@ -11,7 +11,7 @@ export type Market = {
   name: string; // plural noun used in headings, e.g. "HVAC companies"
   keyword: string; // primary search phrase this page targets
   short: string; // one line for grids
-  icon: "hvac" | "plumbing" | "roofing" | "cleaning" | "contractors" | "landscaping" | "health" | "ecommerce";
+  icon: "hvac" | "plumbing" | "roofing" | "cleaning" | "contractors" | "landscaping" | "health";
   wizard: string; // value pre-selected in the quote form's industry step
   workTags: string[];
   metaTitle: string; // under ~50 characters; " | Devlonic" is appended
@@ -65,7 +65,7 @@ export const markets: Market[] = [
       "Reviews, licenses and manufacturer certifications next to every call button",
       "Call and form tracking, so you can see which pages bring jobs",
     ],
-    relatedServices: ["lead-generation-websites", "seo-and-marketing"],
+    relatedServices: ["lead-generation", "google-business-profile", "local-ads"],
     relatedPosts: ["home-service-website-checklist", "local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "Can customers book HVAC maintenance online?", a: "Yes. We add online booking that syncs with your calendar, or connect the scheduling tool you already use, plus a sign-up form for maintenance plans." },
@@ -107,7 +107,7 @@ export const markets: Market[] = [
       "License, insurance and guarantee badges near every call to action",
       "Google Business Profile and local schema set up at launch",
     ],
-    relatedServices: ["lead-generation-websites", "seo-and-marketing"],
+    relatedServices: ["lead-generation", "google-business-profile", "local-ads"],
     relatedPosts: ["home-service-website-checklist", "local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "Should I list prices on my plumbing website?", a: "Starting prices or ranges for common jobs usually increase calls, because they answer the first question people have. You don't need a full price list, just enough to set expectations." },
@@ -149,7 +149,7 @@ export const markets: Market[] = [
       "Service-area pages for each town and county you cover",
       "A review collection process to grow your Google rating",
     ],
-    relatedServices: ["lead-generation-websites", "seo-and-marketing"],
+    relatedServices: ["website-design", "reputation-management", "local-ads"],
     relatedPosts: ["home-service-website-checklist", "local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "What makes a roofing website convert?", a: "Proof. Real project photos, reviews, warranty details and credentials, placed right next to a simple inspection booking form." },
@@ -191,7 +191,7 @@ export const markets: Market[] = [
       "Service-area pages for the neighborhoods you cover",
       "Automatic booking confirmations and reminders",
     ],
-    relatedServices: ["small-business-websites", "lead-generation-websites"],
+    relatedServices: ["website-design", "reputation-management", "automation"],
     relatedPosts: ["home-service-website-checklist", "how-much-does-a-small-business-website-cost"],
     faqs: [
       { q: "Can my cleaning website give customers an instant quote?", a: "Yes. A quote calculator based on home size, cleaning type and frequency gives visitors a number straight away and sends you a qualified lead." },
@@ -233,7 +233,7 @@ export const markets: Market[] = [
       "Service-area pages for the towns you work in",
       "Review and referral sections that build credibility",
     ],
-    relatedServices: ["lead-generation-websites", "custom-software"],
+    relatedServices: ["website-design", "lead-generation", "reputation-management"],
     relatedPosts: ["home-service-website-checklist", "local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "How should a contractor show their portfolio?", a: "By project type, with a short story for each: the problem, what you did, and the result, plus before-and-after photos. That's far more persuasive than a single photo grid." },
@@ -275,7 +275,7 @@ export const markets: Market[] = [
       "Service-area pages for each town you cover",
       "Google Business Profile and review setup at launch",
     ],
-    relatedServices: ["small-business-websites", "seo-and-marketing"],
+    relatedServices: ["website-design", "google-business-profile", "local-ads"],
     relatedPosts: ["home-service-website-checklist", "local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "Can I update seasonal offers myself?", a: "Yes. We build the site so you can switch featured services and promotions on and off without a developer." },
@@ -317,7 +317,7 @@ export const markets: Market[] = [
       "Accessibility built in: readable type, contrast and keyboard navigation",
       "Local SEO for the communities you serve",
     ],
-    relatedServices: ["small-business-websites", "custom-software"],
+    relatedServices: ["website-design", "reputation-management", "lead-generation"],
     relatedPosts: ["local-seo-checklist-home-service-businesses"],
     faqs: [
       { q: "Have you built websites for home care and medical clients?", a: "Yes. Our work includes websites for several home care agencies and for Midtown New York Doctors, a walk-in urgent care clinic in Manhattan." },
@@ -325,48 +325,6 @@ export const markets: Market[] = [
       { q: "Can patients book or check in online?", a: "Yes. We can add online booking or connect the check-in system you already use." },
       { q: "How much does a home care agency website cost?", a: "Industry guides published in 2026 put freelancer-built small business sites at roughly $500 to $5,000 and agency builds at $5,000 to $15,000. We quote a fixed price after a short questionnaire; careers pages and online booking are the usual extras." },
       { q: "Is accessibility important for a care website?", a: "Yes. Many visitors are older adults or family members on phones. Readable text, strong contrast, clear buttons and keyboard navigation make the site usable for everyone." },
-    ],
-  },
-  {
-    slug: "ecommerce",
-    name: "Ecommerce and Shopify brands",
-    keyword: "Shopify development and marketing",
-    short: "Stores that convert, and ads that bring buyers to them.",
-    icon: "ecommerce",
-    wizard: "retail",
-    workTags: ["store"],
-    metaTitle: "Shopify Development and Marketing Agency",
-    metaDescription:
-      "Shopify development and marketing for ecommerce brands: stores that convert, dropshipping and fulfilment setup, AI video ads and TikTok and Meta campaigns.",
-    heroTitle: "Shopify development and marketing in one team.",
-    heroLede:
-      "A beautiful store with no traffic doesn't sell, and ads pointed at a weak store waste money. We handle both sides: a Shopify store built to convert, and TikTok and Meta campaigns that bring the right buyers to it.",
-    answer: {
-      q: "What does a Shopify development and marketing agency do?",
-      a: "A Shopify development and marketing agency builds or rebuilds your store, then drives traffic to it. That covers theme and product page design, checkout and payments, fulfilment apps such as AutoDS, tracking pixels, ad creative, and running paid campaigns on TikTok, Meta and Google, with reporting on sales and return on ad spend.",
-    },
-    problems: [
-      { title: "Traffic that doesn't buy", body: "Slow pages, thin product details and a clunky checkout leak sales before customers reach the cart." },
-      { title: "Ads without tracking", body: "Without pixels and conversion tracking set up properly, you can't tell which campaigns make money." },
-      { title: "Fulfilment that breaks", body: "Dropshipping apps, suppliers and marketplace settings need to work together, or orders get stuck." },
-    ],
-    features: [
-      "Shopify or WooCommerce store designed around your products",
-      "Product pages with strong photos, details, reviews, and clear shipping and returns",
-      "Fast checkout with Shop Pay, Apple Pay, Google Pay and PayPal",
-      "Dropshipping and fulfilment setup with AutoDS and supplier networks",
-      "TikTok, Meta and Google pixels and conversion tracking",
-      "AI video ad creative for TikTok and Meta",
-      "Paid campaigns that scale only when they're profitable",
-    ],
-    relatedServices: ["online-stores", "seo-and-marketing"],
-    relatedPosts: ["shopify-vs-woocommerce", "what-is-aeo-answer-engine-optimization"],
-    faqs: [
-      { q: "Can you run ads as well as build the Shopify store?", a: "Yes. We build the store and run TikTok and Meta campaigns, so the people making the ads and the people fixing the store are the same team." },
-      { q: "Do you work with dropshipping stores?", a: "Yes. We set up AutoDS with Amazon and Alibaba suppliers and fix fulfilment issues between Shopify, TikTok Shop and your apps. See our Gladiolaz case study." },
-      { q: "How much ad budget do I need to start?", a: "Less than most people think. We've launched TikTok campaigns at $20 a day that brought in orders within the first two weeks. What matters is tracking every order so spend only grows when it pays." },
-      { q: "How much does Shopify cost per month?", a: "Shopify's own pricing page lists Basic at $29 a month billed yearly ($39 monthly), Grow at $79 and Advanced at $299, plus card fees from 2.9% + 30¢ on Basic. Apps and themes are extra." },
-      { q: "Can you fix a Shopify store that gets traffic but no sales?", a: "Usually. The common causes are slow pages, weak product pages, surprise costs at checkout and missing trust signals. We audit those first, then test fixes against your conversion rate." },
     ],
   },
 ];

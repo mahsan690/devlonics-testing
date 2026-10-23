@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { onPreloaded } from "@/lib/preload";
 
-export const HERO_WORDS = ["convert.", "sell.", "perform.", "impress.", "get found."];
+export const HERO_WORDS = ["get found.", "earn reviews.", "book jobs.", "convert."];
 
 // The last word of the hero headline: it deletes itself and types the next
 // one, on a loop. The first word is rendered on the server, so search engines
-// and no-JS visitors read "Built to convert." Reduced motion keeps it still.
+// and no-JS visitors read "Built to get found." Reduced motion keeps it still.
 export function TypedWord({ words = HERO_WORDS }: { words?: string[] }) {
   const [text, setText] = useState(words[0]);
 

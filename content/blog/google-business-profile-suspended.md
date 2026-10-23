@@ -19,9 +19,10 @@ faqs:
   - q: "Can a service-area business show its address on Google?"
     a: "Only if customers visit you there during stated hours. Google's guidelines say a business that serves customers at their locations, such as a plumber working from home, should hide its address and set a service area instead."
 related:
-  - seo-and-marketing
+  - google-business-profile
   - plumbing
   - hvac
+
 ---
 
 A suspended Google Business Profile means your business disappears from Google Maps, often overnight, and for a home service company that can mean losing most of its calls. Suspensions usually come from something on the profile that looks like a guideline breach, but automated enforcement also catches real, legitimate businesses. Here's how to lower the risk and what to do if it happens.
@@ -69,7 +70,7 @@ Google's [guidelines for representing your business](https://support.google.com/
 
 ## Don't let one listing be your whole business
 
-Even a temporary suspension shows why it pays to have other ways in: a website that ranks on its own, reviews on more than one platform and a customer list you can contact directly. We handle profile clean-ups, appeals support and ongoing [local SEO](/services/seo-and-marketing) for [plumbers](/markets/plumbing), [HVAC companies](/markets/hvac) and other trades. [Get a fixed quote](/contact).
+Even a temporary suspension shows why it pays to have other ways in: a website that ranks on its own, reviews on more than one platform and a customer list you can contact directly. We handle profile clean-ups, appeals support and ongoing [local SEO](/services/google-business-profile) for [plumbers](/markets/plumbing), [HVAC companies](/markets/hvac) and other trades. [Get a fixed quote](/contact).
 
 ## Sources
 

@@ -19,9 +19,10 @@ faqs:
   - q: "Will a phone menu stop missed-call charges?"
     a: "Partly. Google's notice says that where your phone system needs a key press before routing, the 20-second timer starts only after the press. But menus can also lose real customers who hang up, so test before relying on one."
 related:
-  - seo-and-marketing
-  - lead-generation-websites
+  - local-ads
+  - lead-generation
   - plumbing
+
 ---
 
 Google now bills Local Services Ads advertisers for missed calls. Since October 1, 2026, a call that rings out during your business hours counts as a valid lead if the caller stays on the line for more than 20 seconds. If your office misses calls at lunch, on job sites or when two come in at once, you're paying for those calls now.
@@ -56,7 +57,7 @@ Pull last month's Local Services Ads lead report and your phone system's call lo
 
 - **Overflow routing:** ring a second phone, the owner's cell or an office manager when the first line is busy.
 - **An answering service** for peak hours and lunch breaks. Service Direct's numbers suggest the gap between 66% and 99% answered is where the money is.
-- **An [AI receptionist](/ai/case-studies/ai-voice-receptionist-home-services)** can take details and book simple jobs, but test it on your own calls before trusting it with angry or urgent customers.
+- **An [AI receptionist](/work/ai-voice-receptionist-home-services)** can take details and book simple jobs, but test it on your own calls before trusting it with angry or urgent customers.
 
 ### 3. Set business hours you can actually staff
 
@@ -80,9 +81,9 @@ A short menu ("press 1 for service, 2 for billing") filters robocalls and, under
 
 ## Don't rely on one channel
 
-Local Services Ads are moving into Google Ads over 2026 and 2027, and the billing rules will keep changing. Calls from your own website and Google Business Profile aren't billed per lead at all, which is why we build [lead generation websites](/services/lead-generation-websites) with tap-to-call on every page and call tracking from day one.
+Local Services Ads are moving into Google Ads over 2026 and 2027, and the billing rules will keep changing. Calls from your own website and Google Business Profile aren't billed per lead at all, which is why we build [lead generation websites](/services/lead-generation) with tap-to-call on every page and call tracking from day one.
 
-If you'd like a second pair of eyes on your ads and phone setup, our [SEO and marketing service](/services/seo-and-marketing) covers Local Services Ads management, or you can [get a fixed quote](/contact).
+If you'd like a second pair of eyes on your ads and phone setup, our [local ads service](/services/local-ads) covers Local Services Ads management, or you can [get a fixed quote](/contact).
 
 ## Sources
 

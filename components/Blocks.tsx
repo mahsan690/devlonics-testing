@@ -66,7 +66,6 @@ export function MarketIcon({ icon, className = "h-8 w-8" }: { icon: Market["icon
     contractors: (<path d="m14.5 6.5 3 3M4 20l8.6-8.6M13.5 5.5l3-2.5 4.5 4.5-2.5 3-3.6-1.4-1.4-3.6Z M10.5 13.5 7 10" {...common} />),
     landscaping: (<path d="M5 19c0-8 5-13 15-14-1 10-6 15-14 15M5 19l7-7" {...common} />),
     health: (<path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10Z M12 10.5v5M9.5 13h5" {...common} />),
-    ecommerce: (<path d="M5 8h14l-1.2 12H6.2L5 8Z M9 8V6.5a3 3 0 0 1 6 0V8" {...common} />),
   };
   return (
     <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
@@ -100,6 +99,18 @@ export function MarketsGrid({ exclude, compact = false }: { exclude?: string; co
           </Link>
         </li>
       ))}
+      <li>
+        <Link
+          href="/contact"
+          className="group flex h-full min-h-48 flex-col justify-between rounded-[1.5rem] border-[1.5px] border-line p-6 transition-colors duration-300 hover:border-ink"
+        >
+          <span aria-hidden="true" className="flex h-9 w-9 items-center justify-center rounded-full bg-signal font-display text-xl font-bold text-paper transition-transform duration-300 group-hover:scale-110">+</span>
+          <span className="mt-8 block">
+            <span className="block font-display text-xl font-bold tracking-tight">Another local service?</span>
+            {!compact && <span className="mt-1.5 block text-[0.95rem] text-graphite">Electricians, pest control, garage doors, med spas and more. Tell us what you do.</span>}
+          </span>
+        </Link>
+      </li>
     </ul>
   );
 }

@@ -19,9 +19,10 @@ faqs:
   - q: "Do my reviews and badge transfer to Google Ads?"
     a: "Yes. Leads, reviews and the Google Verified badge transfer. Historical performance reports do not, so download them before migration."
 related:
-  - seo-and-marketing
+  - local-ads
   - roofing
   - hvac
+
 ---
 
 Google is moving Local Services Ads into Google Ads. The ads don't disappear: you'll still pay per lead and still show at the top of Search and Maps, but the separate Local Services dashboard is retired once your account migrates, and some settings work differently. Here's what changes and what to do before your turn comes.
@@ -89,7 +90,7 @@ The billing model is the same: you pay per lead. But losing manual bidding, plus
 
 ## Where your website fits in
 
-Local Services Ads rent you a spot at the top of the page. Your website and Google Business Profile build traffic you don't pay for per lead. If Local Services Ads are most of your leads today, the migration is a good moment to invest in [local SEO](/services/seo-and-marketing) and a [lead generation website](/services/lead-generation-websites) alongside them.
+Local Services Ads rent you a spot at the top of the page. Your website and Google Business Profile build traffic you don't pay for per lead. If Local Services Ads are most of your leads today, the migration is a good moment to invest in [local SEO](/services/google-business-profile) and a [lead generation website](/services/lead-generation) alongside them.
 
 We set up and manage Local Services Ads and Google Ads for [roofers](/markets/roofing), [HVAC companies](/markets/hvac) and other trades. [Get a fixed quote](/contact) if you'd like help with the migration.
 

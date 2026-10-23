@@ -19,8 +19,9 @@ faqs:
   - q: "Should I keep the same URLs when I redesign?"
     a: "Where you can, yes. Keeping the URLs of pages that already rank is the safest option. Change them only when the old structure is genuinely confusing, and redirect every old address when you do."
 related:
-  - small-business-websites
-  - lead-generation-websites
+  - website-design
+  - lead-generation
+
 ---
 
 A redesign can lose years of Google traffic in a week if old page addresses stop working. The fix is not complicated: map every old URL to its new home, redirect it permanently, keep the content that ranked, and watch Search Console closely after launch. We just did this ourselves, moving devlonics.com from WordPress to a new site, so this checklist is what we actually followed.
@@ -76,7 +77,7 @@ It's the same process we use on client redesigns, whether the move is WordPress 
 
 ## Redesigning soon?
 
-Our [small business website](/services/small-business-websites) and [lead generation website](/services/lead-generation-websites) projects include a full redirect map, staging site and post-launch Search Console checks. [Get a fixed quote](/contact) for your redesign.
+Our [small business website](/services/website-design) and [lead generation website](/services/lead-generation) projects include a full redirect map, staging site and post-launch Search Console checks. [Get a fixed quote](/contact) for your redesign.
 
 ## Sources
 

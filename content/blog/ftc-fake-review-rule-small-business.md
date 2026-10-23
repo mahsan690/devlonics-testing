@@ -19,8 +19,9 @@ faqs:
   - q: "Can I ask only happy customers for reviews?"
     a: "Google's policy prohibits selectively soliciting positive reviews. Ask every customer for an honest review instead; it keeps you compliant and makes your rating more credible."
 related:
-  - seo-and-marketing
-  - lead-generation-websites
+  - reputation-management
+  - lead-generation
+
 ---
 
 The FTC's rule on fake reviews has been in force since October 21, 2024, and it applies to small businesses as much as big brands. It bans fake reviews, paying for reviews of a particular sentiment, hidden insider reviews and bullying people into removing negative ones. Asking every customer for an honest review is still completely fine.
@@ -65,7 +66,7 @@ For the step-by-step routine, including when to ask and what to send, see our gu
 
 ## Where reviews do the most work
 
-Reviews help you rank in Google Maps and convince people to call. On the [lead generation websites](/services/lead-generation-websites) we build, real reviews sit beside every call button and quote form, linked to their source so visitors can check them. Our [local SEO service](/services/seo-and-marketing) includes a compliant review request setup. [Get a fixed quote](/contact).
+Reviews help you rank in Google Maps and convince people to call. On the [lead generation websites](/services/lead-generation) we build, real reviews sit beside every call button and quote form, linked to their source so visitors can check them. Our [reputation management service](/services/reputation-management) includes a compliant review request setup. [Get a fixed quote](/contact).
 
 *This article is general information, not legal advice. Talk to a lawyer about your specific situation.*
 

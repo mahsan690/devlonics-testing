@@ -1,8 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { services } from "@/lib/services";
 import { markets } from "@/lib/markets";
-import { caseStudy } from "@/lib/work";
-import { aiCaseStudies } from "@/lib/ai";
+import { caseStudies } from "@/lib/case-studies";
 import posts from "@/lib/generated/posts.json";
 
 // With Cache Components the page shell streams before notFound() runs, so an
@@ -13,24 +12,12 @@ import posts from "@/lib/generated/posts.json";
 const KNOWN: Record<string, Set<string>> = {
   services: new Set(services.map((s) => s.slug)),
   markets: new Set(markets.map((m) => m.slug)),
-  work: new Set([caseStudy.slug]),
+  work: new Set(caseStudies.map((c) => c.slug)),
   blog: new Set((posts as { slug: string }[]).map((p) => p.slug).concat("rss.xml")),
 };
 
-const AI_CASES = new Set(aiCaseStudies.map((c) => c.slug));
-
-// Under /ai: the case study pages, their share images, the /ai share image
-// and the case study covers in public/ai/ are real; anything else is a 404.
-function aiPath(request: NextRequest, sub?: string, slug?: string, extra?: string) {
-  if (sub?.includes(".") && !slug) return NextResponse.next();
-  if (sub === "opengraph-image" && !slug) return NextResponse.next();
-  if (sub === "case-studies" && slug && AI_CASES.has(slug) && (!extra || extra === "opengraph-image")) return NextResponse.next();
-  return NextResponse.rewrite(new URL("/__not-found", request.url));
-}
-
 export function proxy(request: NextRequest) {
-  const [, section, slug, extra, more] = request.nextUrl.pathname.split("/");
-  if (section === "ai") return aiPath(request, slug, extra, more);
+  const [, section, slug, extra] = request.nextUrl.pathname.split("/");
   // Files such as /work/2026-gladiolaz.webp are static assets, not pages.
   if (slug?.includes(".") && slug !== "rss.xml") return NextResponse.next();
   const known = KNOWN[section]?.has(slug) ?? false;
@@ -40,5 +27,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/services/:slug/:path*", "/markets/:slug/:path*", "/work/:slug/:path*", "/blog/:slug/:path*", "/ai/:path+"],
+  matcher: ["/services/:slug/:path*", "/markets/:slug/:path*", "/work/:slug/:path*", "/blog/:slug/:path*"],
 };

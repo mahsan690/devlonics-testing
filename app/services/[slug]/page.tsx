@@ -15,6 +15,7 @@ import { getMarket, type Market } from "@/lib/markets";
 import { postsBySlugs } from "@/lib/blog";
 import { projectsFor } from "@/lib/work";
 import { testimonials } from "@/lib/testimonials";
+import { getCaseStudy } from "@/lib/case-studies";
 import { site } from "@/lib/site";
 import { breadcrumbSchema, faqSchema, serviceSchema } from "@/lib/schema";
 
@@ -39,16 +40,19 @@ export async function generateMetadata(props: PageProps<"/services/[slug]">): Pr
   };
 }
 
-const trust = [
+// Build projects end with a launch; the ongoing services (reviews, Google
+// profile, ads, automation) are about whose accounts everything sits in.
+const builds = ["website-design", "lead-generation"];
+const trustFor = (slug: string) => [
   "Top Rated on Upwork",
-  `${site.projectsDelivered} websites and stores built`,
+  `${site.projectsDelivered} websites built`,
   "Fixed price, agreed up front",
-  `${site.freeFixesDays} days of free fixes after launch`,
+  builds.includes(slug) ? `${site.freeFixesDays} days of free fixes after launch` : "Accounts and leads stay in your name",
 ];
 
-// "Lead generation websites" -> "lead generation websites", but keep brand
-// names and acronyms as they are ("Shopify and WooCommerce stores", "SEO and marketing").
-const inSentence = (name: string) => (/^(Shopify|SEO)\b/.test(name) ? name : name.charAt(0).toLowerCase() + name.slice(1));
+// "Website design and redesign" -> "website design and redesign", but keep
+// brand names as they are ("Google Business Profile and local SEO").
+const inSentence = (name: string) => (/^(Google)\b/.test(name) ? name : name.charAt(0).toLowerCase() + name.slice(1));
 
 function Check({ className = "" }: { className?: string }) {
   return (
@@ -74,7 +78,8 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
   const others = services.filter((o) => o.slug !== s.slug);
   const relatedMarkets = s.relatedMarkets.map(getMarket).filter((m): m is Market => Boolean(m));
   const guides = postsBySlugs(s.relatedPosts);
-  const review = testimonials.find((t) => t.name === l?.testimonial);
+  const review = l?.testimonial ? testimonials.find((t) => t.name === l.testimonial) : undefined;
+  const proof = l?.caseStudy ? getCaseStudy(l.caseStudy) : undefined;
   const faqs = [...s.faqs, ...(l?.moreFaqs ?? [])];
 
   return (
@@ -93,7 +98,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
               <Link href="/work" className="btn btn-ghost">See our work</Link>
             </div>
             <ul className="mt-8 grid gap-x-6 gap-y-2.5 text-[0.95rem] sm:grid-cols-2">
-              {trust.map((t) => (
+              {trustFor(s.slug).map((t) => (
                 <li key={t} className="flex items-center gap-2.5"><Check className="text-signal" />{t}</li>
               ))}
             </ul>
@@ -181,6 +186,33 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
         </div>
       </section>
 
+      {/* Proof: a case study */}
+      {proof && (
+        <section className="border-b border-line py-20 md:py-28">
+          <div className="wrap grid gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-5">
+              <span className="text-sm font-semibold text-signal-ink">Case study</span>
+              <h2 className="t-h2 mt-3">{proof.headline ?? proof.card}</h2>
+              <p className="t-lede mt-5 text-graphite">{proof.cardLine ?? proof.summary}</p>
+              <dl className="mt-8 grid grid-cols-2 gap-6">
+                {proof.stats.slice(0, 2).map((st) => (
+                  <div key={st.label} className="flex flex-col gap-1 border-t border-line pt-4">
+                    <dt className="text-sm text-graphite">{st.label}</dt>
+                    <dd className="order-first font-display text-3xl font-bold tracking-tight text-signal-ink">{st.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <Link href={`/work/${proof.slug}`} className="btn btn-ink mt-8">Read the case study</Link>
+            </div>
+            <div className="lg:col-span-7">
+              <Link href={`/work/${proof.slug}`} data-tilt className="relative block aspect-[4/3] overflow-hidden rounded-[1.5rem] shadow-[0_0_0_1px_var(--color-line)]">
+                <Image src={`/case-studies/${proof.slug}.webp`} alt={`${proof.card}: case study cover`} fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Proof: projects and a review */}
       {work.length > 0 && (
         <section className="py-20 md:py-28">
@@ -235,7 +267,11 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
           <div className="lg:col-span-5">
             <h2 className="t-h2">From first message to launch</h2>
             <p className="t-lede mt-6 text-graphite">{s.timeline}</p>
-            <p className="mt-4 text-graphite">After launch you get {site.freeFixesDays} days of free fixes, and an optional care plan for updates, backups and improvements.</p>
+            <p className="mt-4 text-graphite">
+              {builds.includes(s.slug)
+                ? `After launch you get ${site.freeFixesDays} days of free fixes, and an optional care plan for updates, backups and improvements.`
+                : "Your Google profile, ad accounts, reviews and leads stay in your name, with full access from day one."}
+            </p>
           </div>
           <div className="lg:col-span-7"><ProcessSteps /></div>
         </div>

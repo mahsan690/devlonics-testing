@@ -36,12 +36,6 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Amazing work by Devlonic Solutions on our website. The team delivered everything on time and maintained clear communication throughout the project. Our subscription based e-commerce platform is now fully ready.",
-    name: "Graziel Balbinoti",
-    role: "CEO, ApplyPro Consulting",
-  },
-  {
-    quote:
       "Devlonic is an awesome agency to work with. Their expertise with WordPress is beyond expectations. They went above and beyond to meet the requirements for our digital marketing agency website. Recommended to others!",
     name: "Sohan Bapary",
     role: "CEO, MaetiQ",

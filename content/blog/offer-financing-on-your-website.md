@@ -22,6 +22,7 @@ related:
   - hvac
   - roofing
   - contractors
+
 ---
 
 Yes, if you sell big-ticket jobs, offering financing and showing it clearly on your website can win work you'd otherwise lose to "we'll think about it." Price is the first thing customers weigh, and many homeowners say they simply don't have the cash for large projects. Financing changes the question from "can I afford $12,000?" to "can I afford this monthly payment?"

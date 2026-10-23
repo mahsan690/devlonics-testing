@@ -142,21 +142,5 @@ export const marketGrowth: Record<string, MarketGrowth> = {
     ],
   },
 
-  ecommerce: {
-    secondaryKeywords: ["Shopify store development services", "Shopify marketing agency in USA", "Shopify ad agency", "Shopify expert", "Shopify store design services", "TikTok ads for Shopify"],
-    heading: "How to get more Shopify sales",
-    intro:
-      "More traffic only helps a store that converts. We fix the store first, then scale the ads that bring buyers to it, which is how one team can be both your Shopify developer and your Shopify ad agency.",
-    points: [
-      { title: "Fix conversion before buying traffic", body: "Product pages, trust signals, shipping clarity and a fast checkout come before any ad spend." },
-      { title: "Lead with creative", body: "Short video ads on TikTok and Meta, tested in small batches, find the angles that sell before budgets grow." },
-      { title: "Bring customers back", body: "Email and SMS flows for abandoned carts, first purchases and repeat orders lift revenue from the traffic you already paid for." },
-      { title: "Measure return on ad spend", body: "Clean tracking of orders and revenue by channel, so scaling decisions rest on numbers." },
-    ],
-    posts: ["shopify-store-not-selling", "tiktok-ads-for-shopify-small-budget", "shopify-vs-woocommerce", "measure-website-roi-call-tracking-ga4"],
-    faqs: [
-      { q: "Are you a Shopify expert or a marketing agency?", a: "Both. We provide Shopify store development services, from theme setup to custom features, and run the TikTok and Meta ads, email and conversion work that grow sales, so one team owns the result." },
-      { q: "How much does Shopify store development cost?", a: "It depends on whether you start from a theme or need custom design, how many products and integrations you have, and whether you need dropshipping or fulfilment set up. We give a fixed price after a short questionnaire." },
-    ],
-  },
+
 };

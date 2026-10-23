@@ -19,9 +19,10 @@ faqs:
   - q: "Should I respond to negative Google reviews?"
     a: "Yes, calmly and specifically. Thank the customer, acknowledge the problem without arguing, and offer to fix it offline. Future customers read your reply as much as the complaint."
 related:
-  - seo-and-marketing
+  - reputation-management
   - cleaning
-  - lead-generation-websites
+  - lead-generation
+
 ---
 
 The fastest way to get more Google reviews is to ask every customer, at the moment they're happiest, with a link that takes them straight to the review form. What's changed is how much customers expect: recent reviews, a high rating and replies from the owner. Here are the 2026 numbers and a routine that works.
@@ -84,7 +85,7 @@ Put recent reviews next to your call buttons and quote form, where people decide
 
 Google lists prominence as one of its three local ranking factors, and review count and rating feed into it. Reviews also power the AI summaries that [82% of consumers now read](https://www.brightlocal.com/research/local-consumer-review-survey/), which makes recency even more important as [AI search grows](/blog/ai-overviews-local-search-service-businesses).
 
-We set up review request routines as part of our [local SEO service](/services/seo-and-marketing), and put reviews where they convert on every [lead generation website](/services/lead-generation-websites) we build. [Get a fixed quote](/contact).
+We set up review request routines as part of our [reputation management service](/services/reputation-management), and put reviews where they convert on every [lead generation website](/services/lead-generation) we build. [Get a fixed quote](/contact).
 
 ## Sources
 

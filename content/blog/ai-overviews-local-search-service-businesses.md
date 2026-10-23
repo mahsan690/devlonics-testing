@@ -19,8 +19,9 @@ faqs:
   - q: "Is SEO still worth it if AI answers reduce clicks?"
     a: "Yes. AI tools draw on the same signals SEO builds: clear content, reviews, links and consistent listings. The difference is that being cited in the answer now matters as much as ranking for the click."
 related:
-  - seo-and-marketing
-  - lead-generation-websites
+  - google-business-profile
+  - lead-generation
+
 ---
 
 More of your customers now get answers before they ever click a website. Google's AI Overviews summarize the results at the top of the page, and a fast-growing share of people ask ChatGPT or other AI assistants which local business to call. For service businesses, the goal is shifting from "rank for the click" to "be the business the answer names, and be easy to contact."
@@ -58,7 +59,7 @@ They piece together what's consistent and verifiable across the web: your websit
 
 ## What this means for your website
 
-Your website is still the source AI tools read most closely, and the place people land when they want to book. Pages built around clear answers, real proof and fast contact work for both humans and machines. That's how we build [lead generation websites](/services/lead-generation-websites) and run [SEO and AEO](/services/seo-and-marketing) for service businesses.
+Your website is still the source AI tools read most closely, and the place people land when they want to book. Pages built around clear answers, real proof and fast contact work for both humans and machines. That's how we build [lead generation websites](/services/lead-generation) and run [local SEO and AEO](/services/google-business-profile) for service businesses.
 
 Want to know how your business shows up in AI answers today? [Get in touch](/contact) and we'll include a quick check in your quote.
 

@@ -19,9 +19,10 @@ faqs:
   - q: "Should I join local Facebook groups to get customers?"
     a: "Yes, as a helpful member rather than an advertiser. Answer questions in your area of expertise and follow each group's rules on promotion. Many groups have recommendation threads where satisfied customers will tag you."
 related:
-  - seo-and-marketing
+  - local-ads
   - landscaping
   - cleaning
+
 ---
 
 Facebook is the second-biggest source of leads for home service businesses, after referrals. It works because it's where neighbors recommend businesses to each other, where people see the work you've done, and where you can run tightly targeted local ads. Here's what works in 2026 and what to skip.
@@ -70,7 +71,7 @@ Messages are leads. Jobber found more than 55% of customers expect a reply withi
 
 ## Connect it to your website
 
-Facebook gets attention; your website closes the deal. People who see your posts will look you up, check your reviews and decide whether to call. A [fast website with clear calls to action](/services/lead-generation-websites) and tracking means you can see which Facebook posts and ads actually bring in jobs. We set up Meta ads and tracking as part of our [marketing service](/services/seo-and-marketing), for [landscapers](/markets/landscaping), [cleaning companies](/markets/cleaning) and other trades. [Get a fixed quote](/contact).
+Facebook gets attention; your website closes the deal. People who see your posts will look you up, check your reviews and decide whether to call. A [fast website with clear calls to action](/services/lead-generation) and tracking means you can see which Facebook posts and ads actually bring in jobs. We set up Meta ads and tracking as part of our [marketing service](/services/local-ads), for [landscapers](/markets/landscaping), [cleaning companies](/markets/cleaning) and other trades. [Get a fixed quote](/contact).
 
 ## Sources
 

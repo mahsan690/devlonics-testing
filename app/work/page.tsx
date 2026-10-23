@@ -1,97 +1,50 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { CtaBand, PageHero, WorkTile } from "@/components/Blocks";
+import { CaseCard } from "@/components/CaseStudyFeature";
 import { JsonLd } from "@/components/JsonLd";
-import { CountUp } from "@/components/CountUp";
-import { projects, caseStudy, reviewScreenshots } from "@/lib/work";
+import { caseStudies } from "@/lib/case-studies";
+import { projects, reviewScreenshots } from "@/lib/work";
 import { breadcrumbSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Web Design Portfolio: Shopify and WordPress",
+  title: "Work for Local Service Businesses: Case Studies",
   description:
-    "Our web design portfolio: small business website examples, Shopify stores and apps for service businesses and ecommerce brands, plus a Shopify case study.",
+    "Case studies and websites for local service businesses: a quote funnel and lead flow for Florida Surface Pro, an AI receptionist, sales follow-up and more.",
   alternates: { canonical: "/work" },
 };
 
 const crumbs = [{ name: "Home", path: "/" }, { name: "Work", path: "/work" }];
 
-const groups = [
-  { title: "Service business website examples", tags: ["services", "health"] },
-  { title: "Shopify and ecommerce store examples", tags: ["store"] },
-  { title: "Brand and agency websites", tags: ["brand"] },
-  { title: "Apps and custom software", tags: ["app", "software"] },
-] as const;
-
 export default function WorkPage() {
-  const thisYear = projects.filter((p) => p.year === 2026);
-  const earlier = projects.filter((p) => p.year !== 2026);
-  const shown = new Set<string>();
-
   return (
     <>
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        title="Web design portfolio: websites, Shopify stores and apps."
-        lede="Small business website examples, Shopify stores, apps and dashboards we've built for service businesses, ecommerce brands and agencies."
+        title="Work for local service businesses."
+        lede="Lead flows, call answering, sales follow-up and websites we've built for contractors, clinics and home services."
       />
 
-      <section className="pb-8">
+      <section className="pb-16 md:pb-20">
         <div className="wrap">
-          <Link
-            href={`/work/${caseStudy.slug}`}
-            data-tilt
-            className="group grid gap-8 overflow-hidden rounded-[1.75rem] bg-ink p-8 text-paper md:grid-cols-12 md:p-12"
-          >
-            <div className="md:col-span-6">
-              <span className="inline-block rounded-full bg-signal px-3 py-1 text-sm font-semibold text-ink">Shopify case study</span>
-              <h2 className="t-h2 mt-5">{caseStudy.headline}</h2>
-              <p className="mt-5 text-ash">{caseStudy.summary}</p>
-              <span className="mt-6 inline-block font-semibold underline decoration-signal decoration-2 underline-offset-4 group-hover:text-signal">
-                Read the case study
-              </span>
-            </div>
-            <dl className="grid grid-cols-2 gap-4 self-end md:col-span-6">
-              {caseStudy.stats.map((s) => (
-                <div key={s.label} className="flex flex-col gap-2 border-t border-white/20 pt-4">
-                  <dt className="text-sm text-ash">{s.label}</dt>
-                  <dd className="order-first font-display text-[clamp(1.75rem,3.4vw,3rem)] font-bold leading-none tracking-tight text-signal">
-                    <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} />
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </Link>
+          <h2 className="t-h2">Case studies</h2>
+          <ul className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            {caseStudies.map((c, i) => <li key={c.slug}><CaseCard cs={c} priority={i < 3} /></li>)}
+          </ul>
         </div>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section className="border-t border-line py-16 md:py-20">
         <div className="wrap">
-          <h2 className="t-h2">2026 website and Shopify projects</h2>
-          <p className="t-lede mt-4 max-w-2xl text-graphite">Shopify and WordPress projects from 2026.</p>
+          <h2 className="t-h2">Websites for service businesses</h2>
+          <p className="t-lede mt-4 max-w-2xl text-graphite">Websites we&apos;ve designed and built for contractors, clinics, home care agencies and home services.</p>
           <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-            {thisYear.map((p, i) => <WorkTile key={p.file} project={p} priority={i < 3} />)}
+            {projects.map((p, i) => <WorkTile key={p.file} project={p} priority={i < 3} />)}
           </div>
         </div>
       </section>
-
-      {groups.map((g) => {
-        const list = earlier.filter((p) => !shown.has(p.file) && p.tags.some((t) => (g.tags as readonly string[]).includes(t)));
-        list.forEach((p) => shown.add(p.file));
-        if (!list.length) return null;
-        return (
-          <section key={g.title} className="border-t border-line py-16 md:py-20">
-            <div className="wrap">
-              <h2 className="t-h2">{g.title}</h2>
-              <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-                {list.map((p) => <WorkTile key={p.file} project={p} />)}
-              </div>
-            </div>
-          </section>
-        );
-      })}
 
       <section id="reviews" className="bg-fog py-20 md:py-24">
         <div className="wrap">

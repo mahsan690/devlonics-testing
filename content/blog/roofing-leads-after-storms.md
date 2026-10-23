@@ -20,8 +20,9 @@ faqs:
     a: "Within hours if you can. After a storm many homeowners contact several roofers, and the first credible, professional response often wins the inspection."
 related:
   - roofing
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
+
 ---
 
 After a hailstorm, homeowners search "roof storm damage inspection" and call the roofers they trust. The companies that win those jobs aren't the ones knocking the most doors; they're the ones who look established online, respond fast and explain the process honestly. Here's what the 2025 data shows and how to build a storm response that brings inspections to you.
@@ -68,7 +69,7 @@ Search ads and Local Services Ads for storm-related searches in affected zip cod
 
 ## Get a roofing website built for storm season
 
-We build [roofing websites](/markets/roofing) with storm damage pages, inspection booking and trust signals front and center, as part of our [lead generation websites](/services/lead-generation-websites) and [local SEO](/services/seo-and-marketing). [Get a fixed quote](/contact).
+We build [roofing websites](/markets/roofing) with storm damage pages, inspection booking and trust signals front and center, as part of our [lead generation websites](/services/lead-generation) and [local SEO](/services/google-business-profile). [Get a fixed quote](/contact).
 
 ## Sources
 

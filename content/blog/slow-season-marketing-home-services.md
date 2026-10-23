@@ -21,7 +21,8 @@ faqs:
 related:
   - hvac
   - landscaping
-  - seo-and-marketing
+  - local-ads
+
 ---
 
 Seasonality is the single biggest growth problem home service owners report: a third of them name weather and seasons as a top challenge, ahead of competition and labor. The businesses that handle it best plan their slow months the way they plan their busy ones, with maintenance plans, pre-booking, off-season services and marketing that changes with the calendar.
@@ -94,7 +95,7 @@ Pausing ads in a quiet month can make sense, but keep up reviews, profile posts 
 | Middle of slow season | Low | Pre-season booking campaign; publish seasonal content |
 | Before busy season | Rising | Update website and profile; reopen ads |
 
-We build seasonal pages, maintenance plan sign-ups and booking flows into websites for [HVAC companies](/markets/hvac) and [landscapers](/markets/landscaping), and run the [SEO and ads](/services/seo-and-marketing) that fill the calendar. [Get a fixed quote](/contact).
+We build seasonal pages, maintenance plan sign-ups and booking flows into websites for [HVAC companies](/markets/hvac) and [landscapers](/markets/landscaping), and run the [local SEO](/services/google-business-profile) and [local ads](/services/local-ads) that fill the calendar. [Get a fixed quote](/contact).
 
 ## Sources
 

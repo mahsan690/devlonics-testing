@@ -10,8 +10,8 @@ export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  // The home and AI heroes are black; the header sits on them transparently until scrolled.
-  const onDarkHero = (pathname === "/" || pathname === "/ai") && !scrolled && !open;
+  // The home hero is black; the header sits on it transparently until scrolled.
+  const onDarkHero = pathname === "/" && !scrolled && !open;
 
   // Close the mobile menu on navigation (adjusting state during render, not in an effect).
   const [lastPath, setLastPath] = useState(pathname);

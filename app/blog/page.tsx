@@ -7,9 +7,9 @@ import { allPosts } from "@/lib/blog";
 import { blogSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Blog: Web Design, Shopify and Local SEO Guides",
+  title: "Blog: Marketing Guides for Local Service Businesses",
   description:
-    "Practical guides for service businesses and Shopify brands: website costs, local SEO, AI search, Shopify vs WooCommerce, and what makes a website bring in customers.",
+    "Practical guides for local service businesses: Google reviews, Google Maps and local SEO, websites that convert, lead flows, local ads and speed to lead.",
   alternates: { canonical: "/blog", types: { "application/rss+xml": "/blog/rss.xml" } },
 };
 
@@ -24,8 +24,8 @@ export default function BlogIndex() {
       <JsonLd data={[breadcrumbSchema(crumbs), blogSchema(allPosts)]} />
       <PageHero
         crumbs={crumbs}
-        title="Guides for businesses that want more customers online."
-        lede="Plain-English answers on website costs, local SEO, AI search and Shopify, written from the projects we build every week."
+        title="Guides for local service businesses that want more calls."
+        lede="Plain-English answers on reviews, Google Maps, websites, lead flows and local ads, written from the work we do for contractors, home services and clinics."
       >
         {categories.length > 1 && (
           <ul className="mt-8 flex flex-wrap gap-2" aria-label="Topics">

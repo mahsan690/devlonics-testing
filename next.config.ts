@@ -19,6 +19,23 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // October 2026 repositioning to local service businesses only. The old
+      // pages live on the backup/web-shopify-ai-2026-10 branch.
+      { source: "/services/small-business-websites/:path*", destination: "/services/website-design", permanent: true },
+      { source: "/services/lead-generation-websites/:path*", destination: "/services/lead-generation", permanent: true },
+      { source: "/services/seo-and-marketing/:path*", destination: "/services/google-business-profile", permanent: true },
+      { source: "/services/custom-software/:path*", destination: "/services/automation", permanent: true },
+      { source: "/services/online-stores/:path*", destination: "/services", permanent: true },
+      { source: "/services/app-development/:path*", destination: "/services", permanent: true },
+      { source: "/markets/ecommerce/:path*", destination: "/markets", permanent: true },
+      { source: "/work/gladiolaz/:path*", destination: "/work", permanent: true },
+      { source: "/blog/shopify-vs-woocommerce/:path*", destination: "/blog", permanent: true },
+      { source: "/blog/shopify-store-not-selling/:path*", destination: "/blog", permanent: true },
+      { source: "/blog/tiktok-ads-for-shopify-small-budget/:path*", destination: "/blog", permanent: true },
+      { source: "/ai", destination: "/services/automation", permanent: true },
+      { source: "/ai/case-studies/:slug(ai-voice-receptionist-home-services|hubspot-solar-sales-system|ai-google-ads-reporting|med-spa-clickup-automation|physiotherapy-monday-automation)", destination: "/work/:slug", permanent: true },
+      { source: "/ai/:path*", destination: "/work", permanent: true },
+
       // The state pages were replaced by industry pages.
       { source: "/web-design", destination: "/markets", permanent: true },
       { source: "/web-design/:slug*", destination: "/markets", permanent: true },

@@ -1,6 +1,6 @@
 # Devlonic Solutions website
 
-Marketing site for Devlonic Solutions: websites, online stores, apps and custom software for small businesses in New Jersey, Texas and Florida.
+Marketing site for Devlonic Solutions: website design and redesign, reputation management, Google Business Profile management, lead flows, local ads and a few automations for local service businesses across the USA.
 
 Built with Next.js 16 (App Router, Cache Components), Tailwind CSS 4, GSAP, Lenis and Three.js. Hosted on Vercel.
 
@@ -19,7 +19,10 @@ npm run build      # production build (also writes public/llms.txt and fetches p
 | Contact details, founder, quote turnaround | `lib/site.ts` |
 | Services (copy, FAQs, included items) | `lib/services.ts` |
 | Markets we serve (industry pages) | `lib/markets.ts` |
-| Portfolio and the Gladiolaz case study | `lib/work.ts` |
+| Case studies (`/work/<slug>`) | `lib/case-studies.ts`, covers in `public/case-studies/<slug>.webp` (4:3) |
+| Portfolio (website tiles on `/work`) | `lib/work.ts` |
+| Service page sections, sources, proof | `lib/service-landing.ts` |
+| 3D model on each service page | `components/ServiceStage3D.tsx` |
 | Testimonials (verbatim, never edit) | `lib/testimonials.ts` |
 | Home and pricing FAQs | `lib/faqs.ts` |
 | Structured data (JSON-LD) | `lib/schema.ts` |
@@ -51,7 +54,7 @@ faqs:
   - q: "A question people search?"
     a: "A direct answer in 40–60 words."
 related:
-  - seo-and-marketing
+  - google-business-profile
   - hvac
 ---
 
@@ -76,15 +79,24 @@ The 20-day calendar, the off-page SEO plan and a ready-to-paste LinkedIn post fo
 
 ### Cover images
 
-A featured image at `public/blog/<slug>.webp` (1600×900) is picked up automatically, and a post without one shows no image. `node scripts/make-covers.mjs` draws a simple brand illustration for any post that's missing one, using `cover` and `coverTone` from the frontmatter. Service page images live in `public/services/`.
+A featured image at `public/blog/<slug>.webp` (1600×900) is picked up automatically, and a post without one shows no image. `node scripts/make-covers.mjs` draws a simple brand illustration for any post that's missing one, using `cover` and `coverTone` from the frontmatter. Service page images live in `public/services/` and were drawn by hand, so the script doesn't redraw them.
 
-The covers are made in Canva. Canva export links are temporary, so they're brought in by the **Import Canva images** action: list each export link and destination in `content/canva-imports.json`, for example `{ "images": [ { "url": "<Canva export link>", "out": "public/blog/my-post.webp" } ] }`, and push. The action downloads from Canva hosts only, converts each image to WebP, commits it and empties the list.
+Covers can also be made in Canva. Canva export links are temporary, so they're brought in by the **Import Canva images** action: list each export link and destination in `content/canva-imports.json`, for example `{ "images": [ { "url": "<Canva export link>", "out": "public/blog/my-post.webp" } ] }`, and push. The action downloads from Canva hosts only, converts each image to WebP, commits it and empties the list.
 
-## AI automation pages
+## Positioning and rolling back
 
-`/ai` is the AI automation landing page and `/ai/case-studies/<slug>` holds one page per case study. All the copy (offers, case studies, FAQs) is in `lib/ai.ts`; each case study's cover is `public/ai/<slug>.webp` (4:3). To add a case study, add an entry to `aiCaseStudies` and drop its image in `public/ai/`: the grid, filters, sitemap and case study page pick it up automatically. Update the list in `scripts/build-llms.mjs` too.
+Since 24 October 2026 the site targets local service businesses in the USA only (contractors, home services, clinics). The six services are in `lib/services.ts`: `website-design`, `reputation-management`, `google-business-profile`, `lead-generation`, `local-ads` and `automation`. Florida Surface Pro is the flagship case study (`/work/florida-surface-pro`), shown on the home page by `components/CaseStudyFeature.tsx`.
 
-The AI offer also appears on the home page (services list and the dark AI band), on `/services`, in the main menu, the footer and the quote form ("AI automation").
+The old service, store, app and `/ai` addresses permanently redirect to their nearest new page (`next.config.ts`). Three Shopify and TikTok posts are kept as `draft: true` so nothing is lost.
+
+**The previous version** (websites, Shopify stores, apps and the `/ai` automation pages) is saved two ways:
+
+- **Branch `backup/web-shopify-ai-2026-10`** on GitHub holds the full code as it was.
+- **Its Vercel deployment** stays in Vercel → devlonics-testing → Deployments (commit `993bfb5`). To switch the live site back instantly, open that deployment, click **⋯ → Promote** (or Instant Rollback), and devlonics.com serves it within seconds. While rolled back, Vercel stops putting new `main` deploys live (scheduled blog posts included) until you promote a newer deployment again.
+
+To make the old version permanent instead, merge or reset `main` to the backup branch and push.
+
+To add a case study, add an entry to `lib/case-studies.ts` and drop a 4:3 cover in `public/case-studies/<slug>.webp`. The `/work` grid, sitemap, 404 guard and case study page pick it up automatically. Update the list in `scripts/build-llms.mjs` too.
 
 ## Keyword research
 

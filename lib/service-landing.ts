@@ -15,284 +15,217 @@ export type ServiceLanding = {
   secondaryKeywords: string[]; // supporting phrases, used naturally in the copy
   problems: { title: string; body: string }[];
   sections: LandingSection[];
-  testimonial: string; // name in lib/testimonials.ts
+  testimonial?: string; // name in lib/testimonials.ts
+  caseStudy?: string; // slug in lib/case-studies.ts, shown as proof
   moreFaqs: Faq[];
 };
 
 const jobber = { label: "Jobber, 2026 Home Service Trends Report (1,050 US owners, Dec 2025)", url: "https://www.getjobber.com/home-service-trends-report/" };
+const brightlocal = { label: "BrightLocal, Local Consumer Review Survey 2026", url: "https://www.brightlocal.com/research/local-consumer-review-survey/" };
+const googleRanking = { label: "Google Business Profile Help: How Google determines local ranking", url: "https://support.google.com/business/answer/7091" };
+const ftc = { label: "FTC: Final rule banning fake reviews and testimonials (2024)", url: "https://www.ftc.gov/news-events/news/press-releases/2024/08/federal-trade-commission-announces-final-rule-banning-fake-reviews-testimonials" };
+const serviceDirect = { label: "Abby Connect, summarizing Service Direct's home service call performance study", url: "https://www.abby.com/blog/are-your-home-service-calls-performing-well/" };
+const ppcLand = { label: "PPC Land: Google LSA advertisers face missed-call charges from October 1, 2026", url: "https://ppc.land/google-lsa-advertisers-face-missed-call-charges-from-october-1/" };
 
 export const landing: Record<string, ServiceLanding> = {
-  "lead-generation-websites": {
-    secondaryKeywords: [
-      "home service website design",
-      "contractor website design",
-      "HVAC and plumbing website design",
-      "lead generation website for small business",
-      "service area pages",
-      "call tracking",
-    ],
+  "website-design": {
+    secondaryKeywords: ["contractor website design", "website redesign cost", "website redesign services", "home service website design", "website design for small business"],
     problems: [
-      { title: "The website gets visits, but the phone stays quiet", body: "Usually the number is hard to find on a phone, the form asks for too much, and there's nothing next to the button that says you're the safe choice." },
-      { title: "You pay for leads you share with three other companies", body: "Lead apps often send the same homeowner to several pros. Every call your own site brings in is one you don't pay per lead for or race competitors to answer." },
-      { title: "Nobody can say which marketing actually works", body: "Without call and form tracking, you can't tell which pages, searches or ads bring in jobs, so every budget decision is a guess." },
+      { title: "The site looks older than your business", body: "A dated, slow website makes a good company look small. Homeowners compare you with the next result in seconds." },
+      { title: "Visits, but the phone stays quiet", body: "Usually the number is hard to find on a phone, the form asks for too much, and there's nothing near the button that says you're the safe choice." },
+      { title: "You can't change anything without a developer", body: "New services, photos and reviews never make it onto the site because every edit is a project." },
     ],
     sections: [
       {
-        heading: "Home service website design that answers the basics",
+        heading: "Contractor website design that answers the basics",
         paragraphs: [
           "Jobber's survey of 1,050 US home service owners found that 43% don't clearly list their service areas on their website, 65% don't show business hours and 74% have no FAQ section. Those are the three things a homeowner checks before calling.",
-          "Every site we build answers them on the first screen: what you do, where you work, when you're open and how to reach you. Then each service and each main town gets its own page, so you can show up for searches like a trade plus a city name.",
+          "Every site we design answers them on the first screen: what you do, where you work, when you're open and how to reach you. Then each service and each main town gets its own page, so you can show up for searches like a trade plus a city name.",
         ],
         source: jobber,
       },
       {
-        heading: "Contractor website design built around speed to lead",
+        heading: "A website redesign that keeps your Google rankings",
         paragraphs: [
-          "The same Jobber report found that more than 55% of customers expect a reply within the hour, and 28% expect an immediate one. A lead generation website only works if the lead reaches you fast.",
-          "We send every form straight to your phone and inbox, add a tap-to-call bar on mobile, and can connect missed-call text-back or an answering service so after-hours enquiries don't go to a competitor.",
-        ],
-        source: jobber,
-      },
-      {
-        heading: "Call tracking, so you know what each page earns",
-        paragraphs: [
-          "Before launch we set up tracking for calls, form submissions and booking clicks in Google Analytics 4. Each month you can see how many leads came in, which pages and searches sent them, and which ones are worth more investment.",
-        ],
-      },
-    ],
-    testimonial: "Thania Alonso",
-    moreFaqs: [
-      { q: "What should a home service website include?", a: "Your phone number one tap away on every page, a short quote form, the towns you serve, your hours, real reviews and photos, license and insurance details, a page for each service and a short FAQ. Most leads are lost when one of these is missing." },
-      { q: "Is a lead generation website better than buying leads from Angi or Thumbtack?", a: "They do different jobs. Lead apps can fill gaps, but the same lead often goes to several pros and you pay whether or not you win the job. Your own site brings in enquiries only you receive, and the cost per lead falls as it ranks." },
-      { q: "Do you build lead generation websites for roofers and remodelers?", a: "Yes. Roofers, remodelers, HVAC companies, plumbers, cleaners and landscapers are the businesses we build lead generation websites for most. Each gets pages for its own job types and towns, plus forms tuned to the details that trade needs, such as photos of the damage or the room." },
-    ],
-  },
-
-  "small-business-websites": {
-    secondaryKeywords: [
-      "custom website design for small business",
-      "affordable small business website",
-      "WordPress website design",
-      "website redesign services",
-      "web design company for small business",
-      "mobile-friendly website",
-    ],
-    problems: [
-      { title: "Your website looks older than your business", body: "Customers judge you in seconds. A dated site makes a solid business look small or closed, and sends people to whoever looks more established." },
-      { title: "It's slow or breaks on phones", body: "Most visitors arrive on a phone. Text that needs zooming, buttons too small to tap and slow pages quietly cost you enquiries every day." },
-      { title: "Every small change needs a developer", body: "New prices, photos or opening hours shouldn't mean waiting a week and paying an invoice. You should be able to do it yourself." },
-    ],
-    sections: [
-      {
-        heading: "Custom website design for small businesses, at a fixed price",
-        paragraphs: [
-          "Every site starts with a short questionnaire and a written plan: the pages, the features, the timeline and one fixed price. You approve the homepage design before development starts, and we build on a private staging site so nothing changes on your live site until you sign off.",
-          "We design around your brand and your customers, not a template, and use proven building blocks for forms and galleries so the site stays fast and easy to maintain.",
+          "The biggest risk in a redesign is losing the traffic you already have. Before anything changes, we list every page that gets visits or links, map it to its new address and set up permanent redirects. Then we submit the new sitemap and watch Search Console daily for the first two weeks.",
+          "We moved our own site from WordPress to a new build this year the same way, and wrote up the checklist in our guide to redesigning without losing rankings.",
         ],
       },
       {
-        heading: "WordPress website design you can edit yourself",
+        heading: "What a website redesign costs",
         paragraphs: [
-          "Most small business sites we build run on WordPress with Elementor, because it's quick to learn and easy to hire help for later. You get a recorded walkthrough of the edits you'll make most often, plus full admin access, the domain and hosting in your name.",
-          "If you need something faster or more custom, we build in Next.js instead. We'll recommend one in the plan and explain why.",
-        ],
-      },
-      {
-        heading: "Website redesign services that keep your Google rankings",
-        paragraphs: [
-          "A redesign shouldn't cost you the traffic you've earned. We map every old address to its new page and set up permanent redirects, which Google says don't lose ranking signals, then submit the new sitemap in Search Console.",
-          "We did exactly this when devlonics.com moved from WordPress to this site, so we know where rankings slip if it's rushed.",
-        ],
-        source: { label: "Google Search Central: site moves with URL changes", url: "https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" },
-      },
-    ],
-    testimonial: "Sohan Bapary",
-    moreFaqs: [
-      { q: "How long does a small business website take to build?", a: "Most launch in three to six weeks from an approved design. The biggest factor is usually how quickly content, photos and feedback come back." },
-      { q: "Do you offer website redesign services?", a: "Yes. We redesign existing sites on WordPress, Shopify or custom code, keep the URLs that already rank, redirect the rest and check Search Console after launch." },
-      { q: "How much does a website redesign cost?", a: "It depends on how many pages move across, whether the content is rewritten, and what features are added. We quote every redesign as a fixed price, and it always includes redirects from your old addresses so you keep the Google rankings you've earned." },
-    ],
-  },
-
-  "online-stores": {
-    secondaryKeywords: [
-      "Shopify developer",
-      "Shopify website design",
-      "WooCommerce development",
-      "ecommerce website development",
-      "Shopify store setup",
-      "migrate to Shopify",
-    ],
-    problems: [
-      { title: "Shoppers add to cart, then disappear", body: "Baymard Institute puts the average documented cart abandonment rate at 70.22%. Surprise costs at checkout are the top reason, followed by slow delivery and not trusting the site with a card." },
-      { title: "The store looks fine but doesn't sell", body: "Thin product pages, unclear shipping and returns, and no reviews near the buy button make people hesitate, no matter how much traffic you send." },
-      { title: "Ads run, but nobody knows what pays", body: "Without pixels and conversion tracking set up properly, you can't see which products and campaigns make money, so spend goes to the wrong places." },
-    ],
-    sections: [
-      {
-        heading: "Shopify store setup, from theme to first order",
-        paragraphs: [
-          "We set up the theme and design it for your brand, build product and collection pages, import products and variants, configure Shop Pay, Stripe, PayPal, Apple Pay and Google Pay, set shipping zones and taxes, and test checkout end to end before launch.",
-          "Then we connect Google Analytics 4 and the Meta and TikTok pixels, so the day you start ads you can see which products and campaigns bring in sales.",
-        ],
-      },
-      {
-        heading: "Ecommerce website development that fixes the checkout leaks",
-        paragraphs: [
-          "Baymard's research lists the biggest reasons shoppers abandon checkout: extra costs too high (40%), delivery too slow (20%), not trusting the site with card details (19%), forced account creation (18%) and a long or complicated checkout (17%).",
-          "So we show shipping costs and delivery times early, offer guest checkout and express wallets, put reviews and returns policy beside the buy button, and keep checkout to as few steps as the platform allows.",
-        ],
-        source: { label: "Baymard Institute: cart abandonment rate statistics", url: "https://baymard.com/lists/cart-abandonment-rate" },
-      },
-      {
-        heading: "WooCommerce development and moving to Shopify",
-        paragraphs: [
-          "If your business already runs on WordPress or has unusual product rules, WooCommerce can be the better fit, and we build and maintain those too. If you're ready to leave WooCommerce, Wix or a marketplace, we migrate products, customers and order history where the platforms allow it and redirect old links so rankings carry over.",
+          "The price depends on how many pages move across, how much content we write and the features you need, such as a quote funnel, a booking step or CRM integration. You get one fixed price in writing within one business day of filling in the form, before any work starts.",
         ],
       },
     ],
     testimonial: "Gavin Smith",
+    caseStudy: "florida-surface-pro",
     moreFaqs: [
-      { q: "Do I need a Shopify developer, or can I set it up myself?", a: "You can launch a simple store yourself. A Shopify developer earns their fee when you need a custom theme, a large product import, integrations with suppliers or apps, or tracking set up correctly for ads." },
-      { q: "How do I reduce cart abandonment on Shopify?", a: "Show shipping costs and delivery times before checkout, allow guest checkout, offer express wallets like Shop Pay and Apple Pay, put reviews and your returns policy near the buy button, and send an abandoned-cart email within a few hours." },
-      { q: "How much does Shopify store development cost?", a: "It depends on whether you start from a theme or need a custom design, how many products and integrations you have, and whether you need dropshipping or fulfilment set up. We send a fixed price in writing after a short questionnaire." },
+      { q: "What should a home service website include?", a: "Your phone number one tap away on every page, a short quote form, the towns you serve, your hours, real reviews and photos, license and insurance details, a page for each service and a short FAQ. Most leads are lost when one of these is missing." },
+      { q: "Do you work with contractors outside home services?", a: "Yes, as long as you serve customers in a local area: clinics, med spas, home care agencies, flooring and concrete contractors, auto services and more. The same rules apply: make it easy to trust you and easy to call." },
     ],
   },
 
-  "app-development": {
-    secondaryKeywords: [
-      "mobile app development company",
-      "custom app development",
-      "web app development",
-      "booking app development",
-      "React Native app development",
-      "membership app",
-    ],
+  "reputation-management": {
+    secondaryKeywords: ["google review management services", "review management for local businesses", "small business reputation management", "online reputation management services usa"],
     problems: [
-      { title: "Bookings happen by text and phone tag", body: "Customers message to ask for a slot, you message back, and half the day goes on scheduling instead of the work itself." },
-      { title: "Regulars forget to come back", body: "Without saved accounts, reminders or one-tap rebooking, even happy customers drift to whoever is easier to book." },
-      { title: "Agency quotes are out of reach", body: "Big studios quote for the finished product up front. Most small businesses need a useful first version, not a year-long project." },
+      { title: "Your newest review is months old", body: "Customers want to see that you're doing good work now. Old reviews read like a business that has slowed down." },
+      { title: "A competitor has twice your reviews", body: "Reviews are one of the signals Google uses to rank map results, and the first thing a customer compares." },
+      { title: "Bad reviews sit there with no reply", body: "Future customers read how you handle complaints. Silence looks like you don't care." },
     ],
     sections: [
       {
-        heading: "Custom app development, delivered in phases",
+        heading: "Why recent reviews matter more than total reviews",
         paragraphs: [
-          "We start with the smallest version that's genuinely useful, usually accounts, bookings or orders, and payments, and get it into customers' hands. Each later phase is scoped and priced before it starts, based on what people actually use.",
-          "For most business apps, one React Native codebase covers iPhone and Android, which keeps both the build and the maintenance cost down.",
+          "BrightLocal's 2026 survey found that 74% of consumers only consider reviews from the last three months, and 32% look for reviews from the last two weeks. 31% will only use businesses rated 4.5 stars or higher, up from 17% the year before.",
+          "That's why we set up automatic requests after every job instead of a one-off review push. A steady flow keeps your newest review recent and your rating stable.",
         ],
+        source: brightlocal,
       },
       {
-        heading: "Web app or mobile app: which do you need?",
+        heading: "Google review management: replying to every review",
         paragraphs: [
-          "A web app runs in the browser, needs no app store approval and is cheaper to build, which suits portals, dashboards and booking tools. A mobile app earns its cost when customers return often and benefit from push notifications, saved cards and one-tap reordering.",
-          "We'll recommend one in your plan, and often a web app first is the faster way to prove the idea.",
+          "The same survey found that 89% of consumers expect business owners to respond to reviews, and 50% are put off by generic replies. We write a specific reply to each review in your voice, thank customers by what they mentioned, and answer complaints calmly with a way to make it right.",
         ],
+        source: brightlocal,
       },
       {
-        heading: "Booking app development for service businesses",
+        heading: "Reputation management that stays within the law",
         paragraphs: [
-          "Booking apps we build let customers pick a time, pay a deposit, get reminders and reschedule without calling. Your team gets an admin panel to manage availability, staff and payments, and the data stays yours.",
+          "The FTC's rule on consumer reviews, final in 2024, bans fake reviews, buying reviews of a particular sentiment, undisclosed reviews from staff or family, and pressuring people to remove negative ones. Knowing violations can bring civil penalties.",
+          "Our process asks every customer for an honest review with no strings attached. That's still allowed, and it's still the approach that works.",
         ],
-      },
-    ],
-    testimonial: "Graziel Balbinoti",
-    moreFaqs: [
-      { q: "How much does app development cost for a small business?", a: "It depends on the screens, the integrations and whether you need iPhone, Android or both. We break it into phases with a fixed price for each, so you can launch a first version and spread the cost." },
-      { q: "Do you build web apps as well as mobile apps?", a: "Yes. Many projects start as a web app, such as a customer portal or booking tool, and add mobile apps once customers are using it." },
-      { q: "Does a small business need a mobile app?", a: "Often not at first. If customers mainly need to find you, book or buy, a fast website does the job. An app earns its cost when people use it repeatedly, for example for bookings, loyalty, ordering or a client portal, or when your team needs a tool in the field." },
-    ],
-  },
-
-  "custom-software": {
-    secondaryKeywords: [
-      "custom CRM development",
-      "client portal development",
-      "business process automation",
-      "internal tools development",
-      "booking system development",
-      "Laravel development",
-    ],
-    problems: [
-      { title: "The business runs on spreadsheets", body: "Jobs, customers and invoices live in five places. Someone copies data between them every day, and mistakes slip through." },
-      { title: "You pay for tools that don't talk to each other", body: "A CRM, a scheduler, an invoicing app and a form builder, each with its own login and subscription, and none of them share data." },
-      { title: "Clients email you for every update", body: "Status checks, document requests and payment reminders eat hours that a simple client portal would handle on its own." },
-    ],
-    sections: [
-      {
-        heading: "Custom CRM development around how you sell",
-        paragraphs: [
-          "Off-the-shelf CRMs are built for everyone, so they fit no one exactly. We build CRMs that follow your actual pipeline: the fields you use, the stages you move jobs through, and the reminders that stop leads going cold.",
-          "If an existing tool covers most of what you need, we'll say so and connect it instead. Custom software only makes sense where it saves real time or wins real work.",
-        ],
-      },
-      {
-        heading: "Client portal development",
-        paragraphs: [
-          "A client portal gives customers a secure login to see project status, download documents, sign forms and pay invoices. It cuts back-and-forth email and makes a small team look organized.",
-        ],
-      },
-      {
-        heading: "Business process automation and AI that saves hours",
-        paragraphs: [
-          "AI is already part of daily work for many small businesses: in Jobber's survey, 52% of home service owners use AI in daily operations, most often for quoting, invoicing and writing. We build automation where it pays off, such as follow-ups, reminders, reports, data entry and AI-assisted drafting, and keep people in charge of the decisions.",
-        ],
-        source: jobber,
-      },
-    ],
-    testimonial: "Jason Sullivan",
-    moreFaqs: [
-      { q: "How much does custom software cost?", a: "It depends on the users, the workflows and the integrations. We scope the first phase around the most painful problem and give a fixed price for it, so you see value before committing to more." },
-      { q: "What technology do you build custom software with?", a: "Mostly Laravel (PHP) and Next.js with MySQL or PostgreSQL, hosted on reliable cloud infrastructure. The code is yours if you ever want to move it." },
-      { q: "Is a custom CRM better than an off-the-shelf CRM for a small business?", a: "Start with an off-the-shelf CRM if it fits how you sell. A custom CRM makes sense when you're paying for many seats you don't use, bending your process to fit the software, or copying data between tools by hand. We'll tell you honestly which side you're on." },
-    ],
-  },
-
-  "seo-and-marketing": {
-    secondaryKeywords: [
-      "local SEO services",
-      "Google Business Profile optimization",
-      "SEO for home service businesses",
-      "Google Ads for contractors",
-      "Local Services Ads management",
-      "AEO and AI search",
-    ],
-    problems: [
-      { title: "Competitors show up in the map results, you don't", body: "Most high-intent local searches end in the map pack. If your profile, reviews and service pages are thin, you're invisible where buyers decide." },
-      { title: "AI answers skip your business", body: "A Pew Research study found Google users clicked a result on 8% of visits when an AI summary appeared, versus 15% without one. If the AI answer doesn't mention you, fewer people ever reach your site." },
-      { title: "Ad costs keep climbing", body: "Google is moving Local Services Ads into Google Ads, and from October 1, 2026 it charges missed calls over 20 seconds during business hours as leads. Spend needs closer watching than ever." },
-    ],
-    sections: [
-      {
-        heading: "Local SEO services for service businesses",
-        paragraphs: [
-          "Google ranks local results on relevance, distance and prominence. We improve the two you control: a complete Google Business Profile, service and service-area pages that match what people search, and a steady stream of recent reviews.",
-          "Reviews matter more each year. BrightLocal's 2026 survey found 74% of consumers only consider reviews from the last three months, and 31% will only use businesses rated 4.5 stars or higher.",
-        ],
-        source: { label: "BrightLocal, Local Consumer Review Survey 2026", url: "https://www.brightlocal.com/research/local-consumer-review-survey/" },
-      },
-      {
-        heading: "AEO: getting named in AI search answers",
-        paragraphs: [
-          "BrightLocal also found 45% of consumers now use AI tools such as ChatGPT when researching local businesses, up from 6% a year earlier. AI assistants favor sites that answer common questions clearly, keep business details consistent everywhere and use structured data.",
-          "We write answer-first content for your services, add schema markup and clean up your listings so AI tools can understand and cite you.",
-        ],
-        source: { label: "Pew Research Center: Google users click less when an AI summary appears", url: "https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/" },
-      },
-      {
-        heading: "Google Ads and Local Services Ads management",
-        paragraphs: [
-          "We set up and manage Google Ads, Local Services Ads, Meta and TikTok campaigns with every call, form and sale tracked back to its source. Budgets start small and only grow when the numbers justify it.",
-          "With Local Services Ads now billing qualifying missed calls, we also look at how your phones are answered, because an unanswered call can cost as much as a booked job.",
-        ],
-        source: { label: "PPC Land: Local Services Ads missed-call charges from October 1, 2026", url: "https://ppc.land/google-lsa-advertisers-face-missed-call-charges-from-october-1/" },
+        source: ftc,
       },
     ],
     testimonial: "Thania Alonso",
     moreFaqs: [
-      { q: "What do local SEO services include each month?", a: "Google Business Profile updates and posts, review requests and replies, new or improved service and area pages, technical fixes, citation clean-up and a monthly report of rankings, calls and leads." },
-      { q: "Do you manage Google Local Services Ads?", a: "Yes. We set up and optimize Local Services Ads alongside Google Ads, tighten service areas and job types, and review charged leads each month." },
-      { q: "Do you do local SEO for HVAC and roofing contractors?", a: "Yes. Local SEO for HVAC contractors, roofers, plumbers and other home service companies is most of our SEO work: Google Business Profile optimization, review growth, service and town pages, and tracking calls from search." },
-      { q: "Do you offer answer engine optimization services?", a: "Yes. Our answer engine optimization (AEO) work makes your business easy for AI assistants to understand and cite: clear answers to common questions on your pages, consistent business details across the web, structured data, and reviews and mentions on trusted sites." },
+      { q: "Which review sites do you manage?", a: "Google first, because it drives map rankings and most calls. We also monitor and reply on Yelp, Facebook, BBB and industry sites like Angi or Houzz where your customers leave reviews." },
+      { q: "Do I have to approve every reply?", a: "At the start, yes, so we learn your voice. After that, many owners approve only replies to negative reviews and let us post the thank-yous." },
+    ],
+  },
+
+  "google-business-profile": {
+    secondaryKeywords: ["google business profile optimization service", "local seo for contractors", "local seo for hvac contractors", "local seo for roofing contractors", "google my business optimization service"],
+    problems: [
+      { title: "You don't show up in the map results", body: "Searches for a trade plus 'near me' show a map with three businesses first. If you're not one of them, most of those calls go elsewhere." },
+      { title: "The profile was set up once and forgotten", body: "Missing services, old photos, wrong hours and no posts tell Google and customers very little about you." },
+      { title: "It got suspended, or you're afraid it will", body: "Suspensions hit many home service profiles in 2026. Most come down to the name, the address or the service area." },
+    ],
+    sections: [
+      {
+        heading: "How Google decides who shows up in Maps",
+        paragraphs: [
+          "Google says local results are based mainly on relevance, distance and prominence, and that there's no way to request or pay for a better local ranking. Relevance comes from your categories, services and website pages; prominence from reviews, links and how well known you are.",
+          "Our work targets the parts you control: the right categories and services, a complete and active profile, steady reviews, and website pages for each service and town.",
+        ],
+        source: googleRanking,
+      },
+      {
+        heading: "Local SEO for contractors, beyond the profile",
+        paragraphs: [
+          "The profile and the website work as a pair. We build a page for each service and each main town you cover, with real local detail rather than a copy with the town name swapped, add LocalBusiness schema, and make your business name, address and phone identical across the directories that matter.",
+          "BrightLocal's 2026 survey also found 45% of consumers now use AI tools like ChatGPT to research local businesses. Consistent details and clear answers on your site help you show up there too.",
+        ],
+        source: brightlocal,
+      },
+    ],
+    moreFaqs: [
+      { q: "How long does it take to rank in Google Maps?", a: "Fixing categories, services and details can change which searches you appear for within weeks. Moving up against established competitors takes longer and depends mostly on reviews and how close searchers are to you." },
+      { q: "Can you manage profiles for several locations?", a: "Yes. Each location gets its own verified profile, photos, posts and review requests, plus its own page on your website." },
+    ],
+  },
+
+  "lead-generation": {
+    secondaryKeywords: ["lead generation services for contractors", "website crm integration", "speed to lead system", "lead generation for roofing contractors", "quote form"],
+    problems: [
+      { title: "Leads get lost between the form and the follow-up", body: "An email sits in an inbox, someone retypes it into the CRM later, and by then the customer has booked someone else." },
+      { title: "Half-finished forms disappear", body: "Long forms that ask for the address first lose people halfway, and with them the only way to call back." },
+      { title: "You can't tell which ads bring jobs", body: "Without the ad source on each lead, every marketing decision is a guess." },
+    ],
+    sections: [
+      {
+        heading: "Speed to lead: why seconds matter",
+        paragraphs: [
+          "Jobber's survey of 1,050 US home service owners found more than 55% of customers expect a reply within the hour, and 28% expect an immediate one. Response speed was the third factor customers weigh when picking a provider, after price and reviews.",
+          "A lead flow makes fast replies possible: the lead reaches your phone and CRM the moment it's sent, with everything your team needs to call back.",
+        ],
+        source: jobber,
+      },
+      {
+        heading: "Website to CRM integration, without copy and paste",
+        paragraphs: [
+          "Most service businesses still move web leads into their CRM by hand or through a fragile email parser. We connect the form to your CRM directly where it has an API, or through Zapier or n8n where it doesn't, so each lead becomes a customer record with its project details, preferred time and ad source.",
+          "For Florida Surface Pro we built a quote funnel that sends every finished lead into Builder Prime within seconds, emails the team and logs it to a Google Sheet, and saves unfinished leads too.",
+        ],
+      },
+    ],
+    testimonial: "Thania Alonso",
+    caseStudy: "florida-surface-pro",
+    moreFaqs: [
+      { q: "Can you rebuild a quote page another agency made?", a: "Yes. We rebuilt Florida Surface Pro's funnel from a separate Lovable page into their own WordPress site, matching the design and adding partial leads, a preferred-time step and their CRM." },
+      { q: "Do I own the leads and the form?", a: "Yes. The form lives on your website, leads go to your accounts, and nothing is locked into a platform you'd have to keep paying for." },
+    ],
+  },
+
+  "local-ads": {
+    secondaryKeywords: ["google local service ads management", "facebook ads for local service business", "geo targeting google ads", "local marketing for small businesses"],
+    problems: [
+      { title: "You pay for clicks from outside your area", body: "Loose targeting spends your budget on people you'd never drive to." },
+      { title: "Ads send people to your homepage", body: "A visitor who clicked an ad for water heater repair shouldn't have to hunt for it." },
+      { title: "Calls ring out while the ads keep running", body: "Since October 2026, Google bills Local Services Ads for missed calls during business hours." },
+    ],
+    sections: [
+      {
+        heading: "Google Local Services Ads management",
+        paragraphs: [
+          "From October 1, 2026, Google counts a missed call during your listed business hours as a billable Local Services Ads lead if the caller stays on the line for more than 20 seconds. In Service Direct's call study, in-house teams answered about 66% of calls.",
+          "So before we raise a budget, we fix the phone side: overflow routing, honest business hours, missed-call text-back and a monthly review of charged leads.",
+        ],
+        source: ppcLand,
+      },
+      {
+        heading: "Facebook ads for local service businesses",
+        paragraphs: [
+          "In Jobber's 2026 survey, 32% of home service owners named Facebook as a lead source, second only to referrals. Ads with real before-and-after photos, short job videos and a fast reply to every message do more than polished graphics.",
+          "We target homeowners in your service area, send them to a short quote form, and track every lead back to the ad that brought it.",
+        ],
+        source: jobber,
+      },
+    ],
+    moreFaqs: [
+      { q: "Is the ad spend included in your price?", a: "No. You pay Google and Meta directly from your own ad accounts, so you always own the accounts and see every dollar. Our management fee is separate and fixed." },
+      { q: "Can you run ads for several towns?", a: "Yes. We split campaigns by town or zip code where it helps, so you can spend more where jobs are most profitable." },
+    ],
+  },
+
+  automation: {
+    secondaryKeywords: ["missed call text back", "speed to lead automation", "ai receptionist for small business", "follow-up automation"],
+    problems: [
+      { title: "Missed calls go to the next company", body: "In Service Direct's call study, owners guessed they answered 97% of calls; the measured in-house rate was 66%." },
+      { title: "Quotes go out and nobody follows up", body: "Most open quotes need a reminder or two. When the office is busy, they never get one." },
+      { title: "The same data gets typed three times", body: "Website, CRM and spreadsheet each get the lead by hand, with mistakes along the way." },
+    ],
+    sections: [
+      {
+        heading: "The money a missing system costs",
+        paragraphs: [
+          "Service Direct's call performance study found owners believed they answered 97% of calls, while the measured in-house answer rate was 66%. Businesses using an answering service answered 99%. Every unanswered call is a customer who may already be dialing a competitor.",
+          "A text back to every missed call, an instant reply to every web lead and a reminder on every open quote are cheap to run and catch a lot of that lost work.",
+        ],
+        source: serviceDirect,
+      },
+      {
+        heading: "An AI receptionist for after-hours calls",
+        paragraphs: [
+          "For businesses that get calls at night or on weekends, an AI receptionist can answer, take details, book simple jobs and send emergencies to the on-call tech. We built one for an HVAC and plumbing company that posts a summary of every call to Slack and logs each lead.",
+        ],
+      },
+    ],
+    caseStudy: "ai-voice-receptionist-home-services",
+    moreFaqs: [
+      { q: "Do I need new software for this?", a: "Usually not. We build on the phone system, CRM and calendar you already use, and add a small automation tool such as n8n, Make.com or Zapier to connect them." },
+      { q: "What if an automation breaks?", a: "Each one logs what it does and alerts us if a step fails. During the first weeks we watch them closely and fix anything that doesn't behave." },
     ],
   },
 };

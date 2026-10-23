@@ -21,10 +21,11 @@ faqs:
   - q: "Should I reply to every Google review?"
     a: "Yes. Google recommends responding to reviews, and BrightLocal found 80% of consumers are likely to use a business that responds to all of its reviews, while 42% are unlikely to use one that never replies."
 related:
-  - seo-and-marketing
-  - lead-generation-websites
+  - google-business-profile
+  - lead-generation
   - hvac
   - plumbing
+
 ---
 
 When someone searches for "emergency plumber" or "AC repair near me," Google shows a map with three businesses before any regular results. That map is where most home service calls come from, and local SEO is the work of getting into it.
@@ -122,4 +123,4 @@ Check these monthly. Local SEO is a slow compounding game, and the trend matters
 
 ## Need help with local SEO?
 
-We set up and run [local SEO for service businesses](/services/seo-and-marketing), from Google Business Profile work to service-area pages and monthly reporting. [Get a fixed quote](/contact) or see what we build for [HVAC companies](/markets/hvac) and [plumbers](/markets/plumbing).
+We set up and run [local SEO for service businesses](/services/google-business-profile), from Google Business Profile work to service-area pages and monthly reporting. [Get a fixed quote](/contact) or see what we build for [HVAC companies](/markets/hvac) and [plumbers](/markets/plumbing).

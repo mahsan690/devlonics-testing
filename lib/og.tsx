@@ -7,7 +7,7 @@ export const ogSize = { width: 1200, height: 630 };
 
 // Shared 1200×630 share image: black field, the orange mark large on the right,
 // the page title in Bricolage on the left.
-export async function renderOg(title: string, kicker = "Devlonic Solutions", footer = "Fixed-price websites, stores and software") {
+export async function renderOg(title: string, kicker = "Devlonic Solutions", footer = "Websites, reviews and leads for local service businesses") {
   const [bold, medium] = await Promise.all([
     readFile(join(process.cwd(), "assets/fonts/BricolageGrotesque-Bold.ttf")),
     readFile(join(process.cwd(), "assets/fonts/DMSans-Medium.ttf")),

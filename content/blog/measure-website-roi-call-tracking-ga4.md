@@ -19,9 +19,10 @@ faqs:
   - q: "Do I need call tracking for my website?"
     a: "If phone calls are a big share of your leads, yes. Dynamic call tracking shows a unique number per visitor source, so you can see which pages, searches and ads produce calls, while customers still reach your real line."
 related:
-  - lead-generation-websites
-  - seo-and-marketing
-  - small-business-websites
+  - lead-generation
+  - google-business-profile
+  - website-design
+
 ---
 
 You can measure your website's return on investment with three numbers: how many leads it produces, how many of those become jobs, and what those jobs are worth. Most service businesses don't know the first number, because calls aren't tracked and form leads get mixed in with everything else. Here's how to set up measurement properly and report it in one page a month.
@@ -58,7 +59,7 @@ Add UTM parameters to links in emails, social posts and ads (`?utm_source=facebo
 
 ## Step 4: Connect leads to jobs
 
-The most useful number is cost per booked job, not cost per lead. Ask "How did you hear about us?" on every call, and record the lead source in your field service or CRM software, so you can match leads to revenue. Our [custom software](/services/custom-software) work often starts exactly here, connecting forms, calls and jobs in one place.
+The most useful number is cost per booked job, not cost per lead. Ask "How did you hear about us?" on every call, and record the lead source in your field service or CRM software, so you can match leads to revenue. Our [lead flow](/services/lead-generation) work often starts exactly here, connecting forms, calls and your CRM in one place; our guide to [sending website leads to your CRM](/blog/website-to-crm-lead-flow) shows how.
 
 ## Step 5: Report one page a month
 
@@ -83,7 +84,7 @@ Add Google Business Profile calls and direction requests, and Search Console cli
 
 ## Built in from day one
 
-Every [lead generation website](/services/lead-generation-websites) we build includes GA4 key events for calls, forms and bookings, and our [SEO and marketing](/services/seo-and-marketing) clients get a monthly report like the one above. [Get a fixed quote](/contact).
+Every [lead generation website](/services/lead-generation) we build includes GA4 key events for calls, forms and bookings, and our [local ads](/services/local-ads) clients get a monthly report like the one above. [Get a fixed quote](/contact).
 
 ## Sources
 

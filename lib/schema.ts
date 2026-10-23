@@ -1,7 +1,7 @@
 import { site, absoluteUrl } from "./site";
 import { markets, type Market } from "./markets";
 import type { Faq, Service } from "./services";
-import type { AiCaseStudy } from "./ai";
+import type { CaseStudy } from "./case-studies";
 
 // Structured data (JSON-LD). Devlonic is a remote, service-area business:
 // no street address is published and the service area is the United States.
@@ -33,10 +33,9 @@ export function organizationSchema() {
         areaServed: us,
         audience: markets.map((m) => ({ "@type": "BusinessAudience", audienceType: m.name })),
         knowsAbout: [
-          "Web design", "Website development", "WordPress", "Shopify", "WooCommerce",
-          "Local SEO", "Answer engine optimization", "TikTok ads", "Meta ads",
-          "App development", "Custom software",
-          "AI automation", "AI voice agents", "AI chatbots", "n8n", "Make.com", "HubSpot", "CRM development",
+          "Website design", "Website redesign", "Reputation management", "Google Business Profile",
+          "Local SEO", "Lead generation", "CRM integration", "Google Local Services Ads", "Google Ads", "Meta ads",
+          "Marketing automation", "Missed-call text-back", "AI receptionists",
         ],
         sameAs: [site.profiles.upwork, site.profiles.linkedin, site.profiles.trustpilot],
         contactPoint: {
@@ -104,7 +103,7 @@ export function marketServiceSchema(m: Market) {
     "@context": "https://schema.org",
     "@type": "Service",
     name: m.metaTitle,
-    serviceType: "Web design and development",
+    serviceType: "Marketing for local service businesses",
     description: m.metaDescription,
     url: absoluteUrl(`/markets/${m.slug}`),
     provider: { "@id": orgId },
@@ -126,7 +125,7 @@ export function personSchema() {
     worksFor: { "@id": orgId },
     url: absoluteUrl("/about"),
     sameAs: [site.founder.linkedin, site.founder.portfolio, site.profiles.upwork],
-    knowsAbout: ["WordPress", "Shopify", "WooCommerce", "Web design", "Local SEO", "TikTok ads"],
+    knowsAbout: ["WordPress", "Web design", "Local SEO", "Lead generation", "CRM integration", "Automation"],
   };
 }
 
@@ -164,65 +163,20 @@ export function blogSchema(posts: { slug: string; title: string; date: string }[
   };
 }
 
-export function caseStudySchema(cs: { name: string; headline: string; summary: string; slug: string; image: string }) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: cs.headline,
-    description: cs.summary,
-    image: absoluteUrl(`/work/${cs.image}`),
-    url: absoluteUrl(`/work/${cs.slug}`),
-    author: { "@id": orgId },
-    publisher: { "@id": orgId },
-    about: { "@type": "Organization", name: cs.name },
-  };
-}
-
-// The AI automation offer on /ai.
-export function aiServiceSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: "AI automation services",
-    serviceType: "AI automation",
-    description: "AI voice agents, chatbots, n8n and Make.com workflow automation, CRM setup and operations workspaces for US businesses.",
-    url: absoluteUrl("/ai"),
-    provider: { "@id": orgId },
-    areaServed: us,
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "AI automation services",
-      itemListElement: ["AI voice agents", "AI chatbots", "AI workflow automation", "CRM setup and automation", "ERP and operations workspaces", "Custom AI apps"].map((n) => ({
-        "@type": "Offer",
-        itemOffered: { "@type": "Service", name: n },
-      })),
-    },
-  };
-}
-
-export function aiCaseListSchema(list: AiCaseStudy[]) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: "AI and automation case studies",
-    itemListElement: list.map((cs, i) => ({ "@type": "ListItem", position: i + 1, url: absoluteUrl(`/ai/case-studies/${cs.slug}`), name: cs.title })),
-  };
-}
-
-export function aiCaseStudySchema(cs: AiCaseStudy) {
-  const url = absoluteUrl(`/ai/case-studies/${cs.slug}`);
+export function caseStudySchema(cs: CaseStudy) {
+  const url = absoluteUrl(`/work/${cs.slug}`);
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${url}#article`,
     headline: cs.title,
-    description: cs.summary,
-    image: absoluteUrl(`/ai/${cs.slug}.webp`),
+    description: cs.cardLine ?? cs.summary,
+    image: absoluteUrl(`/case-studies/${cs.slug}.webp`),
     url,
     mainEntityOfPage: url,
     keywords: cs.stack.join(", "),
     author: { "@id": orgId },
     publisher: { "@id": orgId },
-    about: { "@type": "Thing", name: cs.industry },
+    about: cs.client ? { "@type": "Organization", name: cs.client, ...(cs.url ? { url: cs.url } : {}) } : { "@type": "Thing", name: cs.industry },
   };
 }

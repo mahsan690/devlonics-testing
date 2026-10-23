@@ -20,8 +20,9 @@ faqs:
     a: "A simple website with prices and online booking, a complete Google Business Profile, a steady flow of reviews from your first clients, and referrals from those clients. Add local Facebook ads once you can track which ones bring bookings."
 related:
   - cleaning
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
+
 ---
 
 The best cleaning business marketing focuses on one thing: turning first-time customers into recurring clients. A biweekly client is worth many one-off deep cleans, refers neighbors and fills your schedule predictably. Online, that means clear prices, easy booking, lots of recent reviews and a referral habit.
@@ -81,7 +82,7 @@ Thania Alonso runs a cleaning services business that had no website before worki
 
 ## Get a cleaning website that books clients
 
-We build [cleaning company websites](/markets/cleaning) with clear pricing, quote calculators or booking, and reviews where they convert, as part of our [lead generation websites](/services/lead-generation-websites). [Get a fixed quote](/contact).
+We build [cleaning company websites](/markets/cleaning) with clear pricing, quote calculators or booking, and reviews where they convert, as part of our [lead generation websites](/services/lead-generation). [Get a fixed quote](/contact).
 
 ## Sources
 

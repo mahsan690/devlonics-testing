@@ -19,9 +19,10 @@ faqs:
   - q: "Do business hours on my website affect SEO?"
     a: "They help customers and keep your details consistent with your Google Business Profile, which supports local search and AI tools that check your information across sources."
 related:
-  - lead-generation-websites
+  - lead-generation
   - landscaping
   - contractors
+
 ---
 
 Most home service websites are missing at least one of three basics: the areas they serve, their business hours and an FAQ. Jobber's 2026 survey of 1,050 owners found 43% don't list service areas, 65% don't show hours and 74% have no FAQ. Those are exactly what a homeowner checks before deciding to call, and fixing them takes an afternoon.
@@ -89,7 +90,7 @@ If any answer is no, that's a fix worth doing this week. For the full list, see 
 
 ## Want it done for you?
 
-Every [lead generation website](/services/lead-generation-websites) we build covers all three on the first screen, with service and area pages, hours that match your Google profile and an FAQ on every service page. We build for [landscapers](/markets/landscaping), [contractors](/markets/contractors) and other trades. [Get a fixed quote](/contact).
+Every [lead generation website](/services/lead-generation) we build covers all three on the first screen, with service and area pages, hours that match your Google profile and an FAQ on every service page. We build for [landscapers](/markets/landscaping), [contractors](/markets/contractors) and other trades. [Get a fixed quote](/contact).
 
 ## Sources
 

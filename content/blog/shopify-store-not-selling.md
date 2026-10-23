@@ -1,4 +1,6 @@
 ---
+# Parked: off-topic since the October 2026 repositioning to local service businesses.
+draft: true
 title: "Shopify Store Not Selling? 9 Fixes Before You Spend More on Ads"
 description: "Traffic but no sales? Nine fixes for a Shopify store that isn't converting, from shipping costs and product pages to checkout and tracking, based on Baymard's checkout research."
 date: 2026-11-01

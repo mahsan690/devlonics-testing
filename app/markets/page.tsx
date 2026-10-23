@@ -5,9 +5,9 @@ import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Markets We Serve: Websites by Industry",
+  title: "Marketing for Local Service Businesses by Industry",
   description:
-    "Websites and marketing for HVAC, plumbing, roofing, cleaning, contracting, landscaping, home care and clinics, and ecommerce and Shopify brands across the US.",
+    "Websites, reviews, Google profiles, lead flows and local ads for HVAC, plumbing, roofing, cleaning, contracting, landscaping, home care and clinics across the US.",
   alternates: { canonical: "/markets" },
 };
 
@@ -19,8 +19,8 @@ export default function MarketsPage() {
       <JsonLd data={breadcrumbSchema(crumbs)} />
       <PageHero
         crumbs={crumbs}
-        title="Websites built for the way your industry buys."
-        lede="Website design and marketing for HVAC companies, plumbers, roofers, cleaning companies, contractors, landscapers, home care agencies and Shopify brands. A homeowner with a burst pipe and a family choosing home care decide differently, so pick your market to see what we build for it."
+        title="Marketing built for the way your industry gets customers."
+        lede="Websites, reputation management, Google profiles, lead flows and local ads for HVAC companies, plumbers, roofers, cleaning companies, contractors, landscapers, home care agencies and clinics. A homeowner with a burst pipe and a family choosing home care decide differently, so pick your market to see what we build for it."
       />
       <section className="pb-20 md:pb-28">
         <div className="wrap"><MarketsGrid /></div>

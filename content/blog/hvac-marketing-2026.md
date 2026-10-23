@@ -20,8 +20,9 @@ faqs:
     a: "How old their system is and how long it should last, what a replacement costs, how much they'll save on energy bills, what rebates or tax credits apply, and how they can pay for it."
 related:
   - hvac
-  - seo-and-marketing
-  - lead-generation-websites
+  - google-business-profile
+  - lead-generation
+
 ---
 
 HVAC marketing in 2026 is less about shouting discounts and more about answering the questions homeowners are nervous to ask: Is my system really at the end of its life? What will a new one cost, and will it pay for itself? Can I still repair it? The companies that explain this clearly, on their website and at the door, win the replacement jobs.
@@ -69,7 +70,7 @@ These answers also help you show up in [AI search results](/blog/ai-overviews-lo
 
 ## Get an HVAC website that sells replacements
 
-We build [HVAC websites](/markets/hvac) with replacement and repair pages that answer these questions, financing and maintenance plan sections, and call tracking from day one. [Get a fixed quote](/contact) or see our [lead generation website service](/services/lead-generation-websites).
+We build [HVAC websites](/markets/hvac) with replacement and repair pages that answer these questions, financing and maintenance plan sections, and call tracking from day one. [Get a fixed quote](/contact) or see our [lead generation website service](/services/lead-generation).
 
 ## Sources
 

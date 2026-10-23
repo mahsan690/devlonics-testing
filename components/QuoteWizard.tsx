@@ -12,16 +12,16 @@ type SingleStep = { id: string; kind: "single"; title: string; help: string; cho
 type Step = MultiStep | SingleStep | { id: "contact"; kind: "contact"; title: string; help: string };
 
 // First question. Values match `wizardChoice` in lib/services.ts, so links like
-// /contact?need=store open with that answer picked.
+// /contact?need=reviews open with that answer picked.
 const NEED_STEP: MultiStep = {
-  id: "need", kind: "multi", title: "What are we building?", help: "Pick as many as you need. Each one gets its own question.",
+  id: "need", kind: "multi", title: "What do you need help with?", help: "Pick as many as you need. Each one gets its own question.",
   choices: [
-    { value: "website", label: "Website" },
-    { value: "store", label: "Online store" },
-    { value: "app", label: "App" },
-    { value: "software", label: "Custom software" },
-    { value: "ai", label: "AI automation" },
-    { value: "marketing", label: "SEO & marketing" },
+    { value: "website", label: "Website or redesign" },
+    { value: "reviews", label: "More reviews" },
+    { value: "profile", label: "Google Business Profile" },
+    { value: "leads", label: "Lead flow to email and CRM" },
+    { value: "ads", label: "Local ads" },
+    { value: "automation", label: "Automation" },
     { value: "unsure", label: "Not sure yet" },
   ],
 };
@@ -29,63 +29,59 @@ const NEED_STEP: MultiStep = {
 // One follow-up question per thing picked above, asked in this order.
 const FOLLOW_UPS: Record<string, SingleStep> = {
   website: {
-    id: "website", kind: "single", title: "What kind of website?", help: "Pick the closest fit.",
+    id: "website", kind: "single", title: "New website or a redesign?", help: "Pick the closest fit.",
     choices: [
-      { value: "lead-gen", label: "Lead generation (calls and quote requests)" },
-      { value: "business", label: "Business or brochure site" },
-      { value: "bookings", label: "Bookings and appointments" },
-      { value: "landing", label: "Landing page" },
-      { value: "rebuild", label: "Rebuild of my current site" },
-      { value: "other", label: "Something else" },
-    ],
-  },
-  store: {
-    id: "store", kind: "single", title: "What should the store run on?", help: "Pick the closest fit.",
-    choices: [
-      { value: "shopify", label: "Shopify" },
-      { value: "woocommerce", label: "WooCommerce" },
-      { value: "migrate", label: "Moving an existing store" },
-      { value: "unsure", label: "Help me choose" },
-    ],
-  },
-  app: {
-    id: "app", kind: "single", title: "Where does it need to run?", help: "Pick the closest fit.",
-    choices: [
-      { value: "mobile", label: "iPhone and Android" },
-      { value: "web", label: "Web app, in a browser" },
-      { value: "both", label: "Both" },
+      { value: "redesign", label: "Redesign of my current site" },
+      { value: "new", label: "A new website" },
+      { value: "landing", label: "A landing page for ads" },
       { value: "unsure", label: "Not sure yet" },
     ],
   },
-  software: {
-    id: "software", kind: "single", title: "What kind of system?", help: "Pick the closest fit.",
+  reviews: {
+    id: "reviews", kind: "single", title: "What do you need with reviews?", help: "Pick the closest fit.",
     choices: [
-      { value: "crm", label: "CRM" },
-      { value: "portal", label: "Client portal" },
-      { value: "booking", label: "Booking or scheduling system" },
-      { value: "internal", label: "Internal tool or dashboard" },
+      { value: "more", label: "Getting more Google reviews" },
+      { value: "replies", label: "Replying to every review" },
+      { value: "bad", label: "Handling bad or unfair reviews" },
+      { value: "all", label: "All of it" },
+    ],
+  },
+  profile: {
+    id: "profile", kind: "single", title: "What's going on with your Google profile?", help: "Pick the closest fit.",
+    choices: [
+      { value: "setup", label: "Not set up or not verified" },
+      { value: "maps", label: "Set up, but not showing in Maps" },
+      { value: "suspended", label: "Suspended or having problems" },
+      { value: "manage", label: "I want it managed for me" },
+    ],
+  },
+  leads: {
+    id: "leads", kind: "single", title: "Which CRM or job software do you use?", help: "Leads can go straight into it.",
+    choices: [
+      { value: "jobber", label: "Jobber" },
+      { value: "housecall", label: "Housecall Pro" },
+      { value: "servicetitan", label: "ServiceTitan" },
+      { value: "hubspot", label: "HubSpot or GoHighLevel" },
       { value: "other", label: "Something else" },
+      { value: "none", label: "None yet, just email" },
     ],
   },
-  ai: {
-    id: "ai", kind: "single", title: "What should the AI handle?", help: "Pick the closest fit.",
+  ads: {
+    id: "ads", kind: "single", title: "Where do you want to advertise?", help: "Pick the closest fit.",
     choices: [
-      { value: "voice", label: "Answering phone calls (AI voice agent)" },
-      { value: "chat", label: "Website or WhatsApp chat" },
-      { value: "workflow", label: "Automating a workflow" },
-      { value: "crm", label: "CRM setup or migration" },
-      { value: "operations", label: "Operations workspace (ClickUp, monday.com, Airtable)" },
+      { value: "lsa", label: "Google Local Services Ads" },
+      { value: "google", label: "Google search ads" },
+      { value: "meta", label: "Facebook and Instagram" },
       { value: "unsure", label: "Help me choose" },
     ],
   },
-  marketing: {
-    id: "marketing", kind: "single", title: "Where do you want more customers from?", help: "Pick the closest fit.",
+  automation: {
+    id: "automation", kind: "single", title: "What should run on its own?", help: "Pick the closest fit.",
     choices: [
-      { value: "seo", label: "Ranking on Google" },
-      { value: "maps", label: "Google Maps and local search" },
-      { value: "google-ads", label: "Google Ads" },
-      { value: "social-ads", label: "Facebook and Instagram ads" },
-      { value: "unsure", label: "Help me choose" },
+      { value: "missed-calls", label: "Text back missed calls" },
+      { value: "receptionist", label: "Answer calls after hours (AI receptionist)" },
+      { value: "follow-ups", label: "Follow-ups, reminders and review requests" },
+      { value: "other", label: "Something else" },
     ],
   },
 };
@@ -102,8 +98,8 @@ const TAIL: Step[] = [
       { value: "contractors", label: "Contracting or remodeling" },
       { value: "landscaping", label: "Landscaping" },
       { value: "health", label: "Home care or clinic" },
-      { value: "retail", label: "Ecommerce or Shopify" },
-      { value: "professional", label: "Professional services" },
+      { value: "home-other", label: "Other home service" },
+      { value: "professional", label: "Other local service" },
       { value: "other", label: "Something else" },
     ],
   },
@@ -134,11 +130,14 @@ const ALL_SINGLE = [...Object.values(FOLLOW_UPS), ...TAIL.filter((s): s is Singl
 const labelFor = (stepId: string, value?: string) =>
   ALL_SINGLE.find((s) => s.id === stepId)?.choices.find((c) => c.value === value)?.label ?? value ?? "";
 
-// Older links used need=rebuild; it's now a kind of website.
+// Older links (from before the October 2026 repositioning) still land on
+// the closest current answer.
+const LEGACY_NEED: Record<string, string> = { rebuild: "website", marketing: "profile", seo: "profile", software: "automation", ai: "automation" };
 const initialAnswers = (need?: string, industry?: string) => {
   const picks: Record<string, string> = {};
   if (industry) picks.industry = industry;
-  if (need === "rebuild") { picks.website = "rebuild"; need = "website"; }
+  if (need === "rebuild") picks.website = "redesign";
+  if (need && LEGACY_NEED[need]) need = LEGACY_NEED[need];
   const valid = NEED_STEP.choices.some((c) => c.value === need);
   return { need: need && valid ? [need] : [], picks };
 };

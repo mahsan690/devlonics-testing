@@ -20,8 +20,9 @@ faqs:
     a: "Build a careers page with pay ranges, schedules, training and real caregiver stories, make the application quick on a phone, respond within a day, and share openings on social media and local job boards."
 related:
   - home-care-and-clinics
-  - lead-generation-websites
-  - seo-and-marketing
+  - lead-generation
+  - google-business-profile
+
 ---
 
 Home care agency marketing has two audiences: families looking for trustworthy care for someone they love, and caregivers deciding where to work. Both research carefully before they reach out. A website that answers their trust questions clearly, backed by recent reviews and a fast, human response, does more than any slogan.
@@ -67,7 +68,7 @@ Hospital discharge planners, social workers, senior living communities and physi
 
 ## We build home care websites
 
-We've built websites for home care providers including Earthly Angels Home Care, Alon Home Care and HHHC. See how we approach [home care agency and clinic websites](/markets/home-care-and-clinics), or explore our [lead generation websites](/services/lead-generation-websites) and [local SEO](/services/seo-and-marketing). [Get a fixed quote](/contact).
+We've built websites for home care providers including Earthly Angels Home Care, Alon Home Care and HHHC. See how we approach [home care agency and clinic websites](/markets/home-care-and-clinics), or explore our [lead generation websites](/services/lead-generation) and [local SEO](/services/google-business-profile). [Get a fixed quote](/contact).
 
 ## Sources
 

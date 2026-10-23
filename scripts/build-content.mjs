@@ -9,7 +9,7 @@
 //   date:        required, YYYY-MM-DD. Posts dated in the future stay hidden
 //                until a build runs on or after that date.
 //   updated:     optional, YYYY-MM-DD, shown as "Updated"
-//   category:    required, e.g. "Pricing", "Local SEO", "Shopify"
+//   category:    required, e.g. "Pricing", "Local SEO", "Reviews"
 //   keyword:     optional, the main search phrase the post targets
 //   takeaways:   required, 2–5 short bullet points shown at the top
 //   faqs:        optional, list of { q, a } shown at the end and as FAQ schema
@@ -90,7 +90,7 @@ async function main() {
   }
   const slugsIn = async (file) => [...(await readFile(join(root, file), "utf8")).matchAll(/^\s{4}slug: "([a-z0-9-]+)"/gm)].map((m) => m[1]);
   const pages = { services: await slugsIn("lib/services.ts"), markets: await slugsIn("lib/markets.ts") };
-  const aiCases = await slugsIn("lib/ai.ts");
+  const caseSlugs = await slugsIn("lib/case-studies.ts");
 
   for (const file of files) {
     const slug = basename(file, ".md");
@@ -108,14 +108,19 @@ async function main() {
     if (!Array.isArray(fm.takeaways) || fm.takeaways.length < 1) errors.push(`${where}: add at least one "takeaways" bullet`);
     if (fm.faqs && (!Array.isArray(fm.faqs) || fm.faqs.some((f) => !f?.q || !f?.a))) errors.push(`${where}: each faq needs "q" and "a"`);
 
+    // Drafts are parked content (e.g. posts from an earlier positioning), so
+    // their links aren't checked against today's pages.
+    if (fm.draft === true) continue;
+
     for (const [, section, target] of content.matchAll(/\]\(\/(blog|services|markets)\/([a-z0-9-]+)\)/g)) {
       if (section === "blog" && !(target in dates)) errors.push(`${where}: links to /blog/${target}, which doesn't exist`);
       else if (section === "blog" && dates[target] > fm.date) errors.push(`${where}: links to /blog/${target}, which isn't published until ${dates[target]}`);
       else if (section !== "blog" && !pages[section].includes(target)) errors.push(`${where}: links to /${section}/${target}, which doesn't exist`);
     }
-    for (const [, target] of content.matchAll(/\]\(\/ai\/case-studies\/([a-z0-9-]+)\)/g)) {
-      if (!aiCases.includes(target)) errors.push(`${where}: links to /ai/case-studies/${target}, which doesn't exist`);
+    for (const [, target] of content.matchAll(/\]\(\/work\/([a-z0-9-]+)\)/g)) {
+      if (!caseSlugs.includes(target)) errors.push(`${where}: links to /work/${target}, which doesn't exist`);
     }
+    if (/\]\(\/ai[/)]/.test(content)) errors.push(`${where}: links to /ai, which now redirects; link to /services/automation or a /work case study`);
     for (const r of fm.related || []) {
       if (![...pages.services, ...pages.markets].includes(r)) errors.push(`${where}: related "${r}" isn't a service or market slug`);
     }

@@ -21,11 +21,12 @@ faqs:
   - q: "How fast should a home service website load?"
     a: "As fast as possible on a phone over mobile data, ideally showing the main content in under about two and a half seconds. Most visitors arrive from Google on a phone, often in a hurry, and a slow site sends them back to the search results."
 related:
-  - lead-generation-websites
+  - lead-generation
   - hvac
   - plumbing
   - roofing
   - cleaning
+
 ---
 
 A home service website has one job: get the phone to ring. Not win design awards, not explain your company history. Homeowners with a leak, a broken AC or an overgrown yard decide in seconds whether to call you or hit the back button.
@@ -122,4 +123,4 @@ If you answered no to two or more, your website is probably costing you jobs.
 
 ## Want this done for you?
 
-We build [lead generation websites](/services/lead-generation-websites) for home service businesses with every item on this list built in. See what we do for [HVAC companies](/markets/hvac), [plumbers](/markets/plumbing), [roofers](/markets/roofing) and [cleaning companies](/markets/cleaning), or [get a fixed quote](/contact).
+We build [lead generation websites](/services/lead-generation) for home service businesses with every item on this list built in. See what we do for [HVAC companies](/markets/hvac), [plumbers](/markets/plumbing), [roofers](/markets/roofing) and [cleaning companies](/markets/cleaning), or [get a fixed quote](/contact).

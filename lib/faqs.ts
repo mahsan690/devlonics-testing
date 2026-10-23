@@ -6,44 +6,40 @@ import { site } from "./site";
 
 export const homeFaqs: Faq[] = [
   {
+    q: "What does Devlonic do for local service businesses?",
+    a: "We help local service businesses get more calls and booked jobs: website design and redesign, reputation management, Google Business Profile and local SEO, lead flows that send every enquiry to your email and CRM, local ads, and small automations like missed-call text-back. Each project has a fixed price agreed before work starts.",
+  },
+  {
+    q: "Which businesses do you work with?",
+    a: "Only local service businesses in the US: HVAC, plumbing, roofing, cleaning, contractors and remodelers, landscaping, home care agencies, clinics and similar businesses that serve customers in an area. Each main industry has its own page under Markets we serve.",
+  },
+  {
     q: "How much does a website cost for a small business?",
-    a: `Industry pricing guides published in 2026 put freelancer-built small business sites at roughly $500 to $5,000 and agency builds at about $5,000 to $15,000, with online stores costing more. We quote every project as a fixed price, in writing, within ${site.quoteTurnaround} of your request.`,
+    a: `Industry pricing guides published in 2026 put freelancer-built small business sites at roughly $500 to $5,000 and agency builds at about $5,000 to $15,000. We quote every project as a fixed price, in writing, within ${site.quoteTurnaround} of your request.`,
   },
   {
-    q: "How long does it take to build a website?",
-    a: "A landing page usually takes one to two weeks. A full business website typically takes three to six weeks from approved design to launch, and a Shopify store four to eight weeks. Apps and custom software are delivered in phases. Your quote includes a specific timeline.",
+    q: "How do I get more Google reviews?",
+    a: "Ask every customer right after the job, with a direct link that opens the review box, and reply to every review. We automate the requests by text and email after each job, and stay within Google's policies and the FTC's rule on reviews: no incentives, no fake reviews and no asking only happy customers.",
   },
   {
-    q: "Which industries do you build websites for?",
-    a: "Mostly US service businesses, such as HVAC, plumbing, roofing, cleaning, contractors, landscaping, home care and clinics, plus ecommerce and Shopify brands. Each has its own page under Markets we serve. If your industry isn't listed, the same approach still applies.",
+    q: "Can my website send leads straight to my CRM?",
+    a: "Usually, yes. We connect quote forms to CRMs and job software through their API or Zapier, so each lead becomes a customer record with its details, preferred time and ad source, and your team gets an instant email or text. Unfinished forms can be saved as leads too.",
   },
   {
-    q: "Do you build on WordPress or Shopify?",
-    a: "Both. Service businesses usually get WordPress with Elementor, so you can edit pages yourself; online stores usually get Shopify. We also build in Next.js and Laravel when a project needs custom features. We recommend a platform based on what you sell and who will maintain the site.",
+    q: "Do you run ads for local businesses?",
+    a: "Yes. We manage Google Local Services Ads, Google search ads and Facebook and Instagram ads targeted to your service area, with call and form tracking so you see the cost per lead. Ad spend is paid to Google and Meta from your own accounts.",
   },
   {
-    q: "Will I be able to update the website myself?",
-    a: "Yes. We build on editors that are easy to learn and record a walkthrough of the edits you'll make most often. If you'd rather not touch it, a care plan covers updates for you.",
+    q: "How long does a website redesign take?",
+    a: "Most redesigns launch three to six weeks after you approve the design. Lead flows and quote funnels usually take two to four weeks, and review, profile and ad management start within the first one to two weeks.",
   },
   {
-    q: "Who owns the website, domain and content?",
-    a: "You do. Your domain, hosting account and content stay in your name, and you get full admin access at launch.",
+    q: "Who owns the website, accounts and leads?",
+    a: "You do. Your domain, website, Google Business Profile, ad accounts and leads stay in your name, and you get full access from day one.",
   },
   {
-    q: "Is SEO included with a new website?",
-    a: "Technical SEO is included on every site: fast loading, unique page titles and descriptions, schema markup, an XML sitemap and Google Search Console setup. Ongoing local SEO, content and AI search optimization are available as a monthly service.",
-  },
-  {
-    q: "What makes a good website for a service business?",
-    a: "A good service business website makes the next step obvious on every page: your phone number one tap away, a short quote form, the services and towns you cover, real reviews and photos, and clear answers to common questions. It loads fast on a phone and tracks every call and form, so you can see what it earns.",
-  },
-  {
-    q: "Do you build AI automations, chatbots and voice agents?",
-    a: "Yes. We build AI voice receptionists that answer and book calls, WhatsApp and website chatbots, n8n and Make.com workflows, and HubSpot, ClickUp and monday.com systems. Each one gets a free audit and a fixed price first. See the AI automation page for 17 case studies.",
-  },
-  {
-    q: "Are you a local web design agency?",
-    a: `We're a remote web design studio led by ${site.founder.name}, serving businesses across the US. Remote work keeps prices lower, and you still get one point of contact, calls scheduled in your time zone and written progress updates.`,
+    q: "Are you a local agency?",
+    a: `We're a remote team led by ${site.founder.name}, serving local service businesses across the US. Remote work keeps prices lower, and you still get one point of contact, calls scheduled in your time zone and written progress updates.`,
   },
 ];
 
@@ -53,8 +49,8 @@ export const pricingFaqs: Faq[] = [
     a: "Because two 'five-page websites' can be very different jobs. A fixed quote based on what you need is fairer than a package you have to squeeze into, and it only takes a couple of minutes to request one.",
   },
   {
-    q: "Do you offer small business website design packages?",
-    a: "We quote each project individually rather than selling fixed packages, but most fall into four common shapes: a landing page, a service business website, an online store, or an app or custom software build. Each quote lists exactly what's included, the price and the timeline.",
+    q: "Do you offer packages for small businesses?",
+    a: "We quote each project individually rather than selling fixed packages, but most fall into four common shapes: a website redesign, a lead flow or quote funnel, monthly reviews and Google profile management, and monthly local ads management. Each quote lists exactly what's included, the price and the timeline.",
   },
   {
     q: "Is the budget I enter in the quote form binding?",
@@ -62,7 +58,7 @@ export const pricingFaqs: Faq[] = [
   },
   {
     q: "What are the ongoing costs after launch?",
-    a: "Expect a domain renewal (typically $10 to $20 a year for a standard domain), hosting (from about $5 a month for shared hosting to $30 or more for managed hosting), and a monthly subscription if you use Shopify. Care plans for updates, backups and edits are optional.",
+    a: "For a website, expect a domain renewal (typically $10 to $20 a year for a standard domain) and hosting (from about $5 a month for shared hosting to $30 or more for managed hosting). Ad spend, text messages and automation tools are billed by those providers to your own accounts. Care plans for updates, backups and edits are optional.",
   },
   {
     q: "Do you fix problems after launch?",

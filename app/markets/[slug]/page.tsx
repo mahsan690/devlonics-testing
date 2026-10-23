@@ -45,7 +45,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
     { name: m.name, path },
   ];
   const work = projectsFor(m.workTags, 3);
-  const quoteHref = `/contact?industry=${m.wizard}${m.slug === "ecommerce" ? "&need=store" : ""}`;
+  const quoteHref = `/contact?industry=${m.wizard}`;
   const relatedServices = m.relatedServices.map(getService).filter((x): x is Service => Boolean(x));
   const growth = marketGrowth[m.slug];
   const faqs = [...m.faqs, ...(growth?.faqs ?? [])];
@@ -62,7 +62,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
             <h1 className="t-h1 mt-6 max-w-[20ch]">{m.heroTitle}</h1>
             <p className="t-lede mt-6 max-w-2xl text-graphite">{m.heroLede}</p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link href={quoteHref} data-magnetic className="btn btn-signal">Get a quote for your {m.slug === "ecommerce" ? "store" : "business"}</Link>
+              <Link href={quoteHref} data-magnetic className="btn btn-signal">Get a quote for your business</Link>
               <Link href="/work" className="btn btn-ghost">See our work</Link>
             </div>
           </div>
@@ -80,7 +80,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
         <div className="wrap">
           <div className="flex items-start gap-5">
             <MarketIcon icon={m.icon} className="mt-1 hidden h-12 w-12 shrink-0 text-signal sm:block" />
-            <h2 className="t-h2 max-w-3xl">{m.slug === "ecommerce" ? "Why Shopify stores lose sales" : `Why ${lower(m.name)} lose calls online`}</h2>
+            <h2 className="t-h2 max-w-3xl">{`Why ${lower(m.name)} lose calls online`}</h2>
           </div>
           <div className="mt-12 grid gap-x-10 gap-y-12 md:grid-cols-3">
             {m.problems.map((p) => (
@@ -125,7 +125,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
               ))}
             </ol>
             <p className="mt-10 text-graphite">
-              We handle this through our <Link href="/services/seo-and-marketing" className="link text-ink">SEO and marketing service</Link>, alongside the website.
+              We handle this through our <Link href="/services/google-business-profile" className="link text-ink">Google Business Profile</Link>, <Link href="/services/reputation-management" className="link text-ink">reputation</Link> and <Link href="/services/local-ads" className="link text-ink">local ads</Link> services, alongside the website.
             </p>
           </div>
         </section>
@@ -134,13 +134,10 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
       {work.length > 0 && (
         <section className="bg-fog py-20 md:py-28">
           <div className="wrap">
-            <h2 className="t-h2">{m.slug === "ecommerce" ? "Stores we've worked on" : "Work for businesses like yours"}</h2>
+            <h2 className="t-h2">Work for businesses like yours</h2>
             <div className="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {work.map((p) => <WorkTile key={p.file} project={p} />)}
             </div>
-            {m.slug === "ecommerce" && (
-              <Link href="/work/gladiolaz" className="link mt-10 inline-block font-semibold">Read the Gladiolaz case study</Link>
-            )}
           </div>
         </section>
       )}
@@ -190,7 +187,7 @@ export default async function MarketPage(props: PageProps<"/markets/[slug]">) {
         </div>
       </section>
 
-      <CtaBand title={`Get a fixed quote for your ${m.slug === "ecommerce" ? "store" : "website"}.`} href={quoteHref} />
+      <CtaBand title="Get a fixed quote for your business." href={quoteHref} />
     </>
   );
 }

@@ -25,7 +25,7 @@ export async function GET() {
     <title>${esc(site.name)} blog</title>
     <link>${absoluteUrl("/blog")}</link>
     <atom:link href="${absoluteUrl("/blog/rss.xml")}" rel="self" type="application/rss+xml" />
-    <description>Guides on web design, Shopify, local SEO and AI search for service businesses and ecommerce brands.</description>
+    <description>Guides on reviews, Google Maps, websites, lead flows and local ads for local service businesses.</description>
     <language>en-us</language>
     <lastBuildDate>${lastBuild}</lastBuildDate>
 ${items}
