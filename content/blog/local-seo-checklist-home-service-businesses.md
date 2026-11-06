@@ -1,7 +1,8 @@
 ---
-title: "Local SEO for Home Service Businesses: A 2026 Checklist"
-description: "A step-by-step local SEO checklist for HVAC, plumbing, roofing and cleaning companies: Google Business Profile, reviews, service-area pages and tracking."
+title: "SEO for Home Services: A 2026 Local SEO Checklist"
+description: "A step-by-step SEO checklist for home service companies: Google Business Profile, reviews, service and area pages, local links, AI search and tracking."
 date: 2026-10-11
+updated: 2026-11-07
 category: Local SEO
 cover: map
 coverTone: light
@@ -28,7 +29,7 @@ related:
 
 ---
 
-When someone searches for "emergency plumber" or "AC repair near me," Google shows a map with three businesses before any regular results. That map is where most home service calls come from, and local SEO is the work of getting into it.
+When someone searches for "emergency plumber" or "AC repair near me," Google shows a map with three businesses before any regular results. That map is where most home service calls come from, and SEO for home services is mostly the work of getting into it: local SEO.
 
 The good news: local SEO rewards effort more than budget. Google states plainly that there's [no way to request or pay for a better local ranking](https://support.google.com/business/answer/7091). This checklist walks through what actually moves your position, in the order we'd tackle it.
 

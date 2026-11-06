@@ -32,7 +32,11 @@ const contentDir = join(root, "content", "blog");
 const outDir = join(root, "lib", "generated");
 
 const slugify = (s) =>
-  s.toLowerCase().replace(/<[^>]+>/g, "").replace(/&[a-z]+;/g, "").replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+  s.toLowerCase().replace(/<[^>]+>/g, "").replace(/&#?[a-z0-9]+;/g, "").replace(/[^a-z0-9\s-]/g, "").trim().replace(/\s+/g, "-").replace(/-+/g, "-");
+
+// TOC entries are rendered as plain text, so turn Markdown's HTML entities back into characters.
+const decode = (s) =>
+  s.replace(/&#39;/g, "'").replace(/&quot;/g, '"').replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 
 const isDate = (v) => typeof v === "string" && /^\d{4}-\d{2}-\d{2}$/.test(v);
 const toDateString = (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v);
@@ -49,7 +53,7 @@ function render(markdown) {
         const n = used.get(id) ?? 0;
         used.set(id, n + 1);
         if (n) id = `${id}-${n + 1}`;
-        if (depth === 2) toc.push({ id, text: html.replace(/<[^>]+>/g, "") });
+        if (depth === 2) toc.push({ id, text: decode(html.replace(/<[^>]+>/g, "")) });
         return `<h${depth} id="${id}">${html}</h${depth}>\n`;
       },
       link({ href, title, tokens }) {
