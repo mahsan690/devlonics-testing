@@ -9,7 +9,7 @@ keyword: roofing seo
 takeaways:
   - "Roofing SEO wins on trust: a verified local profile, recent reviews with photos and clear license and insurance details."
   - "Build pages for replacement, repair, storm and insurance work, and for each main town, before storm season, not after."
-  - "Insurers warn homeowners about door-to-door storm chasers, so proof that you're local and established is a ranking and a sales advantage."
+  - "Insurers tell homeowners to beware of storm scams and check a roofer's license and reputation, so proof that you're local and established is a ranking and a sales advantage."
   - "Track calls and inspection requests by page, and expect leads to spike after storms and settle in between."
 faqs:
   - q: "What Google Business Profile category should a roofer use?"
